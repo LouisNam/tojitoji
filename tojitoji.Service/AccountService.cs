@@ -52,7 +52,7 @@ namespace tojitoji.Service
         public IEnumerable<Account> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _accountRepository.GetMulti(x => x.Account_Name.Contains(keyword));
+                return _accountRepository.GetMulti(x => x.Account_Name.Contains(keyword) || x.ID.Contains(keyword));
             else
                 return _accountRepository.GetAll();
         }
