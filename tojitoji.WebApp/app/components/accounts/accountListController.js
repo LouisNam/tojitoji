@@ -2,16 +2,43 @@
 (function (app) {
     app.controller('accountListController', accountListController);
 
-    accountListController.$inject = ['$scope', 'apiService'];
+    accountListController.$inject = ['$scope', 'apiService', 'ModalService'];
 
-    function accountListController($scope, apiService) {
+    function accountListController($scope, apiService, ModalService) {
         $scope.accounts = [];
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.getAccounts = getAccounts;
         $scope.keyword = '';
-
         $scope.search = search;
+
+        $scope.yesNoResult = null;
+        $scope.complexResult = null;
+        $scope.customResult = null;
+
+        $scope.showDetail = showDetail;
+
+        function showDetail(id) {
+            var config = {
+                params: {
+                    id: id
+                }
+            } 
+            ModalService.showModal({
+                templateUrl: "/app/components/accounts/accountDetailView.html",
+                controller: "accountDetailController",
+                preClose: (modal) => { modal.element.modal('hide'); },
+                inputs: {
+                    id: config.id
+            }
+            }).then(function (modal) {
+                modal.element.modal();
+                modal.close;
+            }).catch(function (error) {
+                // error contains a detailed error message.
+                console.log(error);
+            });
+        }
 
         function search() {
             getAccounts();
@@ -26,6 +53,8 @@
                     pageSize: 20
                 }
             }
+
+            $scope.loading = true;
             apiService.get('/api/account/getall', config, function (result) {
                 if (result.data.TotalCount == 0) {
                 }
@@ -33,8 +62,10 @@
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
+                $scope.loading = false;
             }, function () {
-                console.log('Load product failed.');
+                $scope.loading = false;
+                console.log('Load account failed.');
             });
         }
 
