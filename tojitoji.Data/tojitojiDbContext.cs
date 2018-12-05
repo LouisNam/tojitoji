@@ -13,6 +13,7 @@ namespace tojitoji.Data
 
         public DbSet<Error> Errors { set; get; }
         public DbSet<Account> Accounts { set; get; }
+        public DbSet<CompanyInformation> CompanyInformations { set; get; }
 
         //public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
         //public DbSet<ApplicationRole> ApplicationRoles { set; get; }

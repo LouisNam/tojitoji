@@ -190,10 +190,13 @@
     <Compile Include="Infrastructure\Extensions\EntityExtensions.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\CompanyInformationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\components\accounts\accountDetailController.js" />
+    <Content Include="app\components\accounts\accountDetailView.html" />
     <Content Include="app\components\accounts\accounts.module.js" />
     <Content Include="app\components\accounts\accountListController.js" />
     <Content Include="app\components\accounts\accountListView.html" />
@@ -202,7 +205,8 @@
     <Content Include="app\shared\directives\asDateDirective.js" />
     <Content Include="app\shared\directives\pagerDirective.html" />
     <Content Include="app\shared\directives\pagerDirective.js" />
-    <Content Include="app\shared\filters\statusFilter.js" />
+    <Content Include="app\shared\filters\accountStatus.js" />
+    <Content Include="app\shared\filters\accountType.js" />
     <Content Include="app\shared\modules\tojitojiShop.common.js" />
     <Content Include="app\shared\services\apiService.js" />
     <Content Include="app\shared\views\baseView.html" />
@@ -216,6 +220,7 @@
     <Content Include="Assets\admin\css\alt\AdminLTE-select2.min.css" />
     <Content Include="Assets\admin\css\alt\AdminLTE-without-plugins.css" />
     <Content Include="Assets\admin\css\alt\AdminLTE-without-plugins.min.css" />
+    <Content Include="Assets\admin\css\Loader.css" />
     <Content Include="Assets\admin\css\skins\skin-black-light.css" />
     <Content Include="Assets\admin\css\skins\skin-black-light.min.css" />
     <Content Include="Assets\admin\css\skins\skin-black.css" />
@@ -273,6 +278,11 @@
     <Content Include="Assets\admin\js\demo.js" />
     <Content Include="Assets\admin\js\pages\dashboard.js" />
     <Content Include="Assets\admin\js\pages\dashboard2.js" />
+    <Content Include="Assets\admin\libs\angular-modal-service\dst\angular-modal-service.js" />
+    <Content Include="Assets\admin\libs\angular-modal-service\dst\angular-modal-service.min.js" />
+    <Content Include="Assets\admin\libs\angular-modal-service\index.js" />
+    <Content Include="Assets\admin\libs\angular-modal-service\karma.conf.js" />
+    <Content Include="Assets\admin\libs\angular-modal-service\webpack.config.js" />
     <Content Include="Assets\admin\libs\angular-ui-router\karma.conf.js" />
     <Content Include="Assets\admin\libs\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="Assets\admin\libs\angular-ui-router\release\angular-ui-router.min.js" />
@@ -954,6 +964,14 @@
     <Content Include="Assets\admin\libs\chart.js\test\fixtures\plugin.filler\fill-line-dataset.json" />
     <Content Include="Assets\admin\libs\chart.js\test\fixtures\plugin.filler\fill-radar-boundary-origin-spline.json" />
     <Content Include="Assets\admin\libs\chart.js\test\fixtures\plugin.filler\fill-radar-boundary-origin.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\admin\libs\angular-modal-service\.bower.json" />
+    <Content Include="Assets\admin\libs\angular-modal-service\bower.json" />
+    <Content Include="Assets\admin\libs\angular-modal-service\dst\angular-modal-service.js.map" />
+    <Content Include="Assets\admin\libs\angular-modal-service\dst\angular-modal-service.min.js.map" />
+    <Content Include="Assets\admin\libs\angular-modal-service\LICENSE" />
+    <Content Include="Assets\admin\libs\angular-modal-service\README.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,7 +8,11 @@ namespace tojitoji.WebApp.Mappings
     {
         public static void Configure()
         {
-            Mapper.CreateMap<Account, AccountViewModel>();
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Account, AccountViewModel>();
+                cfg.CreateMap<CompanyInformation, CompanyInformationViewModel>();
+            });
         }
     }
 }

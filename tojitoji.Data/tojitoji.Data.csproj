@@ -68,9 +68,14 @@
     <Compile Include="Migrations\201812031404207_ClearDBAndAddAccountTable.Designer.cs">
       <DependentUpon>201812031404207_ClearDBAndAddAccountTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812052004579_AddCompanyInfoTable.cs" />
+    <Compile Include="Migrations\201812052004579_AddCompanyInfoTable.Designer.cs">
+      <DependentUpon>201812052004579_AddCompanyInfoTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\CompanyInformationRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="tojitojiDbContext.cs" />
   </ItemGroup>
@@ -97,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812031404207_ClearDBAndAddAccountTable.resx">
       <DependentUpon>201812031404207_ClearDBAndAddAccountTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812052004579_AddCompanyInfoTable.resx">
+      <DependentUpon>201812052004579_AddCompanyInfoTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

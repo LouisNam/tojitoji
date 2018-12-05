@@ -11,8 +11,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/Assets/admin/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="/Assets/admin/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/Assets/admin/css/AdminLTE.min.css" />
+    <link rel="stylesheet" href="/Assets/admin/css/skins/_all-skins.min.css" />
+    <link rel="stylesheet" href="~/Assets/admin/css/Loader.css" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini" ng-app="tojitojishop">
     <div class="wrapper">
@@ -122,9 +123,13 @@
     <!-- Begin embed angularJS -->
     <script src="~/Assets/admin/libs/angular/angular.js"></script>
     <script src="~/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/Assets/admin/libs/angular-modal-service/dst/angular-modal-service.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/shared/modules/tojitojiShop.common.js"></script>
     <script src="~/app/shared/services/apiService.js"></script>
+    <script src="~/app/shared/directives/pagerDirective.js"></script>
+    <script src="~/app/shared/filters/accountType.js"></script>
+    <script src="~/app/shared/filters/accountStatus.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->    
     <script src="~/app/components/accounts/accounts.module.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
@@ -132,5 +137,6 @@
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/components/home/homeController.js"></script>
     <script src="~/app/components/accounts/accountListController.js"></script>
+    <script src="~/app/components/accounts/accountDetailController.js"></script>
 </body>
 </html>

@@ -52,5 +52,18 @@ namespace tojitoji.WebApp.Api
                 return response;
             });
         }
+
+        [Route("getbyid/{id}")]
+        [HttpGet]
+        public HttpResponseMessage GetById(HttpRequestMessage request, string id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _accountService.GetById(id);
+                var responseData = Mapper.Map<Account, AccountViewModel>(model);
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
     }
 }

@@ -1,0 +1,64 @@
+﻿<div class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Tài khoản kế toán: {{account.Account_Name}} </h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th style="width: 20%">Mã</th>
+                            <td style="width: 80%">{{account.ID}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Loại</th>
+                            <td style="width: 80%" ng-class="{'badge bg-red':account.AccountType==false,'badge bg-green':account.AccountType==true}">{{account.AccountType | accountType}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tài khoản 1</th>
+                            <td style="width: 80%">{{account.Account_1}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tên tài khoản 1</th>
+                            <td style="width: 80%">{{account.Account_1_Name}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tài khoản 2</th>
+                            <td style="width: 80%">{{account.Account_2}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tên tài khoản 2</th>
+                            <td style="width: 80%">{{account.Account_2_Name}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tài khoản 3</th>
+                            <td style="width: 80%">{{account.Account_3}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tên tài khoản 3</th>
+                            <td style="width: 80%">{{account.Account_3_Name}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Định khoản</th>
+                            <td style="width: 80%" ng-class="{'badge bg-red':account.Status==false,'badge bg-green':account.Status==true}">{{account.Status | accountStatus}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tài khoản nhận kết chuyển</th>
+                            <td style="width: 80%">{{account.TKNhanKC}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Mã kết chuyển</th>
+                            <td style="width: 80%">{{account.MaKC}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">Đóng</button>-->
+                <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
