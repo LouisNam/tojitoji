@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using tojitoji.Data.Infrastructure;
 using tojitoji.Data.Repositories;
 using tojitoji.Model.Models;
@@ -18,7 +17,7 @@ namespace tojitoji.Service
 
         IEnumerable<Account> GetAll(string keyword);
 
-        Account GetById(int id);
+        Account GetById(string id);
 
         void SaveChanges();
     }
@@ -57,9 +56,9 @@ namespace tojitoji.Service
                 return _accountRepository.GetAll();
         }
 
-        public Account GetById(int id)
+        public Account GetById(string id)
         {
-            return _accountRepository.GetSingleById(id);
+            return _accountRepository.GetSingleByCondition(x => x.ID == id);
         }
 
         public void SaveChanges()

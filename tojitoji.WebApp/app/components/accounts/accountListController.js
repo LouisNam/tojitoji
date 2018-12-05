@@ -19,21 +19,18 @@
         $scope.showDetail = showDetail;
 
         function showDetail(id) {
-            var config = {
-                params: {
-                    id: id
-                }
-            } 
+            
             ModalService.showModal({
                 templateUrl: "/app/components/accounts/accountDetailView.html",
                 controller: "accountDetailController",
                 preClose: (modal) => { modal.element.modal('hide'); },
                 inputs: {
-                    id: config.id
-            }
+                    id: id
+                }
             }).then(function (modal) {
                 modal.element.modal();
                 modal.close;
+                console.log(modal);
             }).catch(function (error) {
                 // error contains a detailed error message.
                 console.log(error);

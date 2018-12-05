@@ -328,3 +328,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+tojitoji\.Data/App\.config
+
+tojitoji\.WebApp/Web\.config
