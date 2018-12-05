@@ -30,7 +30,6 @@
             }).then(function (modal) {
                 modal.element.modal();
                 modal.close;
-                console.log(modal);
             }).catch(function (error) {
                 // error contains a detailed error message.
                 console.log(error);
