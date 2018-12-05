@@ -53,9 +53,9 @@ namespace tojitoji.WebApp.Api
             });
         }
 
-        [Route("getbyid/{id:int}")]
+        [Route("getbyid/{id}")]
         [HttpGet]
-        public HttpResponseMessage GetById(HttpRequestMessage request, int id)
+        public HttpResponseMessage GetById(HttpRequestMessage request, string id)
         {
             return CreateHttpResponse(request, () =>
             {

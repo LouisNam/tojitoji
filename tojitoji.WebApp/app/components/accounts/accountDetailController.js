@@ -2,15 +2,17 @@
 (function (app) {
     app.controller('accountDetailController', accountDetailController);
 
-    accountDetailController.$inject = ['$scope', 'close', 'id'];
+    accountDetailController.$inject = ['$scope', 'apiService', 'close', 'id'];
 
-    function accountDetailController($scope, close, id) {
+    function accountDetailController($scope, apiService, close, id) {
+        $scope.account = [];
+
         $scope.close = function (result) {
             close(result, 500); // close, but give 500ms for bootstrap to animate
         };
 
         function getAccountDetail(id) {
-            apiService.get('api/account/getbyid/' + id, null, function (result) {
+            apiService.get('/api/account/getbyid/' + id, null, function (result) {
                 $scope.account = result.data;
                 console.log(result.data);
             }, function (error) {
