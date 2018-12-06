@@ -14,7 +14,6 @@
         function getAccountDetail(id) {
             apiService.get('/api/account/getbyid/' + id, null, function (result) {
                 $scope.account = result.data;
-                console.log(result.data);
             }, function (error) {
                 //notificationService.displayError(error.data);
                 console.log(error);

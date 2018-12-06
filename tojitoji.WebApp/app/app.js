@@ -1,6 +1,10 @@
 ﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
 (function () {
-    angular.module('tojitojishop', ['tojitojishop.accounts','tojitojishop.common']).config(config);
+    angular.module('tojitojishop', [
+        'tojitojishop.accounts',
+        'tojitojishop.companyInformations',
+        'tojitojishop.common'
+    ]).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
