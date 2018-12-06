@@ -1,0 +1,193 @@
+﻿<section class="content-header">
+    <h1>
+        Thêm mới thông tin công ty
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="companyInformations">Thông tin công ty</a></li>
+        <li class="active">Thêm mới</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmAddCompanyInformation" role="form" ng-submit="UpdateCompanyInformation()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tên công ty</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="name" ng-model="companyInformation.CompanyName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tên viết tắt</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.ShortName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Hình thức sở hữu vốn</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.SoHuuVonType">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Địa chỉ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Address">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mã số thuế</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.MaSoThue">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ngày cấp MST</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.MSTDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Số điện thoại</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">FAX</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Fax">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tài khoản ngân hàng</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.BankAccount">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Giám đốc</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.CEO">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Kế toán trưởng</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.ChiefAccountant">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Người lập biểu</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.NguoiLapBieu">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Thủ quỹ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Cashier">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chế độ kế toán áp dụng</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.CheDoKeToanApDung">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Hình thức kế toán áp dụng</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.HinhThucKeToan">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Phương pháp tính thuế GTGT</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.PPThueGTGT">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Phương pháp hấu khao</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.PPKhauHao">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Phương pháp tính giá</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.PPTinhGia">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Phương pháp hạch toán tồn kho</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.PPHachToanTonKho">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Phương pháp tính giá xuất kho</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.PPTinhGiaTonKho">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Vốn điều lệ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.VonDieuLe">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Thuế suất thuế TNDN</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.ThueSuat">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Năm tài chính</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.FinancialYear">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Website</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Website">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fanpage</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Fanpage">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Youtube</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Youtube">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Group</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="companyInformation.Group">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button ui-sref="companyInformations" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

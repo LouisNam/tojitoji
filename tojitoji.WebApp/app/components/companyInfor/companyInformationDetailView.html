@@ -1,0 +1,128 @@
+﻿<div class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Thông tin công ty: {{companyInfors.CompanyName}} </h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th style="width: 30%">Tên viết tắt</th>
+                            <td style="width: 70%">{{companyInfors.ShortName}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Hình thức sở hữu vốn</th>
+                            <td style="width: 70%">{{companyInfors.SoHuuVonType}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Địa chỉ</th>
+                            <td style="width: 70%">{{companyInfors.Address}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Mã số thuế</th>
+                            <td style="width: 70%">{{companyInfors.MaSoThue}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Ngày cấp MST</th>
+                            <td style="width: 70%">{{companyInfors.MSTDate}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Số điện thoại</th>
+                            <td style="width: 70%">{{companyInfors.Phone}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">FAX</th>
+                            <td style="width: 70%">{{companyInfors.Fax}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Email</th>
+                            <td style="width: 70%">{{companyInfors.Email}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Tài khoản ngân hàng</th>
+                            <td style="width: 70%">{{companyInfors.BankAccount}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Giám đốc</th>
+                            <td style="width: 70%">{{companyInfors.CEO}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Kế toán trưởng</th>
+                            <td style="width: 70%">{{companyInfors.ChiefAccountant}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Người lập biểu</th>
+                            <td style="width: 70%">{{companyInfors.NguoiLapBieu}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Thủ quỹ</th>
+                            <td style="width: 70%">{{companyInfors.Cashier}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Chế độ kế toán áp dụng</th>
+                            <td style="width: 70%">{{companyInfors.CheDoKeToanApDung}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Hình thức kế toán áp dụng</th>
+                            <td style="width: 70%">{{companyInfors.HinhThucKeToan}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Phương pháp tính thuế GTGT</th>
+                            <td style="width: 70%">{{companyInfors.PPThueGTGT}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Phương pháp hấu khao</th>
+                            <td style="width: 70%">{{companyInfors.PPKhauHao}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Phương pháp tính giá</th>
+                            <td style="width: 70%">{{companyInfors.PPTinhGia}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Phương pháp hạch toán tồn kho</th>
+                            <td style="width: 70%">{{companyInfors.PPHachToanTonKho}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Phương pháp tính giá xuất kho</th>
+                            <td style="width: 70%">{{companyInfors.PPTinhGiaTonKho}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Vốn điều lệ</th>
+                            <td style="width: 70%">{{companyInfors.VonDieuLe}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Thuế suất thuế TNDN</th>
+                            <td style="width: 70%">{{companyInfors.ThueSuat}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Năm tài chính</th>
+                            <td style="width: 70%">{{companyInfors.FinancialYear}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Website</th>
+                            <td style="width: 70%">{{companyInfors.Website}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Fanpage</th>
+                            <td style="width: 70%">{{companyInfors.Fanpage}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Youtube</th>
+                            <td style="width: 70%">{{companyInfors.Youtube}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 30%">Group</th>
+                            <td style="width: 70%">{{companyInfors.Group}}</td>
+                        </tr>                        
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">Đóng</button>-->
+                <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
