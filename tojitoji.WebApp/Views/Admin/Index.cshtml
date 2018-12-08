@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/Assets/admin/css/skins/_all-skins.min.css" />
     <link rel="stylesheet" href="~/Assets/admin/css/Loader.css" />
     <link href="~/Assets/admin/libs/toastr/toastr.css" rel="stylesheet" />
+    <link href="~/Assets/admin/libs/angular-ui-select/dist/select.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini" ng-app="tojitojishop">
     <div class="wrapper">
@@ -89,11 +90,19 @@
                     <li class="header">MENU</li>
                     <li class="treeview">
                         <a href="#">
+                            <i class="fas fa-user"></i> <span>Đối tượng</span><i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="humans"><i class="far fa-circle"></i> Danh sách </a></li>
+                            <li><a ui-sref="humanTypes"><i class="far fa-circle"></i> Loại đối tượng </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
                             <i class="fab fa-pied-piper"></i> <span>Tài khoản kế toán</span><i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
                             <li><a ui-sref="accounts"><i class="far fa-circle"></i> Danh sách </a></li>
-                            <li><a href="#"><i class="far fa-circle"></i> Edit </a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -130,10 +139,15 @@
     <!-- Begin embed angularJS -->
     <script src="~/Assets/admin/libs/angular/angular.js"></script>
     <script src="~/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/Assets/admin/libs/angular-ui-select/dist/select.min.js"></script>
+    <script src="~/Assets/admin/libs/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="~/Assets/admin/libs/angular-modal-service/dst/angular-modal-service.js"></script>
+    <script src="~/Assets/admin/libs/bootbox/bootbox.js"></script>
+    <script src="~/Assets/admin/libs/ngBootbox/ngBootbox.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/shared/modules/tojitojiShop.common.js"></script>
     <script src="~/app/shared/services/apiService.js"></script>
+    <script src="~/app/shared/services/commonService.js"></script>
     <script src="~/app/shared/directives/pagerDirective.js"></script>
     <script src="~/app/shared/services/notificationService.js"></script>
     <script src="~/app/shared/filters/accountType.js"></script>
@@ -141,6 +155,8 @@
     <!-- xxxxxxxxxxxxxxxx -->    
     <script src="~/app/components/accounts/accounts.module.js"></script>
     <script src="~/app/components/companyInfor/companyInformation.module.js"></script>
+    <script src="~/app/components/humans/humans.module.js"></script>
+    <script src="~/app/components/humanTypes/humanTypes.module.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/app.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
@@ -151,5 +167,12 @@
     <script src="~/app/components/companyInfor/companyInformationAddController.js"></script>
     <script src="~/app/components/companyInfor/companyInformationEditController.js"></script>
     <script src="~/app/components/companyInfor/companyInformationDetailController.js"></script>
+    <script src="~/app/components/humans/humanListController.js"></script>
+    <script src="~/app/components/humans/humanDetailController.js"></script>
+    <script src="~/app/components/humans/humanEditController.js"></script>
+    <script src="~/app/components/humans/humanAddController.js"></script>
+    <script src="~/app/components/humanTypes/humanTypeListController.js"></script>
+    <script src="~/app/components/humanTypes/humanTypeAddController.js"></script>
+    <script src="~/app/components/humanTypes/humanTypeEditController.js"></script>
 </body>
 </html>

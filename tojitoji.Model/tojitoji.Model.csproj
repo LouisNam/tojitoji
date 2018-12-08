@@ -54,6 +54,8 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\CompanyInformation.cs" />
     <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\Human.cs" />
+    <Compile Include="Models\HumanType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

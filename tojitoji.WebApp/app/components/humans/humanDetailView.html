@@ -1,0 +1,88 @@
+﻿<div class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Thông tin đối tượng: {{humans.LastName}} {{humans.FirstName}} </h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th style="width: 20%">Loại đối tượng</th>
+                            <td style="width: 80%">{{humans.TypeCode}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Công ty</th>
+                            <td style="width: 80%">{{humans.Company}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Giới tính</th>
+                            <td style="width: 80%">{{humans.Gender}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Số điện thoại</th>
+                            <td style="width: 80%">{{humans.Phone}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Email</th>
+                            <td style="width: 80%">{{humans.Email}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Vị trí</th>
+                            <td style="width: 80%">{{humans.JobTitle}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Địa chỉ</th>
+                            <td style="width: 80%">{{humans.Address}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tỉnh</th>
+                            <td style="width: 80%">{{humans.Province}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thành phố</th>
+                            <td style="width: 80%">{{humans.City}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Quận/Huyện</th>
+                            <td style="width: 80%">{{humans.District}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Phường/Xã</th>
+                            <td style="width: 80%">{{humans.Ward}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Liên hệ khác</th>
+                            <td style="width: 80%">{{humans.OtherContact}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Mã số thuế</th>
+                            <td style="width: 80%">{{humans.TaxCode}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Hình ảnh</th>
+                            <td style="width: 80%">{{humans.Picture}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Chú ý</th>
+                            <td style="width: 80%">{{humans.Note}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Ngày sinh</th>
+                            <td style="width: 80%">{{humans.DateOfBirth}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Ngày hợp tác</th>
+                            <td style="width: 80%">{{humans.DateOfEntry}}</td>
+                        </tr>                                               
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">Đóng</button>-->
+                <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
