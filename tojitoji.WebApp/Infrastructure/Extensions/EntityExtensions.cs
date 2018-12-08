@@ -37,5 +37,36 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             companyInformation.Youtube = companyInformationVM.Youtube;
             companyInformation.Group = companyInformationVM.Group;
         }
+
+        public static void UpdateHuman(this Human human, HumanViewModel humanVM)
+        {
+            human.ID = humanVM.ID;
+            human.FirstName = humanVM.FirstName;
+            human.LastName = humanVM.LastName;
+            human.TypeCode = humanVM.TypeCode;
+            human.Company = humanVM.Company;
+            human.Gender = humanVM.Gender;
+            human.Phone = humanVM.Phone;
+            human.Email = humanVM.Email;
+            human.JobTitle = humanVM.JobTitle;
+            human.Address = humanVM.Address;
+            human.Province = humanVM.Province;
+            human.City = humanVM.City;
+            human.District = humanVM.District;
+            human.Ward = humanVM.Ward;
+            human.OtherContact = humanVM.OtherContact;
+            human.TaxCode = humanVM.TaxCode;
+            human.Picture = humanVM.Picture;
+            human.Note = humanVM.Note;
+            human.DateOfBirth = humanVM.DateOfBirth;
+            human.DateOfEntry = humanVM.DateOfEntry;
+        }
+
+        public static void UpdateHumanType(this HumanType humanType, HumanTypeViewModel humanTypeVM)
+        {
+            humanType.ID = humanTypeVM.ID;
+            humanType.Type = humanTypeVM.Type;
+            humanType.ParentID = humanTypeVM.ParentID;
+        }
     }
 }

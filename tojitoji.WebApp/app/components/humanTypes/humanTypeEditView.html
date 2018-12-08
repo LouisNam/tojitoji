@@ -1,0 +1,44 @@
+﻿<section class="content-header">
+    <h1>
+        Chỉnh sửa loại đối tượng
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="humanTypes">Loại đối tượng</a></li>
+        <li class="active">Chỉnh sửa</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chỉnh sửa loại đối tượng: {{humanType.Type}}</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmEditHumanType" role="form" ng-submit="UpdateHumanType()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tên loại đối tượng</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humanType.Type">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Loại đối tượng cha</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="humanType.ParentID" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn loại đối tượng cha">
+                            <ui-select-match placeholder="Vui lòng chọn loại đối tượng">{{$select.selected.Type}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in flatFolders | filter: $select.search">
+                                <div ng-bind-html="item.Type | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <!--<span ng-show="frmAddHumanType.ID.$invalid" class="has-error">Phải chọn danh mục</span>-->
+                        <input type="hidden" ng-model="humanType.ParentID" />
+                    </div>
+                </div>              
+            </div>
+            <div class="box-footer">
+                <button ui-sref="humanTypes" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

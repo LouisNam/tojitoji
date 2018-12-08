@@ -3,6 +3,8 @@
     angular.module('tojitojishop', [
         'tojitojishop.accounts',
         'tojitojishop.companyInformations',
+        'tojitojishop.humans',
+        'tojitojishop.humanTypes',
         'tojitojishop.common'
     ]).config(config);
 

@@ -12,6 +12,8 @@ namespace tojitoji.WebApp.Mappings
             {
                 cfg.CreateMap<Account, AccountViewModel>();
                 cfg.CreateMap<CompanyInformation, CompanyInformationViewModel>();
+                cfg.CreateMap<Human, HumanViewModel>();
+                cfg.CreateMap<HumanType, HumanTypeViewModel>();
             });
         }
     }

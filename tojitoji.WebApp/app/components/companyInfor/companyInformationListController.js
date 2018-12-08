@@ -2,9 +2,9 @@
 (function (app) {
     app.controller('companyInformationListController', companyInformationListController);
 
-    companyInformationListController.$inject = ['$scope', 'apiService', 'ModalService'];
+    companyInformationListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService'];
 
-    function companyInformationListController($scope, apiService, ModalService) {
+    function companyInformationListController($scope, apiService, ModalService, $ngBootbox, notificationService) {
         $scope.companyInfor = [];
         $scope.page = 0;
         $scope.pageCount = 0;
@@ -12,8 +12,25 @@
 
         $scope.showDetail = showDetail;
 
-        function showDetail(id) {
+        $scope.deleteCompanyInformation = deleteCompanyInformation;
 
+        function deleteCompanyInformation(id) {
+            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
+                var config = {
+                    params: {
+                        id: id
+                    }
+                }
+                apiService.del('api/companyinformation/delete', config, function () {
+                    notificationService.displaySuccess('Xóa thành công');
+                    getInfor();
+                }, function () {
+                    notificationService.displayError('Xóa không thành công');
+                })
+            });
+        }
+
+        function showDetail(id) {
             ModalService.showModal({
                 templateUrl: "/app/components/companyInfor/companyInformationDetailView.html",
                 controller: "companyInformationDetailController",

@@ -1,0 +1,144 @@
+﻿<section class="content-header">
+    <h1>
+        Chỉnh sửa đối tượng
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="companyInformations">Đối tượng</a></li>
+        <li class="active">Chỉnh sửa</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chỉnh sửa đối tượng: {{humans.LastName}} {{humans.FirstName}}</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmAddHuman" role="form" ng-submit="UpdateHuman()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tên</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.FirstName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Họ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.LastName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Loại đối tượng</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="humans.TypeCode" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn loại đối tượng">
+                            <ui-select-match placeholder="Vui lòng chọn loại đối tượng">{{$select.selected.Type}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in flatFolders | filter: $select.search">
+                                <div ng-bind-html="item.Type | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <!--<span ng-show="frmAddHumanType.ID.$invalid" class="has-error">Phải chọn danh mục</span>-->
+
+                        <input type="hidden" ng-model="humans.TypeCode" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Giới tính</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" ng-model="humans.Gender">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Số điện thoại</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.Phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Vị trí</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.JobTitle">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Địa chỉ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.Address">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tỉnh</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.Province">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Thành phố</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.City">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Quận/Huyện</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.District">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Phường/Xã</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.Ward">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Liên hệ khác</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.OtherContact">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mã số thuế</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.TaxCode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Hình ảnh</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.Picture">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ghi chú</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.Note">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ngày sinh</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.DateOfBirth">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ngày hợp tác</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="humans.DateOfEntry">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button ui-sref="companyInformations" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

@@ -43,6 +43,8 @@
     <Compile Include="AccountService.cs" />
     <Compile Include="CompanyInformationService.cs" />
     <Compile Include="ErrorService.cs" />
+    <Compile Include="HumanService.cs" />
+    <Compile Include="HumanTypeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
