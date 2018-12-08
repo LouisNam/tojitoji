@@ -5,8 +5,8 @@
 
     function humanAddController(apiService, $scope, notificationService, $state, commonService) {
         $scope.humans = {
-            DateOfEntry: new Date(),
-            DateOfBirth: new Date()
+            //DateOfEntry: new Date(),
+            //DateOfBirth: new Date()
         };
 
         $scope.flatFolders = [];

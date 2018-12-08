@@ -125,13 +125,13 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Ngày sinh</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required ng-model="humans.DateOfBirth">
+                        <input type="date" class="form-control" value="{{ humans.DateOfBirth | date: 'yyyy-MM-dd' }}" required ng-model="humans.DateOfBirth">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Ngày hợp tác</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required ng-model="humans.DateOfEntry">
+                        <input type="date" class="form-control" value="{{ humans.DateOfEntry | date: 'yyyy-MM-dd' }}" required ng-model="humans.DateOfEntry">
                     </div>
                 </div>
             </div>

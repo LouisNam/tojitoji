@@ -16,6 +16,9 @@ namespace tojitoji.Data
         public DbSet<CompanyInformation> CompanyInformations { set; get; }
         public DbSet<Human> Humans { set; get; }
         public DbSet<HumanType> HumanTypes { set; get; }
+        //public DbSet<Bundle> Bundles { set; get; }
+        //public DbSet<Product> Products { set; get; }
+        //public DbSet<Category> Categories { set; get; }
 
         //public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
         //public DbSet<ApplicationRole> ApplicationRoles { set; get; }
