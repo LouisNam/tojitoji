@@ -52,10 +52,13 @@
     <Compile Include="Abstract\Auditable.cs" />
     <Compile Include="Abstract\IAuditable.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Bundle.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CompanyInformation.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Human.cs" />
     <Compile Include="Models\HumanType.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
