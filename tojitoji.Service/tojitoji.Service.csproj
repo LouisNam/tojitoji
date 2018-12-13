@@ -41,11 +41,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="BundleService.cs" />
+    <Compile Include="CampaignService.cs" />
+    <Compile Include="CampaignSKUService.cs" />
+    <Compile Include="CategoryService.cs" />
     <Compile Include="CompanyInformationService.cs" />
     <Compile Include="ErrorService.cs" />
     <Compile Include="HumanService.cs" />
     <Compile Include="HumanTypeService.cs" />
+    <Compile Include="InventoryTransactionService.cs" />
+    <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SKULazadaService.cs" />
+    <Compile Include="SKUService.cs" />
+    <Compile Include="WarehouseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\tojitoji.Common\tojitoji.Common.csproj">

@@ -68,5 +68,118 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             humanType.Type = humanTypeVM.Type;
             humanType.ParentID = humanTypeVM.ParentID;
         }
+
+        public static void UpdateCategory(this Category category, CategoryViewModel categoryVM)
+        {
+            category.ID = categoryVM.ID;
+            category.CategoryType = categoryVM.CategoryType;
+            category.MacroCategory = categoryVM.MacroCategory;
+            category.CommercialCate = categoryVM.CommercialCate;
+            category.Name = categoryVM.Name;
+            category.NameEn = categoryVM.NameEn;
+            category.ParentID = categoryVM.ParentID;
+        }
+
+        public static void UpdateProduct(this Product product, ProductViewModel productVM)
+        {
+            product.ID = productVM.ID;
+            product.Name = productVM.Name;
+            product.RRP = productVM.RRP;
+            product.SP = productVM.SP;
+            product.SpecialFromTime = productVM.SpecialFromTime;
+            product.SpecialToTime = productVM.SpecialToTime;
+            product.Status = productVM.Status;
+            product.NameEn = productVM.NameEn;
+            product.CategoryID = productVM.CategoryID;
+            product.Brand = productVM.Brand;
+            product.Model = productVM.Model;
+            product.ProductCode = productVM.ProductCode;
+            product.ColorFamily = productVM.ColorFamily;
+            product.Size = productVM.Size;
+            product.ProductLifeTime = productVM.ProductLifeTime;
+            product.Warranty = productVM.Warranty;
+            product.WarrantyType = productVM.WarrantyType;
+            product.Unit = productVM.Unit;
+            product.PackageContent = productVM.PackageContent;
+            product.PackageWeight = productVM.PackageWeight;
+            product.PackageLength = productVM.PackageLength;
+            product.PackageWidth = productVM.PackageWidth;
+            product.PackageHeight = productVM.PackageHeight;
+            product.ShortDescription = productVM.ShortDescription;
+            product.Description = productVM.Description;
+            product.Origin = productVM.Origin;
+            product.Video = productVM.Video;
+            product.MainImage = productVM.MainImage;
+            product.MoreImage = productVM.MoreImage;
+            product.Note = productVM.Note;
+        }
+
+        public static void UpdateBundle(this Bundle bundle, BundleViewModel bundleVM)
+        {
+            bundle.ID = bundleVM.ID;
+            bundle.BundleType = bundleVM.BundleType;
+            bundle.SKUBundle = bundleVM.SKUBundle;
+            bundle.BundleName = bundleVM.BundleName;
+            bundle.ProductID = bundleVM.ProductID;
+            bundle.ProductQuantity = bundleVM.ProductQuantity;
+            bundle.ProductNo = bundleVM.ProductNo;
+            bundle.DiscountRate = bundleVM.DiscountRate;
+            bundle.SpecialFromTime = bundleVM.SpecialFromTime;
+            bundle.SpecialToTime = bundleVM.SpecialToTime;
+        }
+
+        public static void UpdateSKU(this SKU sKU, SKUViewModel sKUVM)
+        {
+            sKU.ID = sKUVM.ID;
+            sKU.ProductID = sKUVM.ProductID;
+            sKU.BundleID = sKUVM.BundleID;
+        }
+
+        public static void UpdateSKULazada(this SKULazada sKULazada, SKULazadaViewModel sKUlazadaVM)
+        {
+            sKULazada.ID = sKUlazadaVM.ID;
+            sKULazada.Lazada_SKU = sKUlazadaVM.Lazada_SKU;
+            sKULazada.SKUName = sKUlazadaVM.SKUName;
+            sKULazada.SKUID = sKUlazadaVM.SKUID;
+            sKULazada.Link = sKUlazadaVM.Link;
+            sKULazada.Status = sKUlazadaVM.Status;
+        }
+
+        public static void UpdateCampaignSKU(this CampaignSKU campaignSKU, CampaignSKUViewModel campaignSKUVM)
+        {
+            campaignSKU.ID = campaignSKUVM.ID;
+            campaignSKU.SKUID = campaignSKUVM.SKUID;
+            campaignSKU.Price = campaignSKUVM.Price;
+        }
+
+        public static void UpdateCampaign(this Campaign campaign, CampaignViewModel campaignVM)
+        {
+            campaign.CampaignID = campaignVM.CampaignID;
+            campaign.Name = campaignVM.Name;
+            campaign.FromTime = campaignVM.FromTime;
+            campaign.ToTime = campaignVM.ToTime;
+        }
+
+        public static void UpdateWarehouse(this Warehouse warehouse, WarehouseViewModel warehouseVM)
+        {
+            warehouse.ID = warehouseVM.ID;
+            warehouse.Name = warehouseVM.Name;
+            warehouse.Status = warehouseVM.Status;
+            warehouse.Note = warehouseVM.Note;
+            warehouse.ParentID = warehouseVM.ParentID;
+        }
+
+        public static void UpdateInventoryTransaction(this InventoryTransaction inventoryTransaction, InventoryTransactionViewModel inventoryTransactionVM)
+        {
+            inventoryTransaction.ID = inventoryTransactionVM.ID;
+            inventoryTransaction.ModifiedDate = inventoryTransactionVM.ModifiedDate;
+            inventoryTransaction.CreatedDate = inventoryTransactionVM.CreatedDate;
+            inventoryTransaction.Type = inventoryTransactionVM.Type;
+            inventoryTransaction.ItemID = inventoryTransactionVM.ItemID;
+            inventoryTransaction.ParcelID = inventoryTransactionVM.ParcelID;
+            inventoryTransaction.WarehouseID = inventoryTransactionVM.WarehouseID;
+            inventoryTransaction.Status = inventoryTransactionVM.Status;
+            inventoryTransaction.Note = inventoryTransactionVM.Note;
+        }
     }
 }

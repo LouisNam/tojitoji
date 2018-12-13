@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tojitoji.Model.Models
 {
@@ -17,12 +14,14 @@ namespace tojitoji.Model.Models
 
         public int CategoryType { set; get; }
 
+        [Column(TypeName = "varchar")]
         public string MacroCategory { set; get; }
 
         public string CommercialCate { set; get; }
 
         public string Name { set; get; }
 
+        [Column(TypeName = "varchar")]
         public string NameEn { set; get; }
 
         public int? ParentID { set; get; }

@@ -14,6 +14,15 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<CompanyInformation, CompanyInformationViewModel>();
                 cfg.CreateMap<Human, HumanViewModel>();
                 cfg.CreateMap<HumanType, HumanTypeViewModel>();
+                cfg.CreateMap<Category, CategoryViewModel>();
+                cfg.CreateMap<Product, ProductViewModel>();
+                cfg.CreateMap<Bundle, BundleViewModel>();
+                cfg.CreateMap<SKU, SKUViewModel>();
+                cfg.CreateMap<SKULazada, SKULazadaViewModel>();
+                cfg.CreateMap<CampaignSKU, CampaignSKUViewModel>();
+                cfg.CreateMap<Campaign, CampaignViewModel>();
+                cfg.CreateMap<Warehouse, WarehouseViewModel>();
+                cfg.CreateMap<InventoryTransaction, InventoryTransactionViewModel>();
             });
         }
     }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using tojitoji.Model.Models;
 
 namespace tojitoji.WebApp.Models
 {
@@ -14,6 +13,6 @@ namespace tojitoji.WebApp.Models
 
         public int? ParentID { set; get; }
 
-        public virtual IEnumerable<Human> Humans { set; get; }
+        public virtual IEnumerable<HumanViewModel> Humans { set; get; }
     }
 }

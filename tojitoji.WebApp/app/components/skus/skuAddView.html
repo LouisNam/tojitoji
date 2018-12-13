@@ -1,0 +1,50 @@
+﻿<section class="content-header">
+    <h1>
+        Thêm mới SKU
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="bundles">SKU</a></li>
+        <li class="active">Thêm mới</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmAddSKU" role="form" ng-submit="AddSKU()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chọn sản phẩm</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="sku.ProductID" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn sản phẩm">
+                            <ui-select-match placeholder="Vui lòng chọn sản phẩm">{{$select.selected.Name}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in products | filter: $select.search">
+                                <div ng-bind-html="item.Name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <input type="hidden" ng-model="sku.ProductID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chọn bundle</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="sku.BundleID" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn bundle">
+                            <ui-select-match placeholder="Vui lòng chọn bundle">{{$select.selected.BundleName}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in bundles | filter: $select.search">
+                                <div ng-bind-html="item.BundleName | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <input type="hidden" ng-model="sku.BundleID" />
+                    </div>
+                </div>
+                
+            </div>
+            <div class="box-footer">
+                <button ui-sref="skus" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

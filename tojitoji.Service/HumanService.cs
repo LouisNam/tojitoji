@@ -9,7 +9,7 @@ namespace tojitoji.Service
     {
         Human Add(Human human);
 
-        void Update(Human humanTyp);
+        void Update(Human human);
 
         Human Delete(int id);
 

@@ -176,11 +176,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BundleController.cs" />
+    <Compile Include="Api\CampaignController.cs" />
+    <Compile Include="Api\CampaignSKUController.cs" />
+    <Compile Include="Api\CategoryController.cs" />
     <Compile Include="Api\CompanyInformationController.cs" />
     <Compile Include="Api\HomeController.cs" />
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Api\HumanController.cs" />
     <Compile Include="Api\HumanTypeController.cs" />
+    <Compile Include="Api\InventoryTransactionController.cs" />
+    <Compile Include="Api\ProductController.cs" />
+    <Compile Include="Api\SKUController.cs" />
+    <Compile Include="Api\WarehouseController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -195,9 +203,18 @@
     <Compile Include="Infrastructure\Extensions\EntityExtensions.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\BundleViewModel.cs" />
+    <Compile Include="Models\CampaignSKUViewModel.cs" />
+    <Compile Include="Models\CampaignViewModel.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\CompanyInformationViewModel.cs" />
     <Compile Include="Models\HumanTypeViewModel.cs" />
     <Compile Include="Models\HumanViewModel.cs" />
+    <Compile Include="Models\InventoryTransactionViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\SKULazadaViewModel.cs" />
+    <Compile Include="Models\SKUViewModel.cs" />
+    <Compile Include="Models\WarehouseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +224,33 @@
     <Content Include="app\components\accounts\accounts.module.js" />
     <Content Include="app\components\accounts\accountListController.js" />
     <Content Include="app\components\accounts\accountListView.html" />
+    <Content Include="app\components\bundles\bundleAddController.js" />
+    <Content Include="app\components\bundles\bundleAddView.html" />
+    <Content Include="app\components\bundles\bundleEditController.js" />
+    <Content Include="app\components\bundles\bundleEditView.html" />
+    <Content Include="app\components\bundles\bundleListController.js" />
+    <Content Include="app\components\bundles\bundleListView.html" />
+    <Content Include="app\components\bundles\bundles.module.js" />
+    <Content Include="app\components\campaigns\campaignSkuEditController.js" />
+    <Content Include="app\components\campaigns\campaignSkuAddController.js" />
+    <Content Include="app\components\campaigns\campaignAddController.js" />
+    <Content Include="app\components\campaigns\campaignSkuEditView.html" />
+    <Content Include="app\components\campaigns\campaignSkuAddView.html" />
+    <Content Include="app\components\campaigns\campaignAddView.html" />
+    <Content Include="app\components\campaigns\campaignEditController.js" />
+    <Content Include="app\components\campaigns\campaignEditView.html" />
+    <Content Include="app\components\campaigns\campaignListController.js" />
+    <Content Include="app\components\campaigns\campaignListView.html" />
+    <Content Include="app\components\campaigns\campaigns.module.js" />
+    <Content Include="app\components\category\categoryAddController.js" />
+    <Content Include="app\components\category\categoryAddView.html" />
+    <Content Include="app\components\category\categoryDetailController.js" />
+    <Content Include="app\components\category\categoryDetailView.html" />
+    <Content Include="app\components\category\categoryEditController.js" />
+    <Content Include="app\components\category\categoryEditView.html" />
+    <Content Include="app\components\category\categoryListController.js" />
+    <Content Include="app\components\category\categoryListView.html" />
+    <Content Include="app\components\category\categories.module.js" />
     <Content Include="app\components\companyInfor\companyInformationAddController.js" />
     <Content Include="app\components\companyInfor\companyInformationEditView.html" />
     <Content Include="app\components\companyInfor\companyInformationDetailController.js" />
@@ -234,11 +278,35 @@
     <Content Include="app\components\humanTypes\humanTypeListController.js" />
     <Content Include="app\components\humanTypes\humanTypeListView.html" />
     <Content Include="app\components\humanTypes\humanTypes.module.js" />
+    <Content Include="app\components\products\products.module.js" />
+    <Content Include="app\components\products\productAddController.js" />
+    <Content Include="app\components\products\productAddView.html" />
+    <Content Include="app\components\products\productDetailController.js" />
+    <Content Include="app\components\products\productDetailView.html" />
+    <Content Include="app\components\products\productEditController.js" />
+    <Content Include="app\components\products\productEditView.html" />
+    <Content Include="app\components\products\productListController.js" />
+    <Content Include="app\components\products\productListView.html" />
+    <Content Include="app\components\skus\skuAddController.js" />
+    <Content Include="app\components\skus\skuAddView.html" />
+    <Content Include="app\components\skus\skuEditController.js" />
+    <Content Include="app\components\skus\skuEditView.html" />
+    <Content Include="app\components\skus\skuListController.js" />
+    <Content Include="app\components\skus\skuListView.html" />
+    <Content Include="app\components\skus\skus.module.js" />
+    <Content Include="app\components\warehouses\warehouseAddController.js" />
+    <Content Include="app\components\warehouses\warehouseAddView.html" />
+    <Content Include="app\components\warehouses\warehouseEditController.js" />
+    <Content Include="app\components\warehouses\warehouseEditView.html" />
+    <Content Include="app\components\warehouses\warehouseListController.js" />
+    <Content Include="app\components\warehouses\warehouseListView.html" />
+    <Content Include="app\components\warehouses\warehouses.module.js" />
     <Content Include="app\shared\directives\asDateDirective.js" />
     <Content Include="app\shared\directives\pagerDirective.html" />
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filters\accountStatus.js" />
     <Content Include="app\shared\filters\accountType.js" />
+    <Content Include="app\shared\filters\productStatus.js" />
     <Content Include="app\shared\modules\tojitojiShop.common.js" />
     <Content Include="app\shared\services\apiService.js" />
     <Content Include="app\shared\services\commonService.js" />
@@ -1086,6 +1154,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
