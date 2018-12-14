@@ -21,13 +21,10 @@
     <div class="wrapper">
         <header class="main-header">
             <a href="#" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
-                <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b>Admin</b>LTE</span>
             </a>
             <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
                 <a href="javascript:void(0);" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <i class="fas fa-bars"></i>
                 </a>
@@ -89,6 +86,31 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MENU</li>
                     <li class="treeview">
+                        <a ui-sref="campaigns">
+                            <i class="fas fa-hand-holding-usd"></i> <span>Campaign</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fas fa-th-large"></i> <span>Sản phẩm</span><i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="categories"><i class="fas fa-clipboard"></i> Danh mục </a></li>
+                            <li><a ui-sref="products"><i class="fab fa-product-hunt"></i> Sản phẩm </a></li>
+                            <li><a ui-sref="bundles"><i class="fas fa-file-archive"></i> Bundle </a></li>
+                            <li><a ui-sref="skus"><i class="fas fa-file-archive"></i> SKU </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fas fa-asterisk"></i> <span>Kho hàng</span><i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="warehouses"><i class="fas fa-warehouse"></i> Kho </a></li>
+                            <li><a ui-sref="products"><i class="fas fa-truck-moving"></i> Transaction </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
                         <a href="#">
                             <i class="fas fa-user"></i> <span>Đối tượng</span><i class="fa fa-angle-left pull-right"></i>
                         </a>
@@ -121,8 +143,7 @@
                 <b>Version</b> 2.3.0
             </div>
             <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-        </footer>
-        
+        </footer>        
         <!-- Add the sidebar's background. This div must be placed
              immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
@@ -152,11 +173,18 @@
     <script src="~/app/shared/services/notificationService.js"></script>
     <script src="~/app/shared/filters/accountType.js"></script>
     <script src="~/app/shared/filters/accountStatus.js"></script>
+    <script src="~/app/shared/filters/productStatus.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->    
     <script src="~/app/components/accounts/accounts.module.js"></script>
     <script src="~/app/components/companyInfor/companyInformation.module.js"></script>
     <script src="~/app/components/humans/humans.module.js"></script>
     <script src="~/app/components/humanTypes/humanTypes.module.js"></script>
+    <script src="~/app/components/category/categories.module.js"></script>
+    <script src="~/app/components/products/products.module.js"></script>
+    <script src="~/app/components/bundles/bundles.module.js"></script>
+    <script src="~/app/components/skus/skus.module.js"></script>
+    <script src="~/app/components/campaigns/campaigns.module.js"></script>
+    <script src="~/app/components/warehouses/warehouses.module.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/app.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
@@ -174,5 +202,27 @@
     <script src="~/app/components/humanTypes/humanTypeListController.js"></script>
     <script src="~/app/components/humanTypes/humanTypeAddController.js"></script>
     <script src="~/app/components/humanTypes/humanTypeEditController.js"></script>
+    <script src="~/app/components/category/categoryListController.js"></script>
+    <script src="~/app/components/category/categoryDetailController.js"></script>
+    <script src="~/app/components/category/categoryAddController.js"></script>
+    <script src="~/app/components/category/categoryEditController.js"></script>
+    <script src="~/app/components/products/productListController.js"></script>
+    <script src="~/app/components/products/productDetailController.js"></script>
+    <script src="~/app/components/products/productAddController.js"></script>
+    <script src="~/app/components/products/productEditController.js"></script>
+    <script src="~/app/components/bundles/bundleListController.js"></script>
+    <script src="~/app/components/bundles/bundleAddController.js"></script>
+    <script src="~/app/components/bundles/bundleEditController.js"></script>
+    <script src="~/app/components/skus/skuListController.js"></script>
+    <script src="~/app/components/skus/skuAddController.js"></script>
+    <script src="~/app/components/skus/skuEditController.js"></script>
+    <script src="~/app/components/campaigns/campaignListController.js"></script>
+    <script src="~/app/components/campaigns/campaignSkuAddController.js"></script>
+    <script src="~/app/components/campaigns/campaignSkuEditController.js"></script>
+    <script src="~/app/components/campaigns/campaignAddController.js"></script>
+    <script src="~/app/components/campaigns/campaignEditController.js"></script>
+    <script src="~/app/components/warehouses/warehouseListController.js"></script>
+    <script src="~/app/components/warehouses/warehouseAddController.js"></script>
+    <script src="~/app/components/warehouses/warehouseEditController.js"></script>
 </body>
 </html>

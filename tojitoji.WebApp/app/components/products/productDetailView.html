@@ -1,0 +1,132 @@
+﻿<div class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Thông tin sản phẩm: {{product.Name}} </h3>
+            </div>
+            <div class="modal-body">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover" style="position: relative">
+                        <tr>
+                            <th style="width: 20%">Tên tiếng anh</th>
+                            <td style="width: 80%">{{product.NameEn}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Giá niêm yết</th>
+                            <td style="width: 80%">{{product.RRP}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Giá bán</th>
+                            <td style="width: 80%">{{product.SP}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian bắt đầu</th>
+                            <td style="width: 80%">{{product.SpecialFromTime}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian kết thúc</th>
+                            <td style="width: 80%">{{product.SpecialToTime}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Trạng thái</th>
+                            <td style="width: 80%">{{product.Status | productStatus }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Danh mục</th>
+                            <td style="width: 80%">{{product.Category.Name }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thương hiệu</th>
+                            <td style="width: 80%">{{product.Brand}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Mẫu</th>
+                            <td style="width: 80%">{{product.Model}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Mã sản phẩm chung</th>
+                            <td style="width: 80%">{{product.ProductCode}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Màu sắc</th>
+                            <td style="width: 80%">{{product.ColorFamily}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Kích cỡ</th>
+                            <td style="width: 80%">{{product.Size}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian sử dụng</th>
+                            <td style="width: 80%">{{product.ProductLifeTime}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian bảo hành</th>
+                            <td style="width: 80%">{{product.Warranty}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Loại bảo hành</th>
+                            <td style="width: 80%">{{product.WarrantyType}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Đơn vị tính</th>
+                            <td style="width: 80%">{{product.Unit}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Bộ sản phẩm bao gồm</th>
+                            <td style="width: 80%">{{product.PackageContent}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Cân nặng</th>
+                            <td style="width: 80%">{{product.PackageWeight}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Chiều dài</th>
+                            <td style="width: 80%">{{product.PackageLength}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Chiều rộng</th>
+                            <td style="width: 80%">{{product.PackageWidth}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Chiều cao</th>
+                            <td style="width: 80%">{{product.PackageHeight}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Đặc tính</th>
+                            <td style="width: 80%">{{product.ShortDescription}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Mô tả</th>
+                            <td style="width: 80%">{{product.Description}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Nơi sản xuất</th>
+                            <td style="width: 80%">{{product.Origin}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Video</th>
+                            <td style="width: 80%">{{product.Video}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Hình chính</th>
+                            <td style="width: 80%">{{product.MainImage}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Hình phụ</th>
+                            <td style="width: 80%">{{product.MoreImage}}</td>
+                        </tr>   
+                        <tr>
+                            <th style="width: 20%">Ghi chú</th>
+                            <td style="width: 80%">{{product.Note}}</td>
+                        </tr>                    
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">Đóng</button>-->
+                <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

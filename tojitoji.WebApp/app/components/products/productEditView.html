@@ -1,0 +1,208 @@
+﻿<section class="content-header">
+    <h1>
+        Chỉnh sửa sản phẩm
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="products">Sản phẩm</a></li>
+        <li class="active">Chỉnh sửa</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chỉnh sửa danh mục: {{product.Name}}</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmEditProduct" role="form" ng-submit="UpdateProduct()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tên tiếng Việt</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="product.Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tên tiếng Anh</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.NameEn">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Giá niêm yết</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" required ng-model="product.RRP">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Giá bán</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" required ng-model="product.SP">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ngày bắt đầu</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" value="{{ product.SpecialFromTime | date: 'yyyy-MM-dd' }}" required ng-model="product.SpecialFromTime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ngày kết thúc</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" value="{{ product.SpecialToTime | date: 'yyyy-MM-dd' }}" required ng-model="product.SpecialToTime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Trạng thái</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" ng-model="product.Status">
+                            <option value="true">Active</option>
+                            <option value="false">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Danh mục</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="product.CategoryID" name="categoryID" theme="bootstrap" style="min-width: 300px;" title="Chọn danh mục">
+                            <ui-select-match placeholder="Vui lòng chọn danh mục">{{$select.selected.Name}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in flatFolders | filter: $select.search">
+                                <div ng-bind-html="item.Name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <input type="hidden" ng-model="product.CategoryID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Thương hiệu</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.Brand">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mẫu</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.Model">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mã sản phẩm chung</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.ProductCode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Màu sắc</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.ColorFamily">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Kích cỡ</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" ng-model="product.Size">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Thời gian sử dụng</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" ng-model="product.ProductLifeTime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Thời gian bảo hành</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" ng-model="product.Warranty">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Loại bảo hành</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.WarrantyType">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Đơn vị tính</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.Unit">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Bộ sản phẩm bao gồm</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.PackageContent">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Cân nặng</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" ng-model="product.PackageWeight">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chiều dài</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" ng-model="product.PackageLength">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chiều rộng</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" ng-model="product.PackageWidth">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chiều cao</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" ng-model="product.PackageHeight">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Đặc tính</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.ShortDescription">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mô tả</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.Description">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nơi sản xuất</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.Origin">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Video</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.Video">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Hình chính</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.MainImage">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Hình phụ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.MoreImage">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ghi chú</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="product.Note">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button ui-sref="products" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

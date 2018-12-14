@@ -1,0 +1,79 @@
+﻿<section class="content-header">
+    <h1>
+        Bundle
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li class="active">Bundle</li>
+    </ol>
+</section>
+<section class="content" style="display: flex">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách bundle</h3>
+                <div class="box-tools" style="display:flex">
+                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_bundle"><i class="fas fa-plus-square"></i></button>
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" ng-model="keyword">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="search()"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Loại bundle</th>
+                            <th>Mã gói sản phẩm</th>
+                            <th>Tên bundle</th>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng sản phẩm</th>
+                            <th>STT SKU</th>
+                            <th>Giảm giá</th>
+                            <th>Thời gian bắt đầu</th>
+                            <th>Thời gian kết thúc</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in bundle">
+                            <td>{{item.BundleType}}</td>
+                            <td>{{item.SKUBundle}}</td>
+                            <td>{{item.BundleName}}</td>
+                            <td>{{item.ProductID}}</td>
+                            <td>{{item.ProductQuantity}}</td>
+                            <td>{{item.ProductNo}}</td>
+                            <td>{{item.DiscountRate}}</td>
+                            <td>{{item.SpecialFromTime | date: 'dd-MM-yyyy'}}</td>
+                            <td>{{item.SpecialToTime | date: 'dd-MM-yyyy'}}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_bundle({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn  btn-sm btn-danger" ng-click="deleteBundle(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getBundle(page)"></pager-directive>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div ng-if="loading">
+                    <div class="col-xs-4"></div>
+                    <div id="preloader">
+                        <div id="loader"></div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

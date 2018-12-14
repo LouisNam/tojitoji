@@ -11,6 +11,8 @@
         function loadHumanDetail() {
             apiService.get('/api/human/getbyid/' + $stateParams.id, null, function (result) {
                 $scope.humans = result.data;
+                $scope.humans.DateOfBirth = new Date(result.data.DateOfBirth);
+                $scope.humans.DateOfEntry = new Date(result.data.DateOfEntry);
             }, function (error) {
                 notificationService.displayError(error.data);
             });

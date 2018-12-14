@@ -12,10 +12,6 @@
         $scope.keyword = '';
         $scope.search = search;
 
-        $scope.yesNoResult = null;
-        $scope.complexResult = null;
-        $scope.customResult = null;
-
         $scope.showDetail = showDetail;
 
         function showDetail(id) {

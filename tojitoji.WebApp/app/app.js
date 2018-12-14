@@ -5,6 +5,12 @@
         'tojitojishop.companyInformations',
         'tojitojishop.humans',
         'tojitojishop.humanTypes',
+        'tojitojishop.categories',
+        'tojitojishop.products',
+        'tojitojishop.bundles',
+        'tojitojishop.skus',
+        'tojitojishop.campaigns',
+        'tojitojishop.warehouses',
         'tojitojishop.common'
     ]).config(config);
 
