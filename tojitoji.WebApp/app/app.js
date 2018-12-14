@@ -11,6 +11,7 @@
         'tojitojishop.skus',
         'tojitojishop.campaigns',
         'tojitojishop.warehouses',
+        'tojitojishop.inventorytransactions',
         'tojitojishop.common'
     ]).config(config);
 

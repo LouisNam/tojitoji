@@ -1,18 +1,18 @@
 ﻿(function (app) {
-    app.controller('warehouseAddController', warehouseAddController);
+    app.controller('inventorytransactionAddController', inventorytransactionAddController);
 
-    warehouseAddController.$inject = ['apiService', '$scope', 'notificationService', '$state', 'commonService'];
+    inventorytransactionAddController.$inject = ['apiService', '$scope', 'notificationService', '$state', 'commonService'];
 
-    function warehouseAddController(apiService, $scope, notificationService, $state, commonService) {
-        $scope.warehouse = {};
-        $scope.AddWarehouse = AddWarehouse;
+    function inventorytransactionAddController(apiService, $scope, notificationService, $state, commonService) {
+        $scope.inventorytransaction = {};
+        $scope.AddInventoryTransaction = AddInventoryTransaction;
         $scope.flatFolders = [];
 
-        function AddWarehouse() {
-            apiService.post('/api/warehouse/create', $scope.warehouse,
+        function AddInventoryTransaction() {
+            apiService.post('/api/inventorytransaction/create', $scope.inventorytransaction,
                 function (result) {
                     notificationService.displaySuccess(result.data.ID + ' đã được thêm mới.');
-                    $state.go('warehouses');
+                    $state.go('inventorytransactions');
                 }, function (error) {
                     notificationService.displayError('Thêm mới không thành công.');
                 });
@@ -53,4 +53,4 @@
 
         loadWarehouse();
     }
-})(angular.module('tojitojishop.warehouses'));
+})(angular.module('tojitojishop.inventorytransactions'));

@@ -16,30 +16,39 @@
         <form class="form-horizontal" novalidate name="frmAddWarehouse" role="form" ng-submit="AddWarehouse()">
             <div class="box-body">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Chọn sản phẩm</label>
+                    <label class="col-sm-2 control-label">Tên kho</label>
                     <div class="col-sm-10">
-                        <ui-select ng-model="sku.ProductID" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn sản phẩm">
-                            <ui-select-match placeholder="Vui lòng chọn sản phẩm">{{$select.selected.Name}}</ui-select-match>
-                            <ui-select-choices repeat="item.ID as item in products | filter: $select.search">
-                                <div ng-bind-html="item.Name | highlight: $select.search"></div>
-                            </ui-select-choices>
-                        </ui-select>
-                        <input type="hidden" ng-model="sku.ProductID" />
+                        <input type="text" class="form-control" required ng-model="warehouse.Name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Chọn bundle</label>
+                    <label class="col-sm-2 control-label">Trạng thái</label>
                     <div class="col-sm-10">
-                        <ui-select ng-model="sku.BundleID" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn bundle">
-                            <ui-select-match placeholder="Vui lòng chọn bundle">{{$select.selected.BundleName}}</ui-select-match>
-                            <ui-select-choices repeat="item.ID as item in bundles | filter: $select.search">
-                                <div ng-bind-html="item.BundleName | highlight: $select.search"></div>
-                            </ui-select-choices>
-                        </ui-select>
-                        <input type="hidden" ng-model="sku.BundleID" />
+                        <select class="form-control" ng-model="warehouse.Status">
+                            <option value="" selected disabled>Vui lòng chọn trạng thái</option>
+                            <option value="true">Active</option>
+                            <option value="false">Inactive</option>
+                        </select>
                     </div>
                 </div>
-                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ghi chú</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-model="warehouse.Note">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chọn kho cha</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="warehouse.ParentID" theme="bootstrap" style="min-width: 300px;" title="Chọn kho cha">
+                            <ui-select-match placeholder="Vui lòng chọn kho cha">{{$select.selected.Name}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in flatFolders | filter: $select.search">
+                                <div ng-bind-html="item.Name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <input type="hidden" ng-model="warehouse.ParentID" />
+                    </div>
+                </div>                
             </div>
             <div class="box-footer">
                 <button ui-sref="warehouses" class="btn btn-default">Hủy</button>

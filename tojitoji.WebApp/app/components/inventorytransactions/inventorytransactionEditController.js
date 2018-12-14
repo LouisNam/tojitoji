@@ -1,26 +1,28 @@
 ﻿(function (app) {
-    app.controller('warehouseEditController', warehouseEditController);
+    app.controller('inventorytransactionEditController', inventorytransactionEditController);
 
-    warehouseEditController.$inject = ['apiService', '$scope', 'notificationService', '$state', '$stateParams', 'commonService'];
+    inventorytransactionEditController.$inject = ['apiService', '$scope', 'notificationService', '$state', '$stateParams', 'commonService'];
 
-    function warehouseEditController(apiService, $scope, notificationService, $state, $stateParams, commonService) {
-        $scope.warehouse = {};
-        $scope.UpdateWarehouse = UpdateWarehouse;
+    function inventorytransactionEditController(apiService, $scope, notificationService, $state, $stateParams, commonService) {
+        $scope.inventorytransaction = {};
+        $scope.UpdateInventoryTransaction = UpdateInventoryTransaction;
         $scope.flatFolders = [];
 
-        function loadWarehouseDetail() {
-            apiService.get('/api/warehouse/getbyid/' + $stateParams.id, null, function (result) {
-                $scope.warehouse = result.data;
+        function loadInventoryTransactionDetail() {
+            apiService.get('/api/inventorytransaction/getbyid/' + $stateParams.id, null, function (result) {
+                $scope.inventorytransaction = result.data;
+                $scope.inventorytransaction.ModifiedDate = new Date(result.data.ModifiedDate);
+                $scope.inventorytransaction.CreatedDate = new Date(result.data.CreatedDate);
             }, function (error) {
                 notificationService.displayError(error.data);
             });
         }
 
-        function UpdateWarehouse() {
-            apiService.put('/api/warehouse/update', $scope.warehouse,
+        function UpdateInventoryTransaction() {
+            apiService.put('/api/inventorytransaction/update', $scope.inventorytransaction,
                 function (result) {
-                    notificationService.displaySuccess(result.data.Name +' đã được cập nhật.');
-                    $state.go('warehouses');
+                    notificationService.displaySuccess(result.data.ID +' đã được cập nhật.');
+                    $state.go('inventorytransactions');
                 }, function (error) {
                     notificationService.displayError('Cập nhật không thành công.');
                 });
@@ -60,6 +62,6 @@
         };
 
         loadWarehouse();
-        loadWarehouseDetail();
+        loadInventoryTransactionDetail();
     }
-})(angular.module('tojitojishop.warehouses'));
+})(angular.module('tojitojishop.inventorytransactions'));
