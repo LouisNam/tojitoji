@@ -30,10 +30,10 @@
                         <tr ng-repeat="item in warehouses">
                             <td style="width: 40%">{{item.Name}}</td>
                             <td style="width: 20%">{{item.ParentID}}</td>
-                            <td style="width: 10%">{{item.Status}}</td>
+                            <td style="width: 10%">{{item.Status | productStatus}}</td>
                             <td style="width: 20%">{{item.Note}}</td>                                                           
                             <td style="width: 10%">
-                                <button class="btn btn-sm btn-primary" ui-sref="edit_warehosue({id:item.ID})"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_warehouse({id:item.ID})"><i class="fas fa-pencil-alt"></i></button>
                                 <button class="btn  btn-sm btn-danger" ng-click="deleteWarehouse(item.ID)"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>

@@ -62,6 +62,7 @@
     <Compile Include="Models\HumanType.cs" />
     <Compile Include="Models\InventoryTransaction.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
     <Compile Include="Models\SKU.cs" />
     <Compile Include="Models\SKULazada.cs" />
     <Compile Include="Models\Warehouse.cs" />

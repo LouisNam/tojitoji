@@ -278,6 +278,13 @@
     <Content Include="app\components\humanTypes\humanTypeListController.js" />
     <Content Include="app\components\humanTypes\humanTypeListView.html" />
     <Content Include="app\components\humanTypes\humanTypes.module.js" />
+    <Content Include="app\components\inventorytransactions\inventorytransactionAddController.js" />
+    <Content Include="app\components\inventorytransactions\inventorytransactionAddView.html" />
+    <Content Include="app\components\inventorytransactions\inventorytransactionEditController.js" />
+    <Content Include="app\components\inventorytransactions\inventorytransactionEditView.html" />
+    <Content Include="app\components\inventorytransactions\inventorytransactionListController.js" />
+    <Content Include="app\components\inventorytransactions\inventorytransactionListView.html" />
+    <Content Include="app\components\inventorytransactions\inventorytransactions.module.js" />
     <Content Include="app\components\products\products.module.js" />
     <Content Include="app\components\products\productAddController.js" />
     <Content Include="app\components\products\productAddView.html" />
