@@ -125,13 +125,18 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a ui-sref="accounts"><i class="far fa-circle"></i> Danh sách </a></li>
+                            <li><a ui-sref="documenttypes"><i class="far fa-circle"></i> Loại chứng từ </a></li>
                         </ul>
                     </li>
+                    <li class="header">SYSTEMS</li>
                     <li class="treeview">
                         <a ui-sref="companyInformations">
-                            <i class="fas fa-info-circle"></i> <span>Thông tin công ty</span>
+                            <i class="fas fa-info-circle text-aqua"></i> <span>Thông tin công ty</span>
                         </a>
                     </li>
+                    <li><a href="#"><i class="far fa-circle text-red"></i> <span>Lỗi hệ thống</span></a></li>
+                    <li><a href="#"><i class="far fa-circle text-yellow"></i> <span>Warning</span></a></li>
+                    <li><a href="#"><i class="far fa-circle text-aqua"></i> <span>Information</span></a></li>                    
                 </ul>
             </section>
         </aside>
@@ -186,10 +191,12 @@
     <script src="~/app/components/campaigns/campaigns.module.js"></script>
     <script src="~/app/components/warehouses/warehouses.module.js"></script>
     <script src="~/app/components/inventorytransactions/inventorytransactions.module.js"></script>
+    <script src="~/app/components/documenttypes/documenttypes.module.js"></script>>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/app.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/components/home/homeController.js"></script>
+    <script src="~/app/components/documenttypes/documenttypeListController.js"></script>
     <script src="~/app/components/accounts/accountListController.js"></script>
     <script src="~/app/components/accounts/accountDetailController.js"></script>
     <script src="~/app/components/companyInfor/companyInformationListController.js"></script>

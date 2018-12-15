@@ -2,6 +2,7 @@
 (function () {
     angular.module('tojitojishop', [
         'tojitojishop.accounts',
+        'tojitojishop.documenttypes',
         'tojitojishop.companyInformations',
         'tojitojishop.humans',
         'tojitojishop.humanTypes',

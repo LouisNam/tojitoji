@@ -181,6 +181,7 @@
     <Compile Include="Api\CampaignSKUController.cs" />
     <Compile Include="Api\CategoryController.cs" />
     <Compile Include="Api\CompanyInformationController.cs" />
+    <Compile Include="Api\DocumentTypeController.cs" />
     <Compile Include="Api\HomeController.cs" />
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Api\HumanController.cs" />
@@ -208,10 +209,14 @@
     <Compile Include="Models\CampaignViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\CompanyInformationViewModel.cs" />
+    <Compile Include="Models\DocumentTypeViewModel.cs" />
     <Compile Include="Models\HumanTypeViewModel.cs" />
     <Compile Include="Models\HumanViewModel.cs" />
     <Compile Include="Models\InventoryTransactionViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\PurchaseOrderDetailReturnViewModel.cs" />
+    <Compile Include="Models\PurchaseOrderDetailViewModel.cs" />
+    <Compile Include="Models\PurchaseOrderViewModel.cs" />
     <Compile Include="Models\SKULazadaViewModel.cs" />
     <Compile Include="Models\SKUViewModel.cs" />
     <Compile Include="Models\WarehouseViewModel.cs" />
@@ -260,6 +265,9 @@
     <Content Include="app\components\companyInfor\companyInformationListController.js" />
     <Content Include="app\components\companyInfor\companyInformationListView.html" />
     <Content Include="app\components\companyInfor\companyInformation.module.js" />
+    <Content Include="app\components\documenttypes\documenttypeListController.js" />
+    <Content Include="app\components\documenttypes\documenttypeListView.html" />
+    <Content Include="app\components\documenttypes\documenttypes.module.js" />
     <Content Include="app\components\home\homeController.js" />
     <Content Include="app\components\home\homeView.html" />
     <Content Include="app\components\humans\humans.module.js" />

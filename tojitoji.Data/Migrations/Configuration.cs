@@ -27,6 +27,10 @@
             CreateCampaignSample(context);
             CreateWarehouseSample(context);
             CreateInventoryTransactionSample(context);
+            CreateDocumentTypeSample(context);
+            CreatePurchaseOrderSample(context);
+            CreatePurchaseOrderDetailSample(context);
+            CreatePurchaseOrderDetailReturnSample(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
@@ -226,6 +230,74 @@
 
             };
                 context.InventoryTransactions.AddRange(listItem);
+                context.SaveChanges();
+            }
+        }
+
+        private void CreateDocumentTypeSample(tojitojiDbContext context)
+        {
+            if (context.DocumentTypes.Count() == 0)
+            {
+                List<DocumentType> listItem = new List<DocumentType>()
+            {
+                new DocumentType() { ID = "GS", Name = "Ghi sổ"},
+                new DocumentType() { ID = "KC", Name = "Kết chuyển"},
+                new DocumentType() { ID = "NH", Name = "Nhập hàng hóa"},
+                new DocumentType() { ID = "NT", Name = "Nhập hàng trả lại"},
+                new DocumentType() { ID = "PC", Name = "Phiếu chi"},
+                new DocumentType() { ID = "PT", Name = "Phiếu thu"},
+                new DocumentType() { ID = "TG", Name = "Phiếu tiền gửi ngân hàng"},
+                new DocumentType() { ID = "XH", Name = "Xuất hàng hóa"},
+                new DocumentType() { ID = "XT", Name = "Xuất trả"}
+
+            };
+                context.DocumentTypes.AddRange(listItem);
+                context.SaveChanges();
+            }
+        }
+
+        private void CreatePurchaseOrderSample(tojitojiDbContext context)
+        {
+            if (context.PurchaseOrders.Count() == 0)
+            {
+                List<PurchaseOrder> listItem = new List<PurchaseOrder>()
+            {
+                new PurchaseOrder() { CreatedDate=DateTime.Now, DocumentTypeID = "NH"},
+                new PurchaseOrder() { CreatedDate=DateTime.Now, DocumentTypeID = "XH"},
+                new PurchaseOrder() { CreatedDate=DateTime.Now, DocumentTypeID = "XT"}
+
+            };
+                context.PurchaseOrders.AddRange(listItem);
+                context.SaveChanges();
+            }
+        }
+
+        private void CreatePurchaseOrderDetailSample(tojitojiDbContext context)
+        {
+            if (context.PurchaseOrderDetails.Count() == 0)
+            {
+                List<PurchaseOrderDetail> listItem = new List<PurchaseOrderDetail>()
+            {
+                new PurchaseOrderDetail() { PurchaseOrderID=1, PurchasingPrice=10000},
+                new PurchaseOrderDetail() { PurchaseOrderID=1, PurchasingPrice=12000},
+                new PurchaseOrderDetail() { PurchaseOrderID=2, PurchasingPrice=16000},
+
+            };
+                context.PurchaseOrderDetails.AddRange(listItem);
+                context.SaveChanges();
+            }
+        }
+
+        private void CreatePurchaseOrderDetailReturnSample(tojitojiDbContext context)
+        {
+            if (context.PurchaseOrderDetailReturns.Count() == 0)
+            {
+                List<PurchaseOrderDetailReturn> listItem = new List<PurchaseOrderDetailReturn>()
+            {
+                new PurchaseOrderDetailReturn() { ID = 1, PaymentMethod = true, StatusPayment = false, DocumentTypeID="XT"},
+
+            };
+                context.PurchaseOrderDetailReturns.AddRange(listItem);
                 context.SaveChanges();
             }
         }

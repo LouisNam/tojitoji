@@ -23,6 +23,10 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<Campaign, CampaignViewModel>();
                 cfg.CreateMap<Warehouse, WarehouseViewModel>();
                 cfg.CreateMap<InventoryTransaction, InventoryTransactionViewModel>();
+                cfg.CreateMap<DocumentType, DocumentTypeViewModel>();
+                cfg.CreateMap<PurchaseOrder, PurchaseOrderViewModel>();
+                cfg.CreateMap<PurchaseOrderDetail, PurchaseOrderDetailViewModel>();
+                cfg.CreateMap<PurchaseOrderDetailReturn, PurchaseOrderDetailReturnViewModel>();
             });
         }
     }

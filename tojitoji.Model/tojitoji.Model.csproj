@@ -57,12 +57,15 @@
     <Compile Include="Models\CampaignSKU.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CompanyInformation.cs" />
+    <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Human.cs" />
     <Compile Include="Models\HumanType.cs" />
     <Compile Include="Models\InventoryTransaction.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />
+    <Compile Include="Models\PurchaseOrderDetail.cs" />
+    <Compile Include="Models\PurchaseOrderDetailReturn.cs" />
     <Compile Include="Models\SKU.cs" />
     <Compile Include="Models\SKULazada.cs" />
     <Compile Include="Models\Warehouse.cs" />
