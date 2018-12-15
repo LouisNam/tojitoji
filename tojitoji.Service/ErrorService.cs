@@ -1,4 +1,5 @@
-﻿using tojitoji.Data.Infrastructure;
+﻿using System.Collections.Generic;
+using tojitoji.Data.Infrastructure;
 using tojitoji.Data.Repositories;
 using tojitoji.Model.Models;
 
@@ -9,6 +10,8 @@ namespace tojitoji.Service
         Error Create(Error error);
 
         void Save();
+
+        IEnumerable<Error> GetAll();
     }
 
     public class ErrorService : IErrorService
@@ -25,6 +28,11 @@ namespace tojitoji.Service
         public Error Create(Error error)
         {
             return _errorRepository.Add(error);
+        }
+
+        public IEnumerable<Error> GetAll()
+        {
+            return _errorRepository.GetAll();
         }
 
         public void Save()

@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201812131502057_AddWarehouseTable.Designer.cs">
       <DependentUpon>201812131502057_AddWarehouseTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812151357111_AddPurchaseOrderTable.cs" />
+    <Compile Include="Migrations\201812151357111_AddPurchaseOrderTable.Designer.cs">
+      <DependentUpon>201812151357111_AddPurchaseOrderTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
@@ -72,11 +76,15 @@
     <Compile Include="Repositories\CampaignSKURepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\CompanyInformationRepository.cs" />
+    <Compile Include="Repositories\DocumentTypeRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\HumanRepository.cs" />
     <Compile Include="Repositories\HumanTypeRepository.cs" />
     <Compile Include="Repositories\InventoryTransactionRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\PurchaseOrderDetailRepository.cs" />
+    <Compile Include="Repositories\PurchaseOrderDetailReturnRepository.cs" />
+    <Compile Include="Repositories\PurchaseOrderRepository.cs" />
     <Compile Include="Repositories\SKULazadaRepository.cs" />
     <Compile Include="Repositories\SKURepository.cs" />
     <Compile Include="Repositories\WarehouseRepository.cs" />
@@ -102,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812131502057_AddWarehouseTable.resx">
       <DependentUpon>201812131502057_AddWarehouseTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812151357111_AddPurchaseOrderTable.resx">
+      <DependentUpon>201812151357111_AddPurchaseOrderTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

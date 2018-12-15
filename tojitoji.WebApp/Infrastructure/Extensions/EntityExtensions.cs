@@ -181,5 +181,70 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             inventoryTransaction.Status = inventoryTransactionVM.Status;
             inventoryTransaction.Note = inventoryTransactionVM.Note;
         }
+
+        public static void UpdatePurchaseOrder(this PurchaseOrder purchaseOrder, PurchaseOrderViewModel purchaseOrderVM)
+        {
+            purchaseOrder.ID = purchaseOrderVM.ID;
+            purchaseOrder.CreatedDate = purchaseOrderVM.CreatedDate;
+            purchaseOrder.DocumentTypeID = purchaseOrderVM.DocumentTypeID;
+            purchaseOrder.DocumentID = purchaseOrderVM.DocumentID;
+            purchaseOrder.Description = purchaseOrderVM.Description;
+            purchaseOrder.SupplierID = purchaseOrderVM.SupplierID;
+            purchaseOrder.SubmittedByID = purchaseOrderVM.SubmittedByID;
+            purchaseOrder.SubmittedDate = purchaseOrderVM.SubmittedDate;
+            purchaseOrder.ApprovedByID = purchaseOrderVM.ApprovedByID;
+            purchaseOrder.ApprovedDate = purchaseOrderVM.ApprovedDate;
+            purchaseOrder.Note = purchaseOrderVM.Note;
+            purchaseOrder.PurchasePlace = purchaseOrderVM.PurchasePlace;
+        }
+
+        public static void UpdatePurchaseOrderDetail(this PurchaseOrderDetail purchaseOrderDetail, PurchaseOrderDetailViewModel purchaseOrderDetailVM)
+        {
+            purchaseOrderDetail.ID = purchaseOrderDetailVM.ID;
+            purchaseOrderDetail.ItemID = purchaseOrderDetailVM.ItemID;
+            purchaseOrderDetail.ProductID = purchaseOrderDetailVM.ProductID;
+            purchaseOrderDetail.PurchaseOrderID = purchaseOrderDetailVM.PurchaseOrderID;
+            purchaseOrderDetail.Status = purchaseOrderDetailVM.Status;
+            purchaseOrderDetail.PurchasingPrice = purchaseOrderDetailVM.PurchasingPrice;
+            purchaseOrderDetail.DiscountPercent = purchaseOrderDetailVM.DiscountPercent;
+            purchaseOrderDetail.DiscountAmount = purchaseOrderDetailVM.DiscountAmount;
+            purchaseOrderDetail.DiscountReason = purchaseOrderDetailVM.DiscountReason;
+            purchaseOrderDetail.ShippingFeeDistributor = purchaseOrderDetailVM.ShippingFeeDistributor;
+            purchaseOrderDetail.ShippingFee = purchaseOrderDetailVM.ShippingFee;
+            purchaseOrderDetail.Subsidize = purchaseOrderDetailVM.Subsidize;
+            purchaseOrderDetail.UnitCost = purchaseOrderDetailVM.UnitCost;
+            purchaseOrderDetail.StatusPayment = purchaseOrderDetailVM.StatusPayment;
+            purchaseOrderDetail.DocumentNo = purchaseOrderDetailVM.DocumentNo;
+            purchaseOrderDetail.PaymentMethod = purchaseOrderDetailVM.PaymentMethod;
+            purchaseOrderDetail.CreatedDate = purchaseOrderDetailVM.CreatedDate;
+            purchaseOrderDetail.UpdatedDate = purchaseOrderDetailVM.UpdatedDate;
+            purchaseOrderDetail.ShippingTime = purchaseOrderDetailVM.ShippingTime;
+            purchaseOrderDetail.CanceledTime = purchaseOrderDetailVM.CanceledTime;
+            purchaseOrderDetail.DeliveriedETA = purchaseOrderDetailVM.DeliveriedETA;
+            purchaseOrderDetail.DeliveriedTime = purchaseOrderDetailVM.DeliveriedTime;
+            purchaseOrderDetail.FailedTime = purchaseOrderDetailVM.FailedTime;
+            purchaseOrderDetail.PaidTime = purchaseOrderDetailVM.PaidTime;
+            purchaseOrderDetail.ShippingParcel = purchaseOrderDetailVM.ShippingParcel;
+            purchaseOrderDetail.TKN = purchaseOrderDetailVM.TKN;
+            purchaseOrderDetail.TKC = purchaseOrderDetailVM.TKC;
+        }
+        public static void UpdatePurchaseOrderDetailReturn(this PurchaseOrderDetailReturn purchaseOrderDetailReturn, PurchaseOrderDetailReturnViewModel purchaseOrderDetailReturnVM)
+        {
+            purchaseOrderDetailReturn.ID = purchaseOrderDetailReturnVM.ID;
+            purchaseOrderDetailReturn.ReturnedTime = purchaseOrderDetailReturnVM.ReturnedTime;
+            purchaseOrderDetailReturn.ReturnedParcel = purchaseOrderDetailReturnVM.ReturnedParcel;
+            purchaseOrderDetailReturn.ReturnedAmount = purchaseOrderDetailReturnVM.ReturnedAmount;
+            purchaseOrderDetailReturn.ReturnedAmountTime = purchaseOrderDetailReturnVM.ReturnedAmountTime;
+            purchaseOrderDetailReturn.PaymentMethod = purchaseOrderDetailReturnVM.PaymentMethod;
+            purchaseOrderDetailReturn.TKN = purchaseOrderDetailReturnVM.TKN;
+            purchaseOrderDetailReturn.TKC = purchaseOrderDetailReturnVM.TKC;
+            purchaseOrderDetailReturn.StatusPayment = purchaseOrderDetailReturnVM.StatusPayment;
+            purchaseOrderDetailReturn.DocumentNo = purchaseOrderDetailReturnVM.DocumentNo;
+            purchaseOrderDetailReturn.PurchaseOrderReturnID = purchaseOrderDetailReturnVM.PurchaseOrderReturnID;
+            purchaseOrderDetailReturn.CreatedDate = purchaseOrderDetailReturnVM.CreatedDate;
+            purchaseOrderDetailReturn.DocumentTypeID = purchaseOrderDetailReturnVM.DocumentTypeID;
+            purchaseOrderDetailReturn.MaChungTu = purchaseOrderDetailReturnVM.MaChungTu;
+            purchaseOrderDetailReturn.Description = purchaseOrderDetailReturnVM.Description;
+        }
     }
 }

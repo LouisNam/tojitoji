@@ -13,6 +13,7 @@ namespace tojitoji.Data
 
         public DbSet<Error> Errors { set; get; }
         public DbSet<Account> Accounts { set; get; }
+        public DbSet<DocumentType> DocumentTypes { set; get; }
         public DbSet<CompanyInformation> CompanyInformations { set; get; }
         public DbSet<Human> Humans { set; get; }
         public DbSet<HumanType> HumanTypes { set; get; }
@@ -24,7 +25,10 @@ namespace tojitoji.Data
         public DbSet<Campaign> Campaigns { set; get; }
         public DbSet<CampaignSKU> CampaignSKUs { set; get; }
         public DbSet<Warehouse> Warehouses { set; get; }
-        public DbSet<InventoryTransaction> InventoryTransactions { set; get; }
+        public DbSet<InventoryTransaction> InventoryTransactions { set; get; }        
+        public DbSet<PurchaseOrder> PurchaseOrders { set; get; }
+        public DbSet<PurchaseOrderDetail> PurchaseOrderDetails { set; get; }
+        public DbSet<PurchaseOrderDetailReturn> PurchaseOrderDetailReturns { set; get; }
 
         //public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
         //public DbSet<ApplicationRole> ApplicationRoles { set; get; }
@@ -36,12 +40,17 @@ namespace tojitoji.Data
             return new tojitojiDbContext();
         }
 
-        //protected override void OnModelCreating(DbModelBuilder builder)
-        //{
-        //    builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId }).ToTable("ApplicationUserRoles");
-        //    builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId).ToTable("ApplicationUserLogins");
-        //    builder.Entity<IdentityRole>().ToTable("ApplicationRoles");
-        //    builder.Entity<IdentityUserClaim>().HasKey(i => i.UserId).ToTable("ApplicationUserClaims");
-        //}
+        protected override void OnModelCreating(DbModelBuilder builder)
+        {
+            //builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId }).ToTable("ApplicationUserRoles");
+            //builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId).ToTable("ApplicationUserLogins");
+            //builder.Entity<IdentityRole>().ToTable("ApplicationRoles");
+            //builder.Entity<IdentityUserClaim>().HasKey(i => i.UserId).ToTable("ApplicationUserClaims");
+            //builder.Entity<Human>()
+            //        .HasRequired(m => m.HumanType)
+            //        .WithMany(t => t.Humans)
+            //        .HasForeignKey(m => m.TypeID)
+            //        .WillCascadeOnDelete(false);
+        }
     }
 }
