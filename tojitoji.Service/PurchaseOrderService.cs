@@ -43,7 +43,7 @@ namespace tojitoji.Service
 
         public IEnumerable<PurchaseOrder> GetAll()
         {
-            return _purchaseOrderRepository.GetAll();
+            return _purchaseOrderRepository.GetAll(new string[] { "Supplier", "Submit", "Approve" });
         }
 
         public PurchaseOrder GetById(int id)

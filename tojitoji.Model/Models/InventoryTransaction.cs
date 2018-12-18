@@ -19,6 +19,8 @@ namespace tojitoji.Model.Models
 
         public int? ItemID { set; get; } // Mã hàng
 
+        public int? ProductID { set; get; }
+
         public int? ParcelID { set; get; } // Mã gói hàng
 
         public int? WarehouseID { set; get; } // Mã kho
@@ -29,5 +31,8 @@ namespace tojitoji.Model.Models
 
         [ForeignKey("WarehouseID")]
         public virtual Warehouse Warehouse { set; get; }
+
+        [ForeignKey("ProductID")]
+        public virtual Product Product { set; get; }
     }
 }
