@@ -13,6 +13,7 @@
         'tojitojishop.campaigns',
         'tojitojishop.warehouses',
         'tojitojishop.inventorytransactions',
+        'tojitojishop.purchaseOrders',
         'tojitojishop.common'
     ]).config(config);
 

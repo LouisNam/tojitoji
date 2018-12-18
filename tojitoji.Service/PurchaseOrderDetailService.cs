@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using tojitoji.Data.Infrastructure;
 using tojitoji.Data.Repositories;
 using tojitoji.Model.Models;
@@ -13,11 +14,13 @@ namespace tojitoji.Service
 
         PurchaseOrderDetail Delete(int id);
 
-        IEnumerable<PurchaseOrderDetail> GetAll();
+        IEnumerable<PurchaseOrderDetail> GetAll(int id);
 
         PurchaseOrderDetail GetById(int id);
 
         void SaveChanges();
+
+        void CreatePurchaseOrderDetail(int productID, int purchaseOrderID, decimal price, int quantity);
     }
 
     public class PurchaseOrderDetailService : IPurchaseOrderDetailService
@@ -36,14 +39,19 @@ namespace tojitoji.Service
             return _purchaseOrderDetailRepository.Add(purchaseOrderDetail);
         }
 
+        public void CreatePurchaseOrderDetail(int productID, int purchaseOrderID, decimal price, int quantity)
+        {
+            _purchaseOrderDetailRepository.CreatePurchaseOrderDetail(productID, purchaseOrderID, price, quantity);
+        }
+
         public PurchaseOrderDetail Delete(int id)
         {
             return _purchaseOrderDetailRepository.Delete(id);
         }
 
-        public IEnumerable<PurchaseOrderDetail> GetAll()
+        public IEnumerable<PurchaseOrderDetail> GetAll(int id)
         {
-            return _purchaseOrderDetailRepository.GetAll();
+            return _purchaseOrderDetailRepository.GetMulti(x => x.PurchaseOrderID == id);
         }
 
         public PurchaseOrderDetail GetById(int id)

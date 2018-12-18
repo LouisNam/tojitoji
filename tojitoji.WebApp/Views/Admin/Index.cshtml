@@ -86,28 +86,33 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MENU</li>
                     <li class="treeview">
-                        <a ui-sref="campaigns">
-                            <i class="fas fa-hand-holding-usd"></i> <span>Campaign</span>
-                        </a>
-                    </li>
-                    <li class="treeview">
                         <a href="#">
-                            <i class="fas fa-th-large"></i> <span>Sản phẩm</span><i class="fa fa-angle-left pull-right"></i>
+                            <i class="fas fa-file-invoice-dollar"></i> <span>Hóa đơn</span><i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="categories"><i class="fas fa-clipboard"></i> Danh mục </a></li>
-                            <li><a ui-sref="products"><i class="fab fa-product-hunt"></i> Sản phẩm </a></li>
-                            <li><a ui-sref="bundles"><i class="fas fa-file-archive"></i> Bundle </a></li>
-                            <li><a ui-sref="skus"><i class="fas fa-file-archive"></i> SKU </a></li>
+                            <li><a ui-sref="purchaseOrders"><i class="far fa-circle"></i> Hóa đơn mua </a></li>
+                            <li><a ui-sref="#"><i class="far fa-circle"></i> Hóa đơn bán </a></li>
                         </ul>
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fas fa-asterisk"></i> <span>Kho hàng</span><i class="fa fa-angle-left pull-right"></i>
+                            <i class="fab fa-product-hunt"></i> <span>Sản phẩm</span><i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a ui-sref="warehouses"><i class="fas fa-warehouse"></i> Kho </a></li>
-                            <li><a ui-sref="inventorytransactions"><i class="fas fa-truck-moving"></i> Transaction </a></li>
+                            <li><a ui-sref="categories"><i class="far fa-circle"></i> Danh mục </a></li>
+                            <li><a ui-sref="products"><i class="far fa-circle"></i> Sản phẩm </a></li>
+                            <li><a ui-sref="bundles"><i class="far fa-circle"></i> Bundle </a></li>
+                            <li><a ui-sref="skus"><i class="far fa-circle"></i> SKU </a></li>
+                            <li><a ui-sref="campaigns"><i class="far fa-circle"></i> Campaign </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fas fa-warehouse"></i> <span>Kho hàng</span><i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="warehouses"><i class="far fa-circle"></i> Kho </a></li>
+                            <li><a ui-sref="inventorytransactions"><i class="far fa-circle"></i> Transaction </a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -127,7 +132,7 @@
                             <li><a ui-sref="accounts"><i class="far fa-circle"></i> Danh sách </a></li>
                             <li><a ui-sref="documenttypes"><i class="far fa-circle"></i> Loại chứng từ </a></li>
                         </ul>
-                    </li>
+                    </li>                    
                     <li class="header">SYSTEMS</li>
                     <li class="treeview">
                         <a ui-sref="companyInformations">
@@ -191,7 +196,8 @@
     <script src="~/app/components/campaigns/campaigns.module.js"></script>
     <script src="~/app/components/warehouses/warehouses.module.js"></script>
     <script src="~/app/components/inventorytransactions/inventorytransactions.module.js"></script>
-    <script src="~/app/components/documenttypes/documenttypes.module.js"></script>>
+    <script src="~/app/components/documenttypes/documenttypes.module.js"></script>
+    <script src="~/app/components/purchaseOrders/purchaseOrders.module.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/app.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
@@ -235,5 +241,7 @@
     <script src="~/app/components/inventorytransactions/inventorytransactionListController.js"></script>
     <script src="~/app/components/inventorytransactions/inventorytransactionAddController.js"></script>
     <script src="~/app/components/inventorytransactions/inventorytransactionEditController.js"></script>
+    <script src="~/app/components/purchaseOrders/purchaseOrderListController.js"></script>
+    <script src="~/app/components/purchaseOrders/purchaseOrderDetailController.js"></script>
 </body>
 </html>

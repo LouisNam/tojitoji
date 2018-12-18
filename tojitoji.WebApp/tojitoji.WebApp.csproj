@@ -188,6 +188,8 @@
     <Compile Include="Api\HumanTypeController.cs" />
     <Compile Include="Api\InventoryTransactionController.cs" />
     <Compile Include="Api\ProductController.cs" />
+    <Compile Include="Api\PurchaseOrderController.cs" />
+    <Compile Include="Api\PurchaseOrderDetailController.cs" />
     <Compile Include="Api\SKUController.cs" />
     <Compile Include="Api\WarehouseController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -302,6 +304,11 @@
     <Content Include="app\components\products\productEditView.html" />
     <Content Include="app\components\products\productListController.js" />
     <Content Include="app\components\products\productListView.html" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailView.html" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderListController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderListView.html" />
+    <Content Include="app\components\purchaseOrders\purchaseOrders.module.js" />
     <Content Include="app\components\skus\skuAddController.js" />
     <Content Include="app\components\skus\skuAddView.html" />
     <Content Include="app\components\skus\skuEditController.js" />
