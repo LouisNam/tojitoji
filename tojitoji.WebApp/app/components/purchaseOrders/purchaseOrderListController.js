@@ -1,39 +1,19 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function (app) {
+﻿(function (app) {
     app.controller('purchaseOrderListController', purchaseOrderListController);
 
-    purchaseOrderListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService'];
+    purchaseOrderListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService', '$rootScope', '$element'];
 
-    function purchaseOrderListController($scope, apiService, ModalService, $ngBootbox, notificationService) {
+    function purchaseOrderListController($scope, apiService, ModalService, $ngBootbox, notificationService, $rootScope, $element) {
         $scope.purchaseOrder = [];
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.getPurchaseOrder = getPurchaseOrder;
-
         $scope.showDetail = showDetail;
-
-        //$scope.deletepurchaseOrder = deletepurchaseOrder;
-
-        //function deletepurchaseOrder(id) {
-        //    $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-        //        var config = {
-        //            params: {
-        //                id: id
-        //            }
-        //        }
-        //        apiService.del('api/purchaseOrder/delete', config, function () {
-        //            notificationService.displaySuccess('Xóa thành công');
-        //            getpurchaseOrder();
-        //        }, function () {
-        //            notificationService.displayError('Xóa không thành công');
-        //        })
-        //    });
-        //}
 
         function showDetail(id) {
             ModalService.showModal({
-                templateUrl: "/app/components/purchaseOrders/purchaseOrderDetailView.html",
-                controller: "purchaseOrderDetailController",
+                templateUrl: "/app/components/purchaseOrders/purchaseOrderDetailListView.html",
+                controller: "purchaseOrderDetailListController",
                 preClose: (modal) => { modal.element.modal('hide'); },
                 inputs: {
                     id: id
@@ -43,8 +23,12 @@
                 modal.close;
             }).catch(function (error) {
                 console.log(error);
-            });
+            });            
         }
+
+        $rootScope.$on('loadDetail', function (event, id) {
+            $scope.showDetail(id);
+        });
 
         function getPurchaseOrder(page) {
             page = page || 0;

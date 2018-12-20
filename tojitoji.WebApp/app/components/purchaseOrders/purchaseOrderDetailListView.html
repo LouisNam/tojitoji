@@ -1,0 +1,51 @@
+﻿<div class="modal fade" role="dialog" style="overflow: auto">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Danh sách chi tiết đơn mua hàng</h3>                
+            </div>
+            <div class="modal-body">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Mã hàng</th>
+                                <th>Sản phẩm</th>
+                                <th>Trạng thái</th>
+                                <th>Giá mua</th>
+                                <th>Tình trạng thanh toán</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in purchaseOrderDetails" ng-click="showDetail(item.ID)">
+                                <td>{{item.ItemID}}</td>
+                                <td>{{item.ProductID}}</td>
+                                <td>{{item.Status}}</td>
+                                <td>{{item.PurchasingPrice}}</td>
+                                <td>{{item.StatusPayment}}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" ui-sref="edit_product({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
+                                    <button class="btn  btn-sm btn-danger" ng-click="deleteProduct(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div ng-if="loading">
+                        <div class="col-xs-4"></div>
+                        <div id="preloader">
+                            <div id="loader"></div>
+                        </div>
+                        <div class="col-xs-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h1 class="hidden" ng-model="id">id: {{id}}</h1>
+                <button class="btn btn-success pull-left" ng-click="addPurchaseOrderDetail(id); close();"><i class="fas fa-plus-square"></i></button>
+                <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

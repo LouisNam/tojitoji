@@ -304,8 +304,12 @@
     <Content Include="app\components\products\productEditView.html" />
     <Content Include="app\components\products\productListController.js" />
     <Content Include="app\components\products\productListView.html" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailAddController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderDetailController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailListController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailAddView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrderDetailView.html" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailListView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrderListController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderListView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrders.module.js" />

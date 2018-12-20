@@ -2,37 +2,108 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="modal-title">Chi tiết</h3>
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Chi tiết mã hàng: {{purchaseOrderDetails.ItemID}}</h3>                
             </div>
             <div class="modal-body">
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Mã</th>
-                                <th>Mã hàng</th>
-                                <th>Sản phẩm</th>
-                                <th>Trạng thái</th>
-                                <th>Giá mua</th>
-                                <th>Tình trạng thanh toán</th>
-                                <th>#</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="item in purchaseOrderDetails">
-                                <td>{{item.ID}}</td>
-                                <td>{{item.ItemID}}</td>
-                                <td>{{item.ProductID}}</td>
-                                <td>{{item.Status}}</td>
-                                <td>{{item.PurchasingPrice}}</td>
-                                <td>{{item.StatusPayment}}</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" ui-sref="edit_product({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
-                                    <button class="btn  btn-sm btn-danger" ng-click="deleteProduct(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
+                    <table class="table table-hover" style="position: relative">
+                        <tr>
+                            <th style="width: 20%">Mã hàng</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.ItemID}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Sản phẩm</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.ProductID}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Trạng thái</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.Status}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Giá mua</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.PurchasingPrice}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Giảm giá (%)</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.DiscountPercent}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Khoản giảm giá</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.DiscountAmount}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Lý do giảm giá</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.DiscountReason}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Phí ship NCC trả</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.ShippingFeeDistributor}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Phí ship NBH trả</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.ShippingFee}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tổng tiền đền bù</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.Subsidize}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Trạng thái thanh toán</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.StatusPayment}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Phiếu chi thanh toán</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.DocumentNo}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Phương thức thanh toán</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.PaymentMethod}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian tạo</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.CreatedDate}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian cập nhật</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.UpdatedDate}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian giao cho đơn vị vận chuyển</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.ShippingTime}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian hủy đơn</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.CanceledTime}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian giao vận chuyển dự kiến</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.DeliveriedETA}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian vận chuyển</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.DeliveriedTime}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian rớt đơn</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.FailedTime}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Thời gian thanh toán</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.PaidTime}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Mã kiện hàng giao đi</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.ShippingParcel}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tài khoản nợ</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.TKN}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Tài khoản có</th>
+                            <td style="width: 80%">{{purchaseOrderDetails.TKC}}</td>
+                        </tr>
                     </table>
                     <div ng-if="loading">
                         <div class="col-xs-4"></div>
@@ -43,9 +114,8 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <!--<button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">Đóng</button>-->
-                <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+            <div class="modal-footer">                
+                <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">Đóng</button>
             </div>
         </div>
     </div>
