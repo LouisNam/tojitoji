@@ -72,9 +72,9 @@
     <Compile Include="Migrations\201812171537049_AddProductIDToInventoryTable.Designer.cs">
       <DependentUpon>201812171537049_AddProductIDToInventoryTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812181318598_AddPurchaseOrderDetailSP.cs" />
-    <Compile Include="Migrations\201812181318598_AddPurchaseOrderDetailSP.Designer.cs">
-      <DependentUpon>201812181318598_AddPurchaseOrderDetailSP.cs</DependentUpon>
+    <Compile Include="Migrations\201812191435237_AddCreatePurchaseOrderDetailSP.cs" />
+    <Compile Include="Migrations\201812191435237_AddCreatePurchaseOrderDetailSP.Designer.cs">
+      <DependentUpon>201812191435237_AddCreatePurchaseOrderDetailSP.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,8 +125,8 @@
     <EmbeddedResource Include="Migrations\201812171537049_AddProductIDToInventoryTable.resx">
       <DependentUpon>201812171537049_AddProductIDToInventoryTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812181318598_AddPurchaseOrderDetailSP.resx">
-      <DependentUpon>201812181318598_AddPurchaseOrderDetailSP.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812191435237_AddCreatePurchaseOrderDetailSP.resx">
+      <DependentUpon>201812191435237_AddCreatePurchaseOrderDetailSP.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

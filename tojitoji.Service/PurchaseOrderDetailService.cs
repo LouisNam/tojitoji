@@ -20,7 +20,7 @@ namespace tojitoji.Service
 
         void SaveChanges();
 
-        void CreatePurchaseOrderDetail(int productID, int purchaseOrderID, decimal price, int quantity);
+        void CreatePurchaseOrderDetail(int productID, int purchaseOrderID, decimal price, int quantity, string Status, decimal? DiscountPercent, decimal? DiscountAmount, string DiscountReason, decimal? ShippingFeeDistributor, decimal? ShippingFee, decimal? Subsidize, decimal? UnitCost, bool StatusPayment, int? DocumentNo, bool? PaymentMethod, DateTime CreatedDate, DateTime? UpdatedDate, DateTime? ShippingTime, DateTime? CanceledTime, DateTime? DeliveriedETA, DateTime? DeliveriedTime, DateTime? FailedTime, DateTime? PaidTime, string ShippingParcel, string TKN, string TKC);
     }
 
     public class PurchaseOrderDetailService : IPurchaseOrderDetailService
@@ -37,11 +37,6 @@ namespace tojitoji.Service
         public PurchaseOrderDetail Add(PurchaseOrderDetail purchaseOrderDetail)
         {
             return _purchaseOrderDetailRepository.Add(purchaseOrderDetail);
-        }
-
-        public void CreatePurchaseOrderDetail(int productID, int purchaseOrderID, decimal price, int quantity)
-        {
-            _purchaseOrderDetailRepository.CreatePurchaseOrderDetail(productID, purchaseOrderID, price, quantity);
         }
 
         public PurchaseOrderDetail Delete(int id)
@@ -67,6 +62,11 @@ namespace tojitoji.Service
         public void Update(PurchaseOrderDetail purchaseOrderDetail)
         {
             _purchaseOrderDetailRepository.Update(purchaseOrderDetail);
+        }
+
+        public void CreatePurchaseOrderDetail(int productID, int purchaseOrderID, decimal price, int quantity, string Status, decimal? DiscountPercent, decimal? DiscountAmount, string DiscountReason, decimal? ShippingFeeDistributor, decimal? ShippingFee, decimal? Subsidize, decimal? UnitCost, bool StatusPayment, int? DocumentNo, bool? PaymentMethod, DateTime CreatedDate, DateTime? UpdatedDate, DateTime? ShippingTime, DateTime? CanceledTime, DateTime? DeliveriedETA, DateTime? DeliveriedTime, DateTime? FailedTime, DateTime? PaidTime, string ShippingParcel, string TKN, string TKC)
+        {
+            _purchaseOrderDetailRepository.CreatePurchaseOrderDetail(productID, purchaseOrderID, price, quantity, Status, DiscountPercent, DiscountAmount, DiscountReason, ShippingFeeDistributor, ShippingFee, Subsidize, UnitCost, StatusPayment, DocumentNo, PaymentMethod, CreatedDate, UpdatedDate, ShippingTime, CanceledTime, DeliveriedETA, DeliveriedTime, FailedTime, PaidTime, ShippingParcel, TKN, TKC);
         }
     }
 }

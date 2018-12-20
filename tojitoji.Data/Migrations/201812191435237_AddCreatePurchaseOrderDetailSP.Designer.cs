@@ -7,13 +7,13 @@ namespace tojitoji.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddPurchaseOrderDetailSP : IMigrationMetadata
+    public sealed partial class AddCreatePurchaseOrderDetailSP : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddPurchaseOrderDetailSP));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCreatePurchaseOrderDetailSP));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812181318598_AddPurchaseOrderDetailSP"; }
+            get { return "201812191435237_AddCreatePurchaseOrderDetailSP"; }
         }
         
         string IMigrationMetadata.Source

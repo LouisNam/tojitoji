@@ -1,0 +1,153 @@
+﻿<div class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" style="width: 70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Thêm chi tiết đơn mua hàng</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" novalidate name="frmAddPurchaseOrderDetail" role="form" ng-submit="addPurchaseOrderDetail()">
+                    <div class="box-body">
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Chọn sản phẩm</label>
+                            <div class="col-sm-4">
+                                <ui-select ng-model="purchaseOrderDetail.ProductID" name="ProductID" ng-required="true" theme="bootstrap" style="min-width: 300px;" title="Chọn sản phẩm">
+                                    <ui-select-match placeholder="Vui lòng chọn sản phẩm">{{$select.selected.Name}}</ui-select-match>
+                                    <ui-select-choices repeat="item.ID as item in products | filter: $select.search">
+                                        <div ng-bind-html="item.Name | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <span ng-show="frmAddPurchaseOrderDetail.ProductID.$invalid" class="text-danger">Vui lòng chọn sản phẩm</span>
+                                <input type="hidden" ng-model="purchaseOrderDetail.ProductID" />
+                            </div>
+                            <label class="col-sm-2 control-label">Số lượng</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-required="true" name="Quantity" ng-model="purchaseOrderDetail.Quantity">
+                                <span ng-show="frmAddPurchaseOrderDetail.Quantity.$invalid" class="text-danger">Vui lòng nhập số lượng</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Trạng thái</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" disabled value="New">
+                            </div>
+                            <label class="col-sm-2 control-label">Giá mua</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-required="true" name="Price" ng-model="purchaseOrderDetail.PurchasingPrice">
+                                <span ng-show="frmAddPurchaseOrderDetail.Price.$invalid" class="text-danger">Vui lòng nhập giá mua</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Giảm giá (%)</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="purchaseOrderDetail.DiscountPercent">
+                            </div>
+                            <label class="col-sm-2 control-label">Khoản giảm giá</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="purchaseOrderDetail.DiscountAmount">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Lý do giảm</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="purchaseOrderDetail.DiscountReason">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Phí shipping NCC trả</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="purchaseOrderDetail.ShippingFeeDistributor">
+                            </div>
+                            <label class="col-sm-2 control-label">Phí shipping NBH trả</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="purchaseOrderDetail.ShippingFee">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Tổng tiền đền bù</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="purchaseOrderDetail.Subsidize">
+                            </div>
+                            <label class="col-sm-2 control-label">Tổng thực trả</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="purchaseOrderDetail.UnitCost">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Tình trạng thanh toán</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" ng-required="true" name="StatusPayment" ng-model="purchaseOrderDetail.StatusPayment">
+                                    <option value="false"ng-selected="true">Not</option>
+                                    <option value="true">Done</option>
+                                </select>
+                                <span ng-show="frmAddPurchaseOrderDetail.StatusPayment.$invalid" class="text-danger">Vui lòng chọn tình trạng thanh toán</span>
+                            </div>
+                            <label class="col-sm-2 control-label">Phiếu chi thanh toán</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="purchaseOrderDetail.DocumentNo">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Phương thức thanh toán</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" ng-required="true" name="PaymentMethod" ng-model="purchaseOrderDetail.PaymentMethod">
+                                    <option value="true" ng-selected="true">Tiền mặt</option>
+                                    <option value="false">Chuyển khoản</option>
+                                </select>
+                                <span ng-show="frmAddPurchaseOrderDetail.PaymentMethod.$invalid" class="text-danger">Vui lòng chọn phương thức thanh toán</span>
+                            </div>
+                            <label class="col-sm-2 control-label">Thời gian tạo</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.CreatedDate" value="{{ purchaseOrderDetail.CreatedDate | date: 'yyyy-MM-dd' }}" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thời gian cập nhật</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.UpdatedDate" value="{{ purchaseOrderDetail.UpdatedDate | date: 'yyyy-MM-dd' }}">
+                            </div>
+                            <label class="col-sm-2 control-label">Thời gian giao cho đơn vị vận chuyển</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.ShippingTime" value="{{ purchaseOrderDetail.ShippingTime | date: 'yyyy-MM-dd' }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thời gian hủy đơn</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.CanceledTime" value="{{ purchaseOrderDetail.CanceledTime | date: 'yyyy-MM-dd' }}">
+                            </div>
+                            <label class="col-sm-2 control-label">Thời gian vận chuyển dự kiến</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.DeliveriedETA" value="{{ purchaseOrderDetail.DeliveriedETA | date: 'yyyy-MM-dd' }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thời gian vận chuyển</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.DeliveriedTime" value="{{ purchaseOrderDetail.DeliveriedTime | date: 'yyyy-MM-dd' }}">
+                            </div>
+                            <label class="col-sm-2 control-label">Thời gian rớt đơn</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.FailedTime" value="{{ purchaseOrderDetail.FailedTime | date: 'yyyy-MM-dd' }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thời gian thanh toán</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.PaidTime" value="{{ purchaseOrderDetail.PaidTime | date: 'yyyy-MM-dd' }}">
+                            </div>
+                            <label class="col-sm-2 control-label">Mã kiện hàng giao đi</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.ShippingParcel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-success pull-right" ng-disabled="frmAddPurchaseOrderDetail.$invalid">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

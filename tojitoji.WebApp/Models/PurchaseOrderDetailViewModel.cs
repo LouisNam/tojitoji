@@ -8,7 +8,7 @@ namespace tojitoji.WebApp.Models
 
         public int? ItemID { set; get; }
 
-        public int? ProductID { set; get; }
+        public int ProductID { set; get; }
 
         public int PurchaseOrderID { set; get; }
 
@@ -30,13 +30,13 @@ namespace tojitoji.WebApp.Models
 
         public decimal? UnitCost { set; get; }
 
-        public bool? StatusPayment { set; get; }
+        public bool StatusPayment { set; get; }
 
         public int? DocumentNo { set; get; }
 
         public bool? PaymentMethod { set; get; }
 
-        public DateTime? CreatedDate { set; get; }
+        public DateTime CreatedDate { set; get; }
 
         public DateTime? UpdatedDate { set; get; }
 
@@ -61,5 +61,7 @@ namespace tojitoji.WebApp.Models
         public virtual ProductViewModel Product { set; get; }
 
         public virtual PurchaseOrderViewModel PurchaseOrder { set; get; }
+
+        public int Quantity { set; get; }
     }
 }
