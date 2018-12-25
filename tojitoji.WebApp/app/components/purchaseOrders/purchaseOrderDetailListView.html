@@ -21,13 +21,13 @@
                         <tbody>
                             <tr ng-repeat="item in purchaseOrderDetails" ng-click="showDetail(item.ID)">
                                 <td>{{item.ItemID}}</td>
-                                <td>{{item.ProductID}}</td>
+                                <td>{{item.Product.Name}}</td>
                                 <td>{{item.Status}}</td>
                                 <td>{{item.PurchasingPrice}}</td>
-                                <td>{{item.StatusPayment}}</td>
+                                <td ng-class="{'badge bg-red':item.StatusPayment==false,'badge bg-green':item.StatusPayment==true}">{{item.StatusPayment | paymentStatus}}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" ui-sref="edit_product({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
-                                    <button class="btn  btn-sm btn-danger" ng-click="deleteProduct(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-primary" ng-click="editPurchaseOrderDetail(item.ID); close(); $event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
+                                    <button class="btn  btn-sm btn-danger" ng-click="deletePurchaseOrderDetail(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         </tbody>
@@ -42,8 +42,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <h1 class="hidden" ng-model="id">id: {{id}}</h1>
-                <button class="btn btn-success pull-left" ng-click="addPurchaseOrderDetail(id); close();"><i class="fas fa-plus-square"></i></button>
+                <h1 class="hidden" ng-model="purchaseOrderID">PuchaseOrderID: {{purchaseOrderID}}</h1>
+                <button class="btn btn-success pull-left" ng-click="addPurchaseOrderDetail(purchaseOrderID); close();"><i class="fas fa-plus-square"></i></button>
                 <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">Đóng</button>
             </div>
         </div>

@@ -11,6 +11,7 @@ namespace tojitoji.Model.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
 
+        [Index(IsUnique = true)]
         public int? ItemID { set; get; }
 
         public int? ProductID { set; get; }

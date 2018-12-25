@@ -46,12 +46,12 @@ namespace tojitoji.Service
 
         public IEnumerable<PurchaseOrderDetail> GetAll(int id)
         {
-            return _purchaseOrderDetailRepository.GetMulti(x => x.PurchaseOrderID == id);
+            return _purchaseOrderDetailRepository.GetMulti(x => x.PurchaseOrderID == id, new string[] { "Product" });
         }
 
         public PurchaseOrderDetail GetById(int id)
         {
-            return _purchaseOrderDetailRepository.GetSingleById(id);
+            return _purchaseOrderDetailRepository.GetSingleByCondition(x=>x.ID == id, new string[] { "Product" });
         }
 
         public void SaveChanges()

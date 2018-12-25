@@ -228,6 +228,7 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             purchaseOrderDetail.TKN = purchaseOrderDetailVM.TKN;
             purchaseOrderDetail.TKC = purchaseOrderDetailVM.TKC;
         }
+
         public static void UpdatePurchaseOrderDetailReturn(this PurchaseOrderDetailReturn purchaseOrderDetailReturn, PurchaseOrderDetailReturnViewModel purchaseOrderDetailReturnVM)
         {
             purchaseOrderDetailReturn.ID = purchaseOrderDetailReturnVM.ID;
@@ -245,6 +246,100 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             purchaseOrderDetailReturn.DocumentTypeID = purchaseOrderDetailReturnVM.DocumentTypeID;
             purchaseOrderDetailReturn.MaChungTu = purchaseOrderDetailReturnVM.MaChungTu;
             purchaseOrderDetailReturn.Description = purchaseOrderDetailReturnVM.Description;
+        }
+
+        public static void UpdateSalesOrder(this SalesOrder salesOrder, SalesOrderViewModel salesOrderVM)
+        {
+            salesOrder.ID = salesOrderVM.ID;
+            salesOrder.CreatedDate = salesOrderVM.CreatedDate;
+            salesOrder.DocumentTypeID = salesOrderVM.DocumentTypeID;
+            salesOrder.DocumentID = salesOrderVM.DocumentID;
+            salesOrder.Description = salesOrderVM.Description;
+            salesOrder.CustomerID = salesOrderVM.CustomerID;
+            salesOrder.StaffID = salesOrderVM.StaffID;
+            salesOrder.SalesPlace = salesOrderVM.SalesPlace;
+            salesOrder.WarehouseID = salesOrderVM.WarehouseID;
+            salesOrder.PartnerOrderID = salesOrderVM.PartnerOrderID;
+        }
+
+        public static void UpdateSalesOrderDetail(this SalesOrderDetail salesOrderDetail, SalesOrderDetailViewModel salesOrderDetailVM)
+        {
+            salesOrderDetail.ID = salesOrderDetailVM.ID;
+            salesOrderDetail.SalesOrderID = salesOrderDetailVM.SalesOrderID;
+            salesOrderDetail.ItemID = salesOrderDetailVM.ItemID;
+            salesOrderDetail.SKU = salesOrderDetailVM.SKU;
+            salesOrderDetail.Status = salesOrderDetailVM.Status;
+            salesOrderDetail.SellingPrice = salesOrderDetailVM.SellingPrice;
+            salesOrderDetail.DiscountPercent = salesOrderDetailVM.DiscountPercent;
+            salesOrderDetail.DiscountAmount = salesOrderDetailVM.DiscountAmount;
+            salesOrderDetail.DiscountReason = salesOrderDetailVM.DiscountReason;
+            salesOrderDetail.ShippingFee = salesOrderDetailVM.ShippingFee;
+            salesOrderDetail.ShippingFreeCustomer = salesOrderDetailVM.ShippingFreeCustomer;
+            salesOrderDetail.OtherFee = salesOrderDetailVM.OtherFee;
+            salesOrderDetail.CustomerPaid = salesOrderDetailVM.CustomerPaid;
+            salesOrderDetail.Refund = salesOrderDetailVM.Refund;
+            salesOrderDetail.StatusPayment = salesOrderDetailVM.StatusPayment;
+            salesOrderDetail.PaymentMethod = salesOrderDetailVM.PaymentMethod;
+            salesOrderDetail.PartnerOrderItemID = salesOrderDetailVM.PartnerOrderItemID;
+            salesOrderDetail.CustomerComment = salesOrderDetailVM.CustomerComment;
+            salesOrderDetail.CustomerRating = salesOrderDetailVM.CustomerRating;
+            salesOrderDetail.Note = salesOrderDetailVM.Note;
+            salesOrderDetail.UpdatedTime = salesOrderDetailVM.UpdatedTime;
+            salesOrderDetail.CreatedTime = salesOrderDetailVM.CreatedTime;
+            salesOrderDetail.ShippingTime = salesOrderDetailVM.ShippingTime;
+            salesOrderDetail.CanceledTime = salesOrderDetailVM.CanceledTime;
+            salesOrderDetail.DeliveriedETA = salesOrderDetailVM.DeliveriedETA;
+            salesOrderDetail.DeliveriedTime = salesOrderDetailVM.DeliveriedTime;
+            salesOrderDetail.FailedTime = salesOrderDetailVM.FailedTime;
+            salesOrderDetail.PaidTime = salesOrderDetailVM.PaidTime;
+            salesOrderDetail.BillingName = salesOrderDetailVM.BillingName;
+            salesOrderDetail.BillingPhoneNumber1 = salesOrderDetailVM.BillingPhoneNumber1;
+            salesOrderDetail.BillingPhoneNumber2 = salesOrderDetailVM.BillingPhoneNumber2;
+            salesOrderDetail.BillingAddress = salesOrderDetailVM.BillingAddress;
+            salesOrderDetail.BillingWard = salesOrderDetailVM.BillingWard;
+            salesOrderDetail.BillingDistrict = salesOrderDetailVM.BillingDistrict;
+            salesOrderDetail.BillingCity = salesOrderDetailVM.BillingCity;
+            salesOrderDetail.BillingState = salesOrderDetailVM.BillingState;
+            salesOrderDetail.BillingCountry = salesOrderDetailVM.BillingCountry;
+            salesOrderDetail.BillingZIP = salesOrderDetailVM.BillingZIP;
+            salesOrderDetail.ShippingName = salesOrderDetailVM.ShippingName;
+            salesOrderDetail.ShippingPhoneNumber1 = salesOrderDetailVM.ShippingPhoneNumber1;
+            salesOrderDetail.ShippingPhoneNumber2 = salesOrderDetailVM.ShippingPhoneNumber2;
+            salesOrderDetail.ShippingAddress = salesOrderDetailVM.ShippingAddress;
+            salesOrderDetail.ShippingWard = salesOrderDetailVM.ShippingWard;
+            salesOrderDetail.ShippingDistrict = salesOrderDetailVM.ShippingDistrict;
+            salesOrderDetail.ShippingState = salesOrderDetailVM.ShippingState;
+            salesOrderDetail.ShippingCountry = salesOrderDetailVM.ShippingCountry;
+            salesOrderDetail.ShippingZIP = salesOrderDetailVM.ShippingZIP;
+            salesOrderDetail.TrackingCode = salesOrderDetailVM.TrackingCode;
+            salesOrderDetail.TrackingURL = salesOrderDetailVM.TrackingURL;
+            salesOrderDetail.ShippingProvider = salesOrderDetailVM.ShippingProvider;
+            salesOrderDetail.ShippingMethod = salesOrderDetailVM.ShippingMethod;
+            salesOrderDetail.ShippingParcel = salesOrderDetailVM.ShippingParcel;
+            salesOrderDetail.TKNGiaVon = salesOrderDetailVM.TKNGiaVon;
+            salesOrderDetail.TKCGiaVon = salesOrderDetailVM.TKCGiaVon;
+            salesOrderDetail.TKNGiaBan = salesOrderDetailVM.TKNGiaBan;
+            salesOrderDetail.TKCGiaBan = salesOrderDetailVM.TKCGiaBan;
+            salesOrderDetail.DocumentNo = salesOrderDetailVM.DocumentNo;
+        }
+
+        public static void UpdateSalesOrderDetailReturn(this SalesOrderDetailReturn salesOrderDetailReturn, SalesOrderDetailReturnViewModel salesOrderDetailReturnVM)
+        {
+            salesOrderDetailReturn.SalesOrderDetailID = salesOrderDetailReturnVM.SalesOrderDetailID;
+            salesOrderDetailReturn.ReturnedTime = salesOrderDetailReturnVM.ReturnedTime;
+            salesOrderDetailReturn.Amount = salesOrderDetailReturnVM.Amount;
+            salesOrderDetailReturn.AmountTime = salesOrderDetailReturnVM.AmountTime;
+            salesOrderDetailReturn.Parcel = salesOrderDetailReturnVM.Parcel;
+            salesOrderDetailReturn.TKNGiaVon = salesOrderDetailReturnVM.TKNGiaVon;
+            salesOrderDetailReturn.TKCGiaVon = salesOrderDetailReturnVM.TKCGiaVon;
+            salesOrderDetailReturn.TKNGiaBan = salesOrderDetailReturnVM.TKNGiaBan;
+            salesOrderDetailReturn.TKCGiaBan = salesOrderDetailReturnVM.TKCGiaBan;
+            salesOrderDetailReturn.DocumentNo = salesOrderDetailReturnVM.DocumentNo;
+            salesOrderDetailReturn.SalesOrderReturnID = salesOrderDetailReturnVM.SalesOrderReturnID;
+            salesOrderDetailReturn.CreatedDate = salesOrderDetailReturnVM.CreatedDate;
+            salesOrderDetailReturn.DocumentTypeID = salesOrderDetailReturnVM.DocumentTypeID;
+            salesOrderDetailReturn.DocumentID = salesOrderDetailReturnVM.DocumentID;
+            salesOrderDetailReturn.Description = salesOrderDetailReturnVM.Description;
         }
     }
 }

@@ -11,7 +11,7 @@
             <div class="box-header">
                 <h3 class="box-title">Danh sách đơn mua hàng</h3>
                 <div class="box-tools" style="display:flex">
-                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_product"><i class="fas fa-plus-square"></i></button>
+                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_purchaseOrder"><i class="fas fa-plus-square"></i></button>
                     <div class="input-group input-group-sm" style="width: 150px;">
                         <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" ng-model="keyword">
                         <div class="input-group-btn">
@@ -54,8 +54,8 @@
                             <td>{{item.Note}}</td>
                             <td>{{item.PurchasePlace}}</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" ui-sref="edit_product({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="btn  btn-sm btn-danger" ng-click="deleteProduct(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_purchaseOrder({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
+                                <!--<button class="btn  btn-sm btn-danger" ng-click="deleteProduct(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>-->
                             </td>
                         </tr>
                     </tbody>

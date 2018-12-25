@@ -44,6 +44,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="tojitojiConnection-Deployment" Order="1">
+          <Destination Path="workstation id=tojitoji.mssql.somee.com%3bpacket size=4096%3buser id=louisnam_SQLLogin_2%3bpwd=i48li2w7j6%3bdata source=tojitoji.mssql.somee.com%3bpersist security info=False%3binitial catalog=tojitoji" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=.\SQLEXPRESS%3bInitial Catalog=Account%3bIntegrated Security=False%3bUser ID=sa%3bPassword=1234" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\tojitojiConnection-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -189,7 +201,11 @@
     <Compile Include="Api\InventoryTransactionController.cs" />
     <Compile Include="Api\ProductController.cs" />
     <Compile Include="Api\PurchaseOrderController.cs" />
+    <Compile Include="Api\PurchaseOrderDetailReturnController.cs" />
     <Compile Include="Api\PurchaseOrderDetailController.cs" />
+    <Compile Include="Api\SalesOrderController.cs" />
+    <Compile Include="Api\SalesOrderDetailController.cs" />
+    <Compile Include="Api\SalesOrderDetailReturnController.cs" />
     <Compile Include="Api\SKUController.cs" />
     <Compile Include="Api\WarehouseController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -219,6 +235,9 @@
     <Compile Include="Models\PurchaseOrderDetailReturnViewModel.cs" />
     <Compile Include="Models\PurchaseOrderDetailViewModel.cs" />
     <Compile Include="Models\PurchaseOrderViewModel.cs" />
+    <Compile Include="Models\SalesOrderDetailReturnViewModel.cs" />
+    <Compile Include="Models\SalesOrderDetailViewModel.cs" />
+    <Compile Include="Models\SalesOrderViewModel.cs" />
     <Compile Include="Models\SKULazadaViewModel.cs" />
     <Compile Include="Models\SKUViewModel.cs" />
     <Compile Include="Models\WarehouseViewModel.cs" />
@@ -304,8 +323,14 @@
     <Content Include="app\components\products\productEditView.html" />
     <Content Include="app\components\products\productListController.js" />
     <Content Include="app\components\products\productListView.html" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderEditController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderAddController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderEditView.html" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderAddView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrderDetailAddController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderDetailController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailEditController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailEditView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrderDetailListController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderDetailAddView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrderDetailView.html" />
@@ -332,6 +357,8 @@
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filters\accountStatus.js" />
     <Content Include="app\shared\filters\accountType.js" />
+    <Content Include="app\shared\filters\paymentStatus.js" />
+    <Content Include="app\shared\filters\paymentMethod.js" />
     <Content Include="app\shared\filters\productStatus.js" />
     <Content Include="app\shared\modules\tojitojiShop.common.js" />
     <Content Include="app\shared\services\apiService.js" />
@@ -1014,12 +1041,6 @@
     <Content Include="Assets\admin\libs\fastclick\bower.json" />
     <Content Include="Assets\admin\libs\fastclick\LICENSE" />
     <Content Include="Assets\admin\libs\fastclick\README.md" />
-    <Content Include="Assets\admin\libs\jquery\.bower.json" />
-    <Content Include="Assets\admin\libs\jquery\bower.json" />
-    <Content Include="Assets\admin\libs\jquery\dist\jquery.min.map" />
-    <Content Include="Assets\admin\libs\jquery\external\sizzle\dist\sizzle.min.map" />
-    <Content Include="Assets\admin\libs\jquery\README.md" />
-    <Content Include="Assets\admin\libs\jquery\src\.jshintrc" />
     <Content Include="Assets\admin\libs\slimScroll\.bower.json" />
     <Content Include="Assets\admin\libs\slimScroll\bower.json" />
     <Content Include="Assets\admin\libs\slimScroll\package.json" />
@@ -1180,7 +1201,15 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\admin\libs\jquery\.bower.json" />
+    <Content Include="Assets\admin\libs\jquery\bower.json" />
+    <Content Include="Assets\admin\libs\jquery\dist\jquery.min.map" />
+    <Content Include="Assets\admin\libs\jquery\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="Assets\admin\libs\jquery\README.md" />
+    <Content Include="Assets\admin\libs\jquery\src\.jshintrc" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

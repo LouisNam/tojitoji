@@ -1,0 +1,112 @@
+﻿<section class="content-header">
+    <h1>
+        Ch hóa đơn mua hàng
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="purchaseOrders">Hóa đơn mua</a></li>
+        <li class="active">Chỉnh sửa</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chỉnh sửa hóa đơn mua hàng</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmEditPurchaseOrder" role="form" ng-submit="UpdatePurchaseOrder()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Loại chứng từ</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="purchaseOrder.DocumentTypeID" name="DocumentTypeID" required theme="bootstrap" style="min-width: 300px;">
+                            <ui-select-match placeholder="Vui lòng chọn loại chứng từ">{{$select.selected.Name}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in documentTypes | filter: $select.search">
+                                <div ng-bind-html="item.Name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="frmEditPurchaseOrder.DocumentTypeID.$invalid" class="text-danger">Vui lòng chọn loại chứng từ</span>
+                        <input type="hidden" ng-model="purchaseOrder.DocumentTypeID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mã chứng từ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="purchaseOrder.DocumentID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Diễn giải chung</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" ng-model="purchaseOrder.Description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nhà cung cấp</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="purchaseOrder.SupplierID" name="SupplierID" required theme="bootstrap" style="min-width: 300px;">
+                            <ui-select-match placeholder="Vui lòng chọn nhà cung cấp">{{$select.selected.FirstName}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in humans | filter: $select.search">
+                                <div ng-bind-html="item.LastName + ' ' + item.FirstName | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="frmEditPurchaseOrder.SupplierID.$invalid" class="text-danger">Vui lòng chọn nhà cung cấp</span>
+                        <input type="hidden" ng-model="purchaseOrder.SupplierID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nhân viên mua</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="purchaseOrder.SubmittedByID" name="SubmittedByID" required theme="bootstrap" style="min-width: 300px;">
+                            <ui-select-match placeholder="Vui lòng chọn nhân viên mua">{{$select.selected.FirstName}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in humans | filter: $select.search">
+                                <div ng-bind-html="item.LastName + ' ' + item.FirstName | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="frmEditPurchaseOrder.SubmittedByID.$invalid" class="text-danger">Vui lòng chọn nhân viên mua</span>
+                        <input type="hidden" ng-model="purchaseOrder.SubmittedByID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Thời gian nộp</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" value="{{ purchaseOrder.SubmittedDate | date: 'yyyy-MM-dd' }}" ng-model="purchaseOrder.SubmittedDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nhân viên duyệt</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="purchaseOrder.ApprovedByID" name="ApprovedByID" theme="bootstrap" style="min-width: 300px;">
+                            <ui-select-match placeholder="Vui lòng chọn nhân viên duyệt">{{$select.selected.FirstName}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in humans | filter: $select.search">
+                                <div ng-bind-html="item.LastName + ' ' + item.FirstName | highlight: $select.search"></div>                              
+                            </ui-select-choices>
+                        </ui-select>                        
+                        <input type="hidden" ng-model="purchaseOrder.ApprovedByID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Thời gian duyệt</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" value="{{ purchaseOrder.ApprovedDate | date: 'yyyy-MM-dd' }}" ng-model="purchaseOrder.ApprovedDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ghi chú</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" ng-model="purchaseOrder.Note"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nơi bán</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="purchaseOrder.PurchasePlace">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button ui-sref="purchaseOrders" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right" ng-disabled="frmEditPurchaseOrder.$invalid">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('purchaseOrderListController', purchaseOrderListController);
 
-    purchaseOrderListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService', '$rootScope', '$element'];
+    purchaseOrderListController.$inject = ['$scope', 'apiService', 'ModalService', '$rootScope'];
 
-    function purchaseOrderListController($scope, apiService, ModalService, $ngBootbox, notificationService, $rootScope, $element) {
+    function purchaseOrderListController($scope, apiService, ModalService, $rootScope) {
         $scope.purchaseOrder = [];
         $scope.page = 0;
         $scope.pageCount = 0;
@@ -38,11 +38,9 @@
                     pageSize: 20
                 }
             }
-
+            
             $scope.loading = true;
             apiService.get('/api/purchaseOrder/getall', config, function (result) {
-                if (result.data.TotalCount == 0) {
-                }
                 $scope.purchaseOrder = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;

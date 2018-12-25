@@ -12,7 +12,7 @@
                 searchFunc: '&',
                 customPath: '@'
             },
-            replace: true,
+            replace: false,
             restrict: 'E',
             templateUrl: '/app/shared/directives/pagerDirective.html',
             controller: [

@@ -27,6 +27,19 @@ namespace tojitoji.WebApp.Api
 
         #endregion Initialize
 
+        [Route("getalldocumenttype")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _documentTypeService.GetAll();               
+                var responseData = Mapper.Map<IEnumerable<DocumentType>, IEnumerable<DocumentTypeViewModel>>(model);
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
         [Route("getall")]
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage request, int page, int pageSize = 20)

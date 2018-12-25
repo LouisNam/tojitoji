@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('purchaseOrderDetailController', purchaseOrderDetailController);
 
-    purchaseOrderDetailController.$inject = ['$scope', 'apiService', 'close', 'id', 'ModalService'];
+    purchaseOrderDetailController.$inject = ['$scope', 'apiService', 'close', 'id', 'ModalService', 'notificationService'];
 
-    function purchaseOrderDetailController($scope, apiService, close, id, ModalService) {
+    function purchaseOrderDetailController($scope, apiService, close, id, ModalService, notificationService) {
         $scope.purchaseOrderDetails = [];
 
         $scope.close = function (result) {

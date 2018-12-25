@@ -14,7 +14,7 @@
                         </tr>
                         <tr>
                             <th style="width: 20%">Sản phẩm</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.ProductID}}</td>
+                            <td style="width: 80%">{{purchaseOrderDetails.Product.Name}}</td>
                         </tr>
                         <tr>
                             <th style="width: 20%">Trạng thái</th>
@@ -50,7 +50,9 @@
                         </tr>
                         <tr>
                             <th style="width: 20%">Trạng thái thanh toán</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.StatusPayment}}</td>
+                            <td style="width: 80%" ng-class="{'badge bg-red':purchaseOrderDetails.StatusPayment==false,'badge bg-green':purchaseOrderDetails.StatusPayment==true}">
+                                {{purchaseOrderDetails.StatusPayment | paymentStatus}}
+                            </td>
                         </tr>
                         <tr>
                             <th style="width: 20%">Phiếu chi thanh toán</th>
@@ -58,7 +60,7 @@
                         </tr>
                         <tr>
                             <th style="width: 20%">Phương thức thanh toán</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.PaymentMethod}}</td>
+                            <td style="width: 80%">{{purchaseOrderDetails.PaymentMethod | paymentMethod}}</td>
                         </tr>
                         <tr>
                             <th style="width: 20%">Thời gian tạo</th>

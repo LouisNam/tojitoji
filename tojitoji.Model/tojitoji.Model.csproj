@@ -66,6 +66,9 @@
     <Compile Include="Models\PurchaseOrder.cs" />
     <Compile Include="Models\PurchaseOrderDetail.cs" />
     <Compile Include="Models\PurchaseOrderDetailReturn.cs" />
+    <Compile Include="Models\SalesOrder.cs" />
+    <Compile Include="Models\SalesOrderDetail.cs" />
+    <Compile Include="Models\SalesOrderDetailReturn.cs" />
     <Compile Include="Models\SKU.cs" />
     <Compile Include="Models\SKULazada.cs" />
     <Compile Include="Models\Warehouse.cs" />
