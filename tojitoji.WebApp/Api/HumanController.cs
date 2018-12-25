@@ -28,6 +28,19 @@ namespace tojitoji.WebApp.Api
 
         #endregion Initialize
 
+        [Route("getallhumans")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {               
+                var model = _humanService.GetAll();
+                var responseData = Mapper.Map<IEnumerable<Human>, IEnumerable<HumanViewModel>>(model);
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
         [Route("getall")]
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage request, int page, int pageSize = 20)

@@ -27,6 +27,9 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<PurchaseOrder, PurchaseOrderViewModel>();
                 cfg.CreateMap<PurchaseOrderDetail, PurchaseOrderDetailViewModel>();
                 cfg.CreateMap<PurchaseOrderDetailReturn, PurchaseOrderDetailReturnViewModel>();
+                cfg.CreateMap<SalesOrder, SalesOrderViewModel>();
+                cfg.CreateMap<SalesOrderDetail, SalesOrderDetailViewModel>();
+                cfg.CreateMap<SalesOrderDetailReturn, SalesOrderDetailReturnViewModel>();
             });
         }
     }

@@ -8,6 +8,8 @@ namespace tojitoji.Model.Models
     public class Account : Auditable
     {
         [Key]
+        [Column(TypeName = "varchar")]
+        [MaxLength(10)]
         public string ID { set; get; }
 
         public bool? AccountType { set; get; } // Loại Tài Khoản, Quy ước: TK phát sinh tăng ở bên nợ thì là "N", TK phát sinh tăng ở bên có ghi là "C"

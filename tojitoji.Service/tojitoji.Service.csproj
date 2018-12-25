@@ -56,6 +56,9 @@
     <Compile Include="PurchaseOrderDetailReturnService.cs" />
     <Compile Include="PurchaseOrderDetailService.cs" />
     <Compile Include="PurchaseOrderService.cs" />
+    <Compile Include="SalesOrderDetailReturnService.cs" />
+    <Compile Include="SalesOrderDetailService.cs" />
+    <Compile Include="SalesOrderService.cs" />
     <Compile Include="SKULazadaService.cs" />
     <Compile Include="SKUService.cs" />
     <Compile Include="WarehouseService.cs" />

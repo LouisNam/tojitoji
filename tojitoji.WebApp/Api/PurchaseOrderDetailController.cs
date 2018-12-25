@@ -69,6 +69,7 @@ namespace tojitoji.WebApp.Api
                     var dbPurchaseOrderDetail = _purchaseOrderDetailService.GetById(purchaseOrderDetailVM.ID);
 
                     dbPurchaseOrderDetail.UpdatePurchaseOrderDetail(purchaseOrderDetailVM);
+                    dbPurchaseOrderDetail.UpdatedDate = DateTime.Now;
 
                     _purchaseOrderDetailService.Update(dbPurchaseOrderDetail);
                     _purchaseOrderDetailService.SaveChanges();

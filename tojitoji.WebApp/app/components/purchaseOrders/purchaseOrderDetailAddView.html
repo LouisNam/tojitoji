@@ -1,4 +1,4 @@
-﻿<div class="modal fade" role="dialog">
+﻿<div class="modal fade" role="dialog" style="overflow: auto">
     <div class="modal-dialog modal-lg" style="width: 70%">
         <div class="modal-content">
             <div class="modal-header">
@@ -76,9 +76,8 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">Tình trạng thanh toán</label>
                             <div class="col-sm-4">
-                                <select class="form-control" ng-required="true" name="StatusPayment" ng-model="purchaseOrderDetail.StatusPayment">
-                                    <option value="false"ng-selected="true">Not</option>
-                                    <option value="true">Done</option>
+                                <select class="form-control" ng-required="true" name="StatusPayment" ng-model="purchaseOrderDetail.StatusPayment"
+                                    ng-options="o.v as o.n for o in [{ n: 'Not', v: false }, { n: 'Done', v: true }]">
                                 </select>
                                 <span ng-show="frmAddPurchaseOrderDetail.StatusPayment.$invalid" class="text-danger">Vui lòng chọn tình trạng thanh toán</span>
                             </div>
@@ -90,9 +89,8 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">Phương thức thanh toán</label>
                             <div class="col-sm-4">
-                                <select class="form-control" ng-required="true" name="PaymentMethod" ng-model="purchaseOrderDetail.PaymentMethod">
-                                    <option value="true" ng-selected="true">Tiền mặt</option>
-                                    <option value="false">Chuyển khoản</option>
+                                <select class="form-control" ng-required="true" name="PaymentMethod" ng-model="purchaseOrderDetail.PaymentMethod"
+                                    ng-options="o.v as o.n for o in [{ n: 'Chuyển khoản', v: false }, { n: 'Tiền mặt', v: true }]">
                                 </select>
                                 <span ng-show="frmAddPurchaseOrderDetail.PaymentMethod.$invalid" class="text-danger">Vui lòng chọn phương thức thanh toán</span>
                             </div>
@@ -138,7 +136,7 @@
                             </div>
                             <label class="col-sm-2 control-label">Mã kiện hàng giao đi</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.ShippingParcel">
+                                <input type="text" class="form-control" ng-model="purchaseOrderDetail.ShippingParcel">
                             </div>
                         </div>
                     </div>

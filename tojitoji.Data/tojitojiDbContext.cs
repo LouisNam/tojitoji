@@ -29,6 +29,9 @@ namespace tojitoji.Data
         public DbSet<PurchaseOrder> PurchaseOrders { set; get; }
         public DbSet<PurchaseOrderDetail> PurchaseOrderDetails { set; get; }
         public DbSet<PurchaseOrderDetailReturn> PurchaseOrderDetailReturns { set; get; }
+        public DbSet<SalesOrder> SalesOrders { set; get; }
+        public DbSet<SalesOrderDetail> SalesOrderDetails { set; get; }
+        public DbSet<SalesOrderDetailReturn> SalesOrderDetailReturns { set; get; }
 
         //public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
         //public DbSet<ApplicationRole> ApplicationRoles { set; get; }

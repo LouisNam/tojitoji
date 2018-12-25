@@ -9,17 +9,18 @@
             url: "/purchaseOrders",
             templateUrl: "/app/components/purchaseOrders/purchaseOrderListView.html",
             controller: "purchaseOrderListController"
-        })
-        //    .state('add_product', {
-        //    url: "/add_product",
-        //    templateUrl: "/app/components/products/productAddView.html",
-        //    controller: "productAddController"
-        //})
-            //.state('edit_product', {
-        //    url: "/edit_product/:id",
-        //    templateUrl: "/app/components/products/productEditView.html",
-        //    controller: "productEditController"
-        //})
-        ;
+        }).state('add_purchaseOrder', {
+            url: "/add_purchaseOrder",
+            templateUrl: "/app/components/purchaseOrders/purchaseOrderAddView.html",
+            controller: "purchaseOrderAddController"
+        }).state('edit_purchaseOrder', {
+            url: "/edit_purchaseOrder/:id",
+            templateUrl: "/app/components/purchaseOrders/purchaseOrderEditView.html",
+            controller: "purchaseOrderEditController"
+        }).state('edit_purchaseOrderDetail', {
+            url: "/edit_purchaseOrderDetail/:id",
+            templateUrl: "/app/components/purchaseOrders/purchaseOrderDetailEditView.html",
+            controller: "purchaseOrderDetailEditController"
+        });
     }
 })();
