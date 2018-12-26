@@ -12,8 +12,7 @@
                 function (result) {                    
                     notificationService.displaySuccess('Thêm thành công!');
                     $state.go('purchaseOrders');
-                    location.reload();
-                    $rootScope.$emit('loadDetail', result.data.ID);                  
+                    location.reload();               
                 }, function (error) {
                     notificationService.displayError('Thêm mới không thành công!');
                 });

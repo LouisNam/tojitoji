@@ -1,0 +1,79 @@
+﻿<section class="content-header">
+    <h1>Đơn bán hàng</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li class="active">Đơn bán hàng</li>
+    </ol>
+</section>
+<section class="content" style="display: flex">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách đơn bán hàng</h3>
+                <div class="box-tools" style="display:flex">
+                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_salesOrder"><i class="fas fa-plus-square"></i></button>
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" ng-model="keyword">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="search()"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Ngày tạo</th>
+                            <th>Loại chứng từ</th>
+                            <th>Mã chứng từ</th>
+                            <th>Diễn giải chung</th>
+                            <th>Khách hàng</th>
+                            <th>Nhân viên</th>
+                            <th>Nơi bán</th>
+                            <th>Kho hàng</th>
+                            <th>Mã đơn hàng đối tác</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in salesOrders" ng-click="showDetail(item.ID)">
+                            <td>{{item.ID}}</td>
+                            <td>{{item.CreatedDate | date: 'dd-MM-yyyy hh:mm'}}</td>
+                            <td>{{item.DocumentTypeID}}</td>
+                            <td>{{item.DocumentID}}</td>
+                            <td>{{item.Description}}</td>                            
+                            <td>{{item.CustomerID}}</td>
+                            <td>{{item.StaffID}}</td>
+                            <td>{{item.SalesPlace}}</td>
+                            <td>{{item.WarehouseID}}</td>
+                            <td>{{item.PartnerOrderID}}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_salesOrder({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
+                                <!--<button class="btn  btn-sm btn-danger" ng-click="deleteProduct(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>-->
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="11"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="11">
+                                <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getSalesOrder(page)"></pager-directive>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div ng-if="loading">
+                    <div class="col-xs-4"></div>
+                    <div id="preloader">
+                        <div id="loader"></div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

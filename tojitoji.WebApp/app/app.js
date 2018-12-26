@@ -14,6 +14,7 @@
         'tojitojishop.warehouses',
         'tojitojishop.inventorytransactions',
         'tojitojishop.purchaseOrders',
+        'tojitojishop.salesOrders',
         'tojitojishop.common'
     ]).config(config);
 

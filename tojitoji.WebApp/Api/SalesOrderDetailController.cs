@@ -26,13 +26,26 @@ namespace tojitoji.WebApp.Api
 
         #endregion Initialize
 
-        [Route("getall")]
+        [Route("getdetail/{id}")]
         [HttpGet]
-        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        public HttpResponseMessage GetDetailById(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
             {
-                var model = _salesOrderDetailService.GetAll();
+                var model = _salesOrderDetailService.GetAll(id);
+                var responseData = Mapper.Map<IEnumerable<SalesOrderDetail>, IEnumerable<SalesOrderDetailViewModel>>(model);
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
+        [Route("getall")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _salesOrderDetailService.GetAll(id);
                 var responseData = Mapper.Map<IEnumerable<SalesOrderDetail>, IEnumerable<SalesOrderDetailViewModel>>(model);
                 var response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 return response;

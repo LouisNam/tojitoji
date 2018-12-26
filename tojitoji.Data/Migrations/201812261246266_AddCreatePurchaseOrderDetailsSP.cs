@@ -2,7 +2,7 @@ namespace tojitoji.Data.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    public partial class AddCreatePurchaseOrderDetailSP : DbMigration
+    public partial class AddCreatePurchaseOrderDetailsSP : DbMigration
     {
         public override void Up()
         {

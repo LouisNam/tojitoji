@@ -1,0 +1,271 @@
+﻿<div class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Chi tiết mã hàng: {{salesOrderDetails.ItemID}}</h3>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="tabContent">
+                    <li class="active"><a data-target="#details" data-toggle="tab">Chi tiết</a></li>
+                    <li><a data-target="#times" data-toggle="tab">Thời gian</a></li>
+                    <li><a data-target="#trackings" data-toggle="tab">Thông tin vận đơn</a></li>
+                    <li><a data-target="#billings" data-toggle="tab">Thông tin thanh toán</a></li>
+                    <li><a data-target="#shippings" data-toggle="tab">Thông tin vận chuyển</a></li>                    
+                    <li><a data-target="#return" data-toggle="tab">Trả về</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="details" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+                            <tr>
+                                <th style="width: 20%">Mã hàng</th>
+                                <td style="width: 80%">{{salesOrderDetails.ItemID}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">SKU</th>
+                                <td style="width: 80%">{{salesOrderDetails.SKU}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Trạng thái</th>
+                                <td style="width: 80%">{{salesOrderDetails.Status}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Giá bán</th>
+                                <td style="width: 80%">{{salesOrderDetails.SellingPrice}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Giảm giá (%)</th>
+                                <td style="width: 80%">{{salesOrderDetails.DiscountPercent}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Khoản giảm giá</th>
+                                <td style="width: 80%">{{salesOrderDetails.DiscountAmount}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Lý do giảm giá</th>
+                                <td style="width: 80%">{{salesOrderDetails.DiscountReason}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Phí ship NBH trả</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingFee}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Phí ship KH trả</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingFreeCustomer}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Phí khác</th>
+                                <td style="width: 80%">{{salesOrderDetails.OtherFee}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tổng tiền thu về</th>
+                                <td style="width: 80%">{{salesOrderDetails.CustomerPaid}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tổng tiền đền bù</th>
+                                <td style="width: 80%">{{salesOrderDetails.Refund}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Trạng thái thanh toán</th>
+                                <td style="width: 80%" ng-class="{'badge bg-red':salesOrderDetails.StatusPayment==false,'badge bg-green':salesOrderDetails.StatusPayment==true}">
+                                    {{salesOrderDetails.StatusPayment | paymentStatus}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Phương thức thanh toán</th>
+                                <td style="width: 80%">{{salesOrderDetails.PaymentMethod | paymentMethod}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Phiếu thu thanh toán</th>
+                                <td style="width: 80%">{{salesOrderDetails.DocumentNo}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Khách hàng comment</th>
+                                <td style="width: 80%">{{salesOrderDetails.CustomerComment}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Khách hàng đánh giá</th>
+                                <td style="width: 80%">{{salesOrderDetails.CustomerRating}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Ghi chú</th>
+                                <td style="width: 80%">{{salesOrderDetails.Note}}</td>
+                            </tr>
+                            <!--<tr>
+                                <th style="width: 20%">Tài khoản nợ giá vốn</th>
+                                <td style="width: 80%">{{salesOrderDetails.TKNGiaVon}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tài khoản có giá vốn</th>
+                                <td style="width: 80%">{{salesOrderDetails.TKCGiaVon}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tài khoản nợ giá bán</th>
+                                <td style="width: 80%">{{salesOrderDetails.TKNGiaBan}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tài khoản có giá bán</th>
+                                <td style="width: 80%">{{salesOrderDetails.TKCGiaBan}}</td>
+                            </tr>-->
+
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="times" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+                            <tr>
+                                <th style="width: 20%">Thời gian tạo đơn</th>
+                                <td style="width: 80%">{{salesOrderDetails.CreatedTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Thời gian cập nhật</th>
+                                <td style="width: 80%">{{salesOrderDetails.UpdatedTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Thời gian giao cho đơn vị vận chuyển</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Thời gian hủy đơn</th>
+                                <td style="width: 80%">{{salesOrderDetails.CanceledTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Thời gian vận chuyển dự kiến</th>
+                                <td style="width: 80%">{{salesOrderDetails.DeliveriedETA}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Thời gian vận chuyển thực tế</th>
+                                <td style="width: 80%">{{salesOrderDetails.DeliveriedTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Thời gian rớt đơn</th>
+                                <td style="width: 80%">{{salesOrderDetails.FailedTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Thời gian thanh toán</th>
+                                <td style="width: 80%">{{salesOrderDetails.PaidTime}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="trackings" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+                            <tr>
+                                <th style="width: 20%">Mã vận đơn</th>
+                                <td style="width: 80%">{{salesOrderDetails.TrackingCode}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Link vận đơn</th>
+                                <td style="width: 80%">{{salesOrderDetails.TrackingURL}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Đơn vị vận chuyển</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingProvider}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Phương thức vận chuyển</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingMethod}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Mã gói hàng</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingParcel}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="billings" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+                            <tr>
+                                <th style="width: 20%">Tên thanh toán</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingName}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">SĐT thanh toán 1</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingPhoneNumber1}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">SĐT thanh toán 2</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingPhoneNumber2}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Địa chỉ thanh toán</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingAddress}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Phường/Xã</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingWard}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Quận/Huyện</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingDistrict}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tỉnh/Thành phố</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingCity}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tỉnh</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingState}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Quốc gia/Vùng miền</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingCountry}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Mã bưu điện</th>
+                                <td style="width: 80%">{{salesOrderDetails.BillingZIP}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="shippings" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+                            <tr>
+                                <th style="width: 20%">Tên vận chuyển</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingName}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">SĐT vận chuyển 1</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingPhoneNumber1}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">SĐT vận chuyển 2</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingPhoneNumber2}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Địa chỉ vận chuyển</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingAddress}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Phường/Xã</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingWard}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Quận/Huyện</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingDistrict}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tỉnh/Thành phố</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingCity}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Tỉnh</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingState}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Quốc gia/Vùng miền</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingCountry}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%">Mã bưu điện</th>
+                                <td style="width: 80%">{{salesOrderDetails.ShippingZIP}}</td>
+                            </tr>
+                        </table>
+                    </div>                    
+                    <div class="tab-pane" id="return" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
