@@ -31,6 +31,8 @@
             CreatePurchaseOrderSample(context);
             CreatePurchaseOrderDetailSample(context);
             CreatePurchaseOrderDetailReturnSample(context);
+            CreateSalesOrderSample(context);
+            CreateSalesOrderDetailSample(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
@@ -278,9 +280,9 @@
             {
                 List<PurchaseOrderDetail> listItem = new List<PurchaseOrderDetail>()
             {
-                new PurchaseOrderDetail() { PurchaseOrderID=1, PurchasingPrice=10000},
-                new PurchaseOrderDetail() { PurchaseOrderID=1, PurchasingPrice=12000},
-                new PurchaseOrderDetail() { PurchaseOrderID=2, PurchasingPrice=16000},
+                new PurchaseOrderDetail() { PurchaseOrderID=1, PurchasingPrice=10000, ItemID = 1, CreatedDate = DateTime.Now},
+                new PurchaseOrderDetail() { PurchaseOrderID=1, PurchasingPrice=12000, ItemID = 2, CreatedDate = DateTime.Now},
+                new PurchaseOrderDetail() { PurchaseOrderID=2, PurchasingPrice=16000, ItemID = 3, CreatedDate = DateTime.Now},
 
             };
                 context.PurchaseOrderDetails.AddRange(listItem);
@@ -298,6 +300,38 @@
 
             };
                 context.PurchaseOrderDetailReturns.AddRange(listItem);
+                context.SaveChanges();
+            }
+        }
+
+        private void CreateSalesOrderSample(tojitojiDbContext context)
+        {
+            if (context.SalesOrders.Count() == 0)
+            {
+                List<SalesOrder> listItem = new List<SalesOrder>()
+            {
+                new SalesOrder() { CreatedDate=DateTime.Now, DocumentTypeID = "NH", CustomerID = 1, WarehouseID = 1},
+                new SalesOrder() { CreatedDate=DateTime.Now, DocumentTypeID = "PC", CustomerID = 1, WarehouseID = 1},
+                new SalesOrder() { CreatedDate=DateTime.Now, DocumentTypeID = "XH", CustomerID = 2, WarehouseID = 2}
+
+            };
+                context.SalesOrders.AddRange(listItem);
+                context.SaveChanges();
+            }
+        }
+
+        private void CreateSalesOrderDetailSample(tojitojiDbContext context)
+        {
+            if (context.SalesOrderDetails.Count() == 0)
+            {
+                List<SalesOrderDetail> listItem = new List<SalesOrderDetail>()
+            {
+                new SalesOrderDetail() { SalesOrderID = 1, ItemID = 1, SellingPrice = 10000, StatusPayment = true, CreatedTime = DateTime.Now },
+                new SalesOrderDetail() { SalesOrderID = 1, ItemID = 2, SellingPrice = 10000, StatusPayment = false, CreatedTime = DateTime.Now },
+                new SalesOrderDetail() { SalesOrderID = 2, ItemID = 3, SellingPrice = 10000, StatusPayment = true, CreatedTime = DateTime.Now },
+
+            };
+                context.SalesOrderDetails.AddRange(listItem);
                 context.SaveChanges();
             }
         }

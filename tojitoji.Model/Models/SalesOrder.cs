@@ -25,7 +25,7 @@ namespace tojitoji.Model.Models
 
         public int CustomerID { set; get; }
 
-        public int StaffID { set; get; }
+        public int? StaffID { set; get; }
 
         [MaxLength(256)]
         public string SalesPlace { set; get; } // Nơi bán
@@ -40,7 +40,7 @@ namespace tojitoji.Model.Models
         [ForeignKey("CustomerID")]
         public virtual Human Customer { set; get; }
 
-        [ForeignKey("CustomerID")]
+        [ForeignKey("StaffID")]
         public virtual Human Staff { set; get; }
 
         [ForeignKey("WarehouseID")]

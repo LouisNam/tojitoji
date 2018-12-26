@@ -7,13 +7,13 @@ namespace tojitoji.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddPurchaseOrderTable : IMigrationMetadata
+    public sealed partial class UpdateDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddPurchaseOrderTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812151357111_AddPurchaseOrderTable"; }
+            get { return "201812251454588_UpdateDatabase"; }
         }
         
         string IMigrationMetadata.Source

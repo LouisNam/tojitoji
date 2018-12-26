@@ -13,7 +13,7 @@ namespace tojitoji.Service
 
         SalesOrderDetail Delete(int id);
 
-        IEnumerable<SalesOrderDetail> GetAll();
+        IEnumerable<SalesOrderDetail> GetAll(int id);
 
         SalesOrderDetail GetById(int id);
 
@@ -41,9 +41,9 @@ namespace tojitoji.Service
             return _salesOrderDetailRepository.Delete(id);
         }
 
-        public IEnumerable<SalesOrderDetail> GetAll()
+        public IEnumerable<SalesOrderDetail> GetAll(int id)
         {
-            return _salesOrderDetailRepository.GetAll();
+            return _salesOrderDetailRepository.GetMulti(x => x.SalesOrderID == id);
         }
 
         public SalesOrderDetail GetById(int id)

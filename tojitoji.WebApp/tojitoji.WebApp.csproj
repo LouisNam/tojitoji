@@ -338,6 +338,17 @@
     <Content Include="app\components\purchaseOrders\purchaseOrderListController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderListView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrders.module.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailController.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailListController.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailListView.html" />
+    <Content Include="app\components\salesOrders\salesOrderDetailView.html" />
+    <Content Include="app\components\salesOrders\salesOrderEditController.js" />
+    <Content Include="app\components\salesOrders\salesOrderAddController.js" />
+    <Content Include="app\components\salesOrders\salesOrderEditView.html" />
+    <Content Include="app\components\salesOrders\salesOrderAddView.html" />
+    <Content Include="app\components\salesOrders\salesOrderListController.js" />
+    <Content Include="app\components\salesOrders\salesOrderListView.html" />
+    <Content Include="app\components\salesOrders\salesOrders.module.js" />
     <Content Include="app\components\skus\skuAddController.js" />
     <Content Include="app\components\skus\skuAddView.html" />
     <Content Include="app\components\skus\skuEditController.js" />
