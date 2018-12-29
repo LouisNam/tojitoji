@@ -123,17 +123,29 @@
                             <li><a ui-sref="humans"><i class="far fa-circle"></i> Danh sách </a></li>
                             <li><a ui-sref="humanTypes"><i class="far fa-circle"></i> Loại đối tượng </a></li>
                         </ul>
+                    </li>                    
+                    <li class="header">Tài chính</li>
+                    <li class="treeview">
+                        <a ui-sref="documents">
+                            <i class="fas fa-folder-open"></i> <span>Chứng từ</span>
+                        </a>
                     </li>
                     <li class="treeview">
-                        <a href="#">
-                            <i class="fab fa-pied-piper"></i> <span>Tài khoản kế toán</span><i class="fa fa-angle-left pull-right"></i>
+                        <a ui-sref="transactions">
+                            <i class="fas fa-exchange-alt"></i> <span>Giao dịch</span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a ui-sref="accounts"><i class="far fa-circle"></i> Danh sách </a></li>
-                            <li><a ui-sref="documenttypes"><i class="far fa-circle"></i> Loại chứng từ </a></li>
-                        </ul>
-                    </li>                    
-                    <li class="header">SYSTEMS</li>
+                    </li>
+                    <li class="treeview">
+                        <a ui-sref="accounts">
+                            <i class="fas fa-book"></i> <span>Tài khoản kế toán</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a ui-sref="documenttypes">
+                            <i class="fas fa-paperclip"></i> <span>Loại chứng từ</span>
+                        </a>
+                    </li>                                  
+                    <li class="header">Hệ thống</li>
                     <li class="treeview">
                         <a ui-sref="companyInformations">
                             <i class="fas fa-info-circle text-aqua"></i> <span>Thông tin công ty</span>
@@ -201,6 +213,8 @@
     <script src="~/app/components/documenttypes/documenttypes.module.js"></script>
     <script src="~/app/components/purchaseOrders/purchaseOrders.module.js"></script>
     <script src="~/app/components/salesOrders/salesOrders.module.js"></script>
+    <script src="~/app/components/documents/documents.module.js"></script>
+    <script src="~/app/components/transactions/transactions.module.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/app.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
@@ -256,5 +270,13 @@
     <script src="~/app/components/salesOrders/salesOrderEditController.js"></script>
     <script src="~/app/components/salesOrders/salesOrderDetailListController.js"></script>
     <script src="~/app/components/salesOrders/salesOrderDetailController.js"></script>
+    <script src="~/app/components/salesOrders/salesOrderDetailAddController.js"></script>
+    <script src="~/app/components/salesOrders/salesOrderDetailEditController.js"></script>
+    <script src="~/app/components/documents/documentListController.js"></script>
+    <script src="~/app/components/documents/documentAddController.js"></script>
+    <script src="~/app/components/documents/documentEditController.js"></script>
+    <script src="~/app/components/transactions/transactionListController.js"></script>
+    <script src="~/app/components/transactions/transactionAddController.js"></script>
+    <script src="~/app/components/transactions/transactionEditController.js"></script>
 </body>
 </html>

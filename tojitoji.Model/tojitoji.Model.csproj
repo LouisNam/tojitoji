@@ -57,6 +57,7 @@
     <Compile Include="Models\CampaignSKU.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CompanyInformation.cs" />
+    <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Human.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Models\SalesOrderDetailReturn.cs" />
     <Compile Include="Models\SKU.cs" />
     <Compile Include="Models\SKULazada.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\Warehouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

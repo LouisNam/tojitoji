@@ -27,6 +27,19 @@ namespace tojitoji.WebApp.Api
 
         #endregion Initialize
 
+        [Route("getallaccount")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _accountService.GetAll();
+                var responseData = Mapper.Map<IEnumerable<Account>, IEnumerable<AccountViewModel>>(model);
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
         [Route("getall")]
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)

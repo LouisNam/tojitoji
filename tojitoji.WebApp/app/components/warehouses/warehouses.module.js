@@ -1,5 +1,4 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function () {
+﻿(function () {
     angular.module('tojitojishop.warehouses', ['tojitojishop.common']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider']

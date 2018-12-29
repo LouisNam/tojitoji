@@ -1,0 +1,69 @@
+﻿<section class="content-header">
+    <h1>Chứng từ</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li class="active">Chứng từ</li>
+    </ol>
+</section>
+<section class="content" style="display: flex">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách chứng từ</h3>
+                <div class="box-tools" style="display:flex">
+                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_document"><i class="fas fa-plus-square"></i></button>                    
+                </div>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Mã chứng từ</th>
+                            <th>Loại chứng từ</th>
+                            <th>Ngày chứng từ</th>
+                            <th>Diễn giải chung</th>  
+                            <th>Đối tượng</th>
+                            <th>Số Serial</th>
+                            <th>Số hóa đơn</th>
+                            <th>Ngày hóa đơn</th>
+                            <th>#</th>                                 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in documents">
+                            <td>{{item.ID}}</td>
+                            <td>{{item.DocumentTypeID}}</td>
+                            <td>{{item.Date | date: 'dd-MM-yyyy'}}</td>
+                            <td>{{item.Description}}</td>  
+                            <td>{{item.HumanID}}</td>  
+                            <td>{{item.Serial}}</td>  
+                            <td>{{item.BillNo}}</td>  
+                            <td>{{item.BillDate | date: 'dd-MM-yyyy'}}</td>                                                           
+                            <td>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_document({id:item.ID})"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn  btn-sm btn-danger" ng-click="deleteDocument(item.ID)"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="9"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="9">
+                                <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getDocument(page)"></pager-directive>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div ng-if="loading">
+                    <div class="col-xs-4"></div>
+                    <div id="preloader">
+                        <div id="loader"></div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

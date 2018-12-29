@@ -26,9 +26,9 @@
             });            
         }
 
-        //$rootScope.$on('loadDetail', function (event, id) {
-        //    $scope.showDetail(id);
-        //});
+        $rootScope.$on('loadSalesDetail', function (event, id) {
+            $scope.showDetail(id);
+        });
 
         function getSalesOrder(page) {
             page = page || 0;

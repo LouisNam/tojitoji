@@ -46,6 +46,7 @@
     <Compile Include="CampaignSKUService.cs" />
     <Compile Include="CategoryService.cs" />
     <Compile Include="CompanyInformationService.cs" />
+    <Compile Include="DocumentService.cs" />
     <Compile Include="DocumentTypeService.cs" />
     <Compile Include="ErrorService.cs" />
     <Compile Include="HumanService.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="SalesOrderService.cs" />
     <Compile Include="SKULazadaService.cs" />
     <Compile Include="SKUService.cs" />
+    <Compile Include="TransactionService.cs" />
     <Compile Include="WarehouseService.cs" />
   </ItemGroup>
   <ItemGroup>

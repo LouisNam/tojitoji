@@ -1,0 +1,82 @@
+﻿<section class="content-header">
+    <h1>
+        Chỉnh sửa chứng từ
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="documents">Chứng từ</a></li>
+        <li class="active">Chỉnh sửa</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chỉnh sửa chứng từ: {{document.ID}}</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmEditDocument" role="form" ng-submit="UpdateDocument()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chọn loại chứng từ</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="document.DocumentTypeID" theme="bootstrap" style="min-width: 300px" name="DocumentTypeID" required>
+                            <ui-select-match placeholder="Vui lòng chọn chứng từ">{{$select.selected.Name}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in documenttypes | filter: $select.search">
+                                <div ng-bind-html="item.Name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="frmEditDocument.DocumentTypeID.$invalid" class="text-danger">Vui lòng chọn loại chứng từ</span>
+                        <input type="hidden" ng-model="document.DocumentTypeID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ngày chứng từ</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" required name="Date" ng-model="document.Date">
+                        <span ng-show="frmEditDocument.Date.$invalid" class="text-danger">Vui lòng chọn ngày chứng từ</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Diễn giải chung</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="document.Description">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nhà cung cấp</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="document.HumanID" name="HumanID" required theme="bootstrap" style="min-width: 300px;">
+                            <ui-select-match placeholder="Vui lòng chọn nhà cung cấp">{{$select.selected.FirstName}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in humans | filter: $select.search">
+                                <div ng-bind-html="item.LastName + ' ' + item.FirstName | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="frmEditDocument.HumanID.$invalid" class="text-danger">Vui lòng chọn nhà cung cấp</span>
+                        <input type="hidden" ng-model="document.HumanID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Số Serial</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="document.Serial">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Số hóa đơn</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="document.BillNo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ngày hóa đơn</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" ng-model="document.BillDate">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button ui-sref="documents" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right" ng-disabled="frmEditDocument.$invalid">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('salesOrderEditController', salesOrderEditController);
 
-    salesOrderEditController.$inject = ['$scope', 'apiService', 'notificationService', '$rootScope', '$state', '$stateParams'];
+    salesOrderEditController.$inject = ['$scope', 'apiService', 'notificationService', '$state', '$stateParams'];
 
-    function salesOrderEditController($scope, apiService, notificationService, $rootScope, $state, $stateParams) {
+    function salesOrderEditController($scope, apiService, notificationService, $state, $stateParams) {
         $scope.salesOrder = {};
         $scope.UpdateSalesOrder = UpdateSalesOrder;
 
