@@ -193,6 +193,7 @@
     <Compile Include="Api\CampaignSKUController.cs" />
     <Compile Include="Api\CategoryController.cs" />
     <Compile Include="Api\CompanyInformationController.cs" />
+    <Compile Include="Api\DocumentController.cs" />
     <Compile Include="Api\DocumentTypeController.cs" />
     <Compile Include="Api\HomeController.cs" />
     <Compile Include="Api\AccountController.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Api\SalesOrderDetailController.cs" />
     <Compile Include="Api\SalesOrderDetailReturnController.cs" />
     <Compile Include="Api\SKUController.cs" />
+    <Compile Include="Api\TransactionController.cs" />
     <Compile Include="Api\WarehouseController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -228,6 +230,7 @@
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\CompanyInformationViewModel.cs" />
     <Compile Include="Models\DocumentTypeViewModel.cs" />
+    <Compile Include="Models\DocumentViewModel.cs" />
     <Compile Include="Models\HumanTypeViewModel.cs" />
     <Compile Include="Models\HumanViewModel.cs" />
     <Compile Include="Models\InventoryTransactionViewModel.cs" />
@@ -240,6 +243,7 @@
     <Compile Include="Models\SalesOrderViewModel.cs" />
     <Compile Include="Models\SKULazadaViewModel.cs" />
     <Compile Include="Models\SKUViewModel.cs" />
+    <Compile Include="Models\TransactionViewModel.cs" />
     <Compile Include="Models\WarehouseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -286,6 +290,13 @@
     <Content Include="app\components\companyInfor\companyInformationListController.js" />
     <Content Include="app\components\companyInfor\companyInformationListView.html" />
     <Content Include="app\components\companyInfor\companyInformation.module.js" />
+    <Content Include="app\components\documents\documentAddController.js" />
+    <Content Include="app\components\documents\documentAddView.html" />
+    <Content Include="app\components\documents\documentEditController.js" />
+    <Content Include="app\components\documents\documentEditView.html" />
+    <Content Include="app\components\documents\documentListController.js" />
+    <Content Include="app\components\documents\documentListView.html" />
+    <Content Include="app\components\documents\documents.module.js" />
     <Content Include="app\components\documenttypes\documenttypeListController.js" />
     <Content Include="app\components\documenttypes\documenttypeListView.html" />
     <Content Include="app\components\documenttypes\documenttypes.module.js" />
@@ -338,7 +349,11 @@
     <Content Include="app\components\purchaseOrders\purchaseOrderListController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderListView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrders.module.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailAddController.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailAddView.html" />
     <Content Include="app\components\salesOrders\salesOrderDetailController.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailEditController.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailEditView.html" />
     <Content Include="app\components\salesOrders\salesOrderDetailListController.js" />
     <Content Include="app\components\salesOrders\salesOrderDetailListView.html" />
     <Content Include="app\components\salesOrders\salesOrderDetailView.html" />
@@ -356,6 +371,13 @@
     <Content Include="app\components\skus\skuListController.js" />
     <Content Include="app\components\skus\skuListView.html" />
     <Content Include="app\components\skus\skus.module.js" />
+    <Content Include="app\components\transactions\transactionAddController.js" />
+    <Content Include="app\components\transactions\transactionAddView.html" />
+    <Content Include="app\components\transactions\transactionEditController.js" />
+    <Content Include="app\components\transactions\transactionEditView.html" />
+    <Content Include="app\components\transactions\transactionListController.js" />
+    <Content Include="app\components\transactions\transactionListView.html" />
+    <Content Include="app\components\transactions\transactions.module.js" />
     <Content Include="app\components\warehouses\warehouseAddController.js" />
     <Content Include="app\components\warehouses\warehouseAddView.html" />
     <Content Include="app\components\warehouses\warehouseEditController.js" />

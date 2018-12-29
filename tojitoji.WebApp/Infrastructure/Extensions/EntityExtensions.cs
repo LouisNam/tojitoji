@@ -341,5 +341,29 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             salesOrderDetailReturn.DocumentID = salesOrderDetailReturnVM.DocumentID;
             salesOrderDetailReturn.Description = salesOrderDetailReturnVM.Description;
         }
+
+        public static void UpdateDocument(this Document document, DocumentViewModel DocumentVM)
+        {
+            document.ID = DocumentVM.ID;
+            document.DocumentTypeID = DocumentVM.DocumentTypeID;
+            document.Date = DocumentVM.Date;
+            document.Description = DocumentVM.Description;
+            document.HumanID = DocumentVM.HumanID;
+            document.Serial = DocumentVM.Serial;
+            document.BillNo = DocumentVM.BillNo;
+            document.BillDate = DocumentVM.BillDate;
+        }
+
+        public static void UpdateTransaction(this Transaction transaction, TransactionViewModel transactionVM)
+        {
+            transaction.ID = transactionVM.ID;
+            transaction.Date = transactionVM.Date;
+            transaction.Description = transactionVM.Description;
+            transaction.Amount = transactionVM.Amount;
+            transaction.DocumentID = transactionVM.DocumentID;
+            transaction.HumanID = transactionVM.HumanID;
+            transaction.TKN = transactionVM.TKN;
+            transaction.TKC = transactionVM.TKC;
+        }
     }
 }

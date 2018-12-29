@@ -1,9 +1,10 @@
-﻿<div class="modal fade" role="dialog" style="overflow: auto">
+﻿<div class="modal fade" role="dialog" style="overflow: auto" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="modal-title">Danh sách chi tiết đơn mua hàng</h3>                
+                <button class="btn btn-success" style="float: right; margin-right: 1%" ng-click="addPurchaseOrderDetail(purchaseOrderID); close();"><i class="fas fa-plus-square"></i></button>
+                <h3 class="modal-title">Danh sách chi tiết đơn mua hàng</h3>
             </div>
             <div class="modal-body">
                 <div class="box-body table-responsive no-padding">
@@ -43,7 +44,7 @@
             </div>
             <div class="modal-footer">
                 <h1 class="hidden" ng-model="purchaseOrderID">PuchaseOrderID: {{purchaseOrderID}}</h1>
-                <button class="btn btn-success pull-left" ng-click="addPurchaseOrderDetail(purchaseOrderID); close();"><i class="fas fa-plus-square"></i></button>
+
                 <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">Đóng</button>
             </div>
         </div>

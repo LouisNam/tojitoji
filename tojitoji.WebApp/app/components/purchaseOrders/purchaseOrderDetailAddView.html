@@ -1,4 +1,4 @@
-﻿<div class="modal fade" role="dialog" style="overflow: auto">
+﻿<div class="modal fade" role="dialog" style="overflow: auto" data-backdrop="static">
     <div class="modal-dialog modal-lg" style="width: 70%">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,7 +11,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">Chọn sản phẩm</label>
                             <div class="col-sm-4">
-                                <ui-select ng-model="purchaseOrderDetail.ProductID" name="ProductID" ng-required="true" theme="bootstrap" style="min-width: 300px;" title="Chọn sản phẩm">
+                                <ui-select ng-model="purchaseOrderDetail.ProductID" name="ProductID" ng-required="true" theme="bootstrap" style="min-width: 300px">
                                     <ui-select-match placeholder="Vui lòng chọn sản phẩm">{{$select.selected.Name}}</ui-select-match>
                                     <ui-select-choices repeat="item.ID as item in products | filter: $select.search">
                                         <div ng-bind-html="item.Name | highlight: $select.search"></div>
@@ -78,6 +78,7 @@
                             <div class="col-sm-4">
                                 <select class="form-control" ng-required="true" name="StatusPayment" ng-model="purchaseOrderDetail.StatusPayment"
                                     ng-options="o.v as o.n for o in [{ n: 'Not', v: false }, { n: 'Done', v: true }]">
+                                    <option value="">-- Chọn tình trạng thanh toán --</option>
                                 </select>
                                 <span ng-show="frmAddPurchaseOrderDetail.StatusPayment.$invalid" class="text-danger">Vui lòng chọn tình trạng thanh toán</span>
                             </div>
@@ -91,48 +92,49 @@
                             <div class="col-sm-4">
                                 <select class="form-control" ng-required="true" name="PaymentMethod" ng-model="purchaseOrderDetail.PaymentMethod"
                                     ng-options="o.v as o.n for o in [{ n: 'Chuyển khoản', v: false }, { n: 'Tiền mặt', v: true }]">
+                                    <option value="">-- Chọn phương thức thanh toán --</option>
                                 </select>
                                 <span ng-show="frmAddPurchaseOrderDetail.PaymentMethod.$invalid" class="text-danger">Vui lòng chọn phương thức thanh toán</span>
                             </div>
                             <label class="col-sm-2 control-label">Thời gian tạo</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.CreatedDate" value="{{ purchaseOrderDetail.CreatedDate | date: 'yyyy-MM-dd' }}" disabled>
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.CreatedDate" disabled>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">Thời gian cập nhật</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.UpdatedDate" value="{{ purchaseOrderDetail.UpdatedDate | date: 'yyyy-MM-dd' }}">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.UpdatedDate">
                             </div>
                             <label class="col-sm-2 control-label">Thời gian giao cho đơn vị vận chuyển</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.ShippingTime" value="{{ purchaseOrderDetail.ShippingTime | date: 'yyyy-MM-dd' }}">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.ShippingTime">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">Thời gian hủy đơn</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.CanceledTime" value="{{ purchaseOrderDetail.CanceledTime | date: 'yyyy-MM-dd' }}">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.CanceledTime">
                             </div>
                             <label class="col-sm-2 control-label">Thời gian vận chuyển dự kiến</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.DeliveriedETA" value="{{ purchaseOrderDetail.DeliveriedETA | date: 'yyyy-MM-dd' }}">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.DeliveriedETA">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">Thời gian vận chuyển</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.DeliveriedTime" value="{{ purchaseOrderDetail.DeliveriedTime | date: 'yyyy-MM-dd' }}">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.DeliveriedTime">
                             </div>
                             <label class="col-sm-2 control-label">Thời gian rớt đơn</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.FailedTime" value="{{ purchaseOrderDetail.FailedTime | date: 'yyyy-MM-dd' }}">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.FailedTime">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">Thời gian thanh toán</label>
                             <div class="col-sm-4">
-                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.PaidTime" value="{{ purchaseOrderDetail.PaidTime | date: 'yyyy-MM-dd' }}">
+                                <input type="date" class="form-control" ng-model="purchaseOrderDetail.PaidTime">
                             </div>
                             <label class="col-sm-2 control-label">Mã kiện hàng giao đi</label>
                             <div class="col-sm-4">

@@ -1,0 +1,294 @@
+﻿<div class="modal fade" role="dialog" style="overflow: auto" data-backdrop="static">
+    <div class="modal-dialog modal-lg" style="width: 70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Thêm chi tiết đơn bán hàng</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" novalidate name="frmAddSalesOrderDetail" role="form" ng-submit="AddSalesOrderDetail()">
+                    <div class="box-body">
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Mã hàng</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.ItemID">
+                                <!--<span ng-show="frmAddSalesOrderDetail.Quantity.$invalid" class="text-danger">Vui lòng chọn mã hàng</span>-->
+                            </div>
+                            <label class="col-sm-2 control-label">SKU</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.SKU">                                
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Trạng thái</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" ng-required="true" name="Status" ng-model="salesOrderDetail.Status">
+                                    <option value="" selected>-- Chọn trạng thái --</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="ReadyToShip">Ready to Ship</option>
+                                    <option value="CanceledBF">CanceledBF</option>
+                                    <option value="Outbounding">Outbounding</option>
+                                    <option value="CanceledAT">CanceledAT</option>
+                                    <option value="Shipping">Shipping</option>
+                                    <option value="Failed">Failed</option>
+                                    <option value="Deliveried">Deliveried</option>
+                                    <option value="Returned">Returned</option>
+                                    <option value="Refund">Refund</option>
+                                </select>
+                                <span ng-show="frmAddSalesOrderDetail.Status.$invalid" class="text-danger">Vui lòng chọn trạng thái</span>
+                            </div>
+                            <label class="col-sm-2 control-label">Giá bán</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.SellingPrice">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Giảm giá (%)</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.DiscountPercent">
+                            </div>
+                            <label class="col-sm-2 control-label">Khoản giảm giá</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.DiscountAmount">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Lý do giảm</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.DiscountReason">
+                            </div>
+                            <label class="col-sm-2 control-label">Phí shipping NBH trả</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.ShippingFee">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Phí ship KH trả</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingFreeCustomer">
+                            </div>
+                            <label class="col-sm-2 control-label">Phí khác</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.OtherFee">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Tổng tiền thu về</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.CustomerPaid">
+                            </div>
+                            <label class="col-sm-2 control-label">Tổng tiền đền bù</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.Refund">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Tình trạng thanh toán</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" ng-required="true" name="StatusPayment" ng-model="salesOrderDetail.StatusPayment"
+                                        ng-options="o.v as o.n for o in [{ n: 'Not', v: false }, { n: 'Done', v: true }]">
+                                    <option value="" selected>-- Chọn tình trạng thanh toán --</option>
+                                </select>
+                                <span ng-show="frmAddSalesOrderDetail.StatusPayment.$invalid" class="text-danger">Vui lòng chọn tình trạng thanh toán</span>
+                            </div>
+                            <label class="col-sm-2 control-label">Phương thức thanh toán</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" ng-required="true" name="PaymentMethod" ng-model="salesOrderDetail.PaymentMethod">
+                                    <option value="" selected>-- Chọn phương thức thanh toán --</option>
+                                    <option value="CreditCard">Credit card</option>
+                                    <option value="Check">Check</option>
+                                    <option value="Cash">Cash</option>
+                                </select>
+                                <span ng-show="frmAddSalesOrderDetail.PaymentMethod.$invalid" class="text-danger">Vui lòng phương thức thanh toán</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Mã chi tiết đơn hàng của đối tác</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.PartnerOrderItemID">
+                            </div>
+                            <label class="col-sm-2 control-label">Khách hàng comment</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.CustomerComment">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Khách hàng đánh giá</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.CustomerRating">
+                            </div>
+                            <label class="col-sm-2 control-label">Ghi chú</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.Note">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thời gian giao cho đơn vị vận chuyển</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="salesOrderDetail.ShippingTime">
+                            </div>
+                            <label class="col-sm-2 control-label">Thời gian hủy đơn</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="salesOrderDetail.CanceledTime">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thời gian vận chuyển dự kiến</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="salesOrderDetail.DeliveriedETA">
+                            </div>
+                            <label class="col-sm-2 control-label">Thời gian vận chuyển thực tế</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="salesOrderDetail.DeliveriedTime">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thời gian rớt đơn</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="salesOrderDetail.FailedTime">
+                            </div>
+                            <label class="col-sm-2 control-label">Thời gian KH thanh toán</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" ng-model="salesOrderDetail.PaidTime">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thanh toán - Tên</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.BillingName">
+                            </div>
+                            <label class="col-sm-2 control-label">Thanh toán - SĐT 1</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.BillingPhoneNumber1">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thanh toán - SĐT 2</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.BillingPhoneNumber2">
+                            </div>
+                            <label class="col-sm-2 control-label">Thanh toán - Địa chỉ</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.BillingAddress">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thanh toán - Phường/Xã</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.BillingWard">
+                            </div>
+                            <label class="col-sm-2 control-label">Thanh toán - Quận/Huyện</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.BillingDistrict">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thanh toán - Thành phố/Tỉnh</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.BillingCity">
+                            </div>
+                            <label class="col-sm-2 control-label">Thanh toán - Tỉnh</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.BillingState">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Thanh toán - Quốc gia/Vùng miền</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.BillingCountry">
+                            </div>
+                            <label class="col-sm-2 control-label">Thanh toán - Mã bưu điện</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.BillingZIP">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Vận chuyển - Tên</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingName">
+                            </div>
+                            <label class="col-sm-2 control-label">Vận chuyển - SĐT 1</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.ShippingPhoneNumber1">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Vận chuyển - SĐT 2</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.ShippingPhoneNumber2">
+                            </div>
+                            <label class="col-sm-2 control-label">Vận chuyển - Địa chỉ</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingAddress">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Vận chuyển - Phường/Xã</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingWard">
+                            </div>
+                            <label class="col-sm-2 control-label">Vận chuyển - Quận/Huyện</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingDistrict">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Vận chuyển - Thành phố/Tỉnh</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingCity">
+                            </div>
+                            <label class="col-sm-2 control-label">Vận chuyển - Tỉnh</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingState">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Vận chuyển - Quốc gia/Vùng miền</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingCountry">
+                            </div>
+                            <label class="col-sm-2 control-label">Vận chuyển - Mã bưu điện</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingZIP">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Mã vận đơn</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.TrackingCode">
+                            </div>
+                            <label class="col-sm-2 control-label">Link tracking</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.TrackingURL">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Đơn vị vận chuyển</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingProvider">
+                            </div>
+                            <label class="col-sm-2 control-label">Hình thức vận chuyển</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingMethod">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Mã kiện hàng giao đi</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="salesOrderDetail.ShippingParcel">
+                            </div>
+                            <label class="col-sm-2 control-label">Phiếu thu thanh toán</label>
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control" ng-model="salesOrderDetail.DocumentNo">
+                            </div>
+                        </div>                    
+                    </div>
+                    <div class="box-footer">
+                        <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-success pull-right" ng-disabled="frmAddSalesOrderDetail.$invalid">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-﻿<div class="modal fade" role="dialog">
+﻿<div class="modal fade" role="dialog" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,113 +6,127 @@
                 <h3 class="modal-title">Chi tiết mã hàng: {{purchaseOrderDetails.ItemID}}</h3>                
             </div>
             <div class="modal-body">
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover" style="position: relative">
-                        <tr>
-                            <th style="width: 20%">Mã hàng</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.ItemID}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Sản phẩm</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.Product.Name}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Trạng thái</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.Status}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Giá mua</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.PurchasingPrice}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Giảm giá (%)</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.DiscountPercent}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Khoản giảm giá</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.DiscountAmount}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Lý do giảm giá</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.DiscountReason}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Phí ship NCC trả</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.ShippingFeeDistributor}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Phí ship NBH trả</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.ShippingFee}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Tổng tiền đền bù</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.Subsidize}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Trạng thái thanh toán</th>
-                            <td style="width: 80%" ng-class="{'badge bg-red':purchaseOrderDetails.StatusPayment==false,'badge bg-green':purchaseOrderDetails.StatusPayment==true}">
-                                {{purchaseOrderDetails.StatusPayment | paymentStatus}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Phiếu chi thanh toán</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.DocumentNo}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Phương thức thanh toán</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.PaymentMethod | paymentMethod}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Thời gian tạo</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.CreatedDate}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Thời gian cập nhật</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.UpdatedDate}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Thời gian giao cho đơn vị vận chuyển</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.ShippingTime}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Thời gian hủy đơn</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.CanceledTime}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Thời gian giao vận chuyển dự kiến</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.DeliveriedETA}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Thời gian vận chuyển</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.DeliveriedTime}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Thời gian rớt đơn</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.FailedTime}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Thời gian thanh toán</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.PaidTime}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Mã kiện hàng giao đi</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.ShippingParcel}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Tài khoản nợ</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.TKN}}</td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%">Tài khoản có</th>
-                            <td style="width: 80%">{{purchaseOrderDetails.TKC}}</td>
-                        </tr>
-                    </table>
-                    <div ng-if="loading">
-                        <div class="col-xs-4"></div>
-                        <div id="preloader">
-                            <div id="loader"></div>
-                        </div>
-                        <div class="col-xs-4"></div>
+                <ul class="nav nav-tabs" id="tabContent">
+                    <li class="active"><a data-target="#details" data-toggle="tab">Chi tiết</a></li>
+                    <li><a data-target="#times" data-toggle="tab">Thời gian</a></li>
+                    <li><a data-target="#trackings" data-toggle="tab">Thông tin vận đơn</a></li>
+                    <li><a data-target="#return" data-toggle="tab">Hàng trả về</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="details" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+                            <tr>
+                                <th style="width: 20%; text-align: right">Mã hàng</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.ItemID}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Sản phẩm</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.Product.Name}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Trạng thái</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.Status}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Giá mua</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.PurchasingPrice}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Giảm giá (%)</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.DiscountPercent}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Khoản giảm giá</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.DiscountAmount}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Lý do giảm giá</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.DiscountReason}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Phí ship NCC trả</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.ShippingFeeDistributor}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Phí ship NBH trả</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.ShippingFee}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Tổng tiền đền bù</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.Subsidize}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Trạng thái thanh toán</th>
+                                <td style="width: 80%" ng-class="{'badge bg-red':purchaseOrderDetails.StatusPayment==false,'badge bg-green':purchaseOrderDetails.StatusPayment==true}">
+                                    {{purchaseOrderDetails.StatusPayment | paymentStatus}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Phiếu chi thanh toán</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.DocumentNo}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Phương thức thanh toán</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.PaymentMethod | paymentMethod}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Tài khoản nợ</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.TKN}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Tài khoản có</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.TKC}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="times" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian tạo</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.CreatedDate}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian cập nhật</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.UpdatedDate}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian giao cho đơn vị vận chuyển</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.ShippingTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian hủy đơn</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.CanceledTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian giao vận chuyển dự kiến</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.DeliveriedETA}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian vận chuyển</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.DeliveriedTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian rớt đơn</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.FailedTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian thanh toán</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.PaidTime}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="trackings" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+                            <tr>
+                                <th style="width: 20%; text-align: right">Mã kiện hàng giao đi</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.ShippingParcel}}</td>
+                            </tr>                            
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="return" data-toggle="tab">
+                        <table class="table table-hover" style="position: relative">
+
+                        </table>
                     </div>
                 </div>
             </div>
