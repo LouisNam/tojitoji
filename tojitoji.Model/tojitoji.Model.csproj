@@ -63,6 +63,7 @@
     <Compile Include="Models\Human.cs" />
     <Compile Include="Models\HumanType.cs" />
     <Compile Include="Models\InventoryTransaction.cs" />
+    <Compile Include="Models\TrialBalance.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />
     <Compile Include="Models\PurchaseOrderDetail.cs" />

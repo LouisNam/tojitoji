@@ -17,38 +17,54 @@
                             <td style="width: 80%" ng-class="{'badge bg-red':account.AccountType==false,'badge bg-green':account.AccountType==true}">{{account.AccountType | accountType}}</td>
                         </tr>
                         <tr>
-                            <th style="width: 20%">Tài khoản 1</th>
+                            <th style="width: 20%">Tên tài khoản</th>
+                            <td style="width: 80%">{{account.Account_Name}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Loại 3</th>
                             <td style="width: 80%">{{account.Account_1}}</td>
                         </tr>
                         <tr>
-                            <th style="width: 20%">Tên tài khoản 1</th>
+                            <th style="width: 20%">Tên loại 3</th>
                             <td style="width: 80%">{{account.Account_1_Name}}</td>
                         </tr>
                         <tr>
-                            <th style="width: 20%">Tài khoản 2</th>
+                            <th style="width: 20%">Loại 4</th>
                             <td style="width: 80%">{{account.Account_2}}</td>
                         </tr>
                         <tr>
-                            <th style="width: 20%">Tên tài khoản 2</th>
+                            <th style="width: 20%">Tên loại 4</th>
                             <td style="width: 80%">{{account.Account_2_Name}}</td>
                         </tr>
                         <tr>
-                            <th style="width: 20%">Tài khoản 3</th>
+                            <th style="width: 20%">Loại 5</th>
                             <td style="width: 80%">{{account.Account_3}}</td>
                         </tr>
                         <tr>
-                            <th style="width: 20%">Tên tài khoản 3</th>
+                            <th style="width: 20%">Tên loại 5</th>
                             <td style="width: 80%">{{account.Account_3_Name}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Số dư nợ đầu</th>
+                            <td style="width: 80%">{{account.SoDuNoDau}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Số dư có đầu</th>
+                            <td style="width: 80%">{{account.SoDuCoDau}}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Ngày số dư</th>
+                            <td style="width: 80%">{{account.NgaySoDu}}</td>
                         </tr>
                         <tr>
                             <th style="width: 20%">Định khoản</th>
                             <td style="width: 80%" ng-class="{'badge bg-red':account.Status==false,'badge bg-green':account.Status==true}">{{account.Status | accountStatus}}</td>
                         </tr>
-                        <tr>
+                        <tr title="Tài khoản đối ứng được kết chuyển cuối tháng">
                             <th style="width: 20%">Tài khoản nhận kết chuyển</th>
                             <td style="width: 80%">{{account.TKNhanKC}}</td>
                         </tr>
-                        <tr>
+                        <tr title="Mã kết chuyển cho biết tài khoản sẽ được kết chuyển trong nhóm các bút toán nào">
                             <th style="width: 20%">Mã kết chuyển</th>
                             <td style="width: 80%">{{account.MaKC}}</td>
                         </tr>

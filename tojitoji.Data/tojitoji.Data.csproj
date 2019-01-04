@@ -68,6 +68,30 @@
     <Compile Include="Migrations\201812281340315_AddDocumentAndTransactionTables.Designer.cs">
       <DependentUpon>201812281340315_AddDocumentAndTransactionTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812291344597_EditAccountTable.cs" />
+    <Compile Include="Migrations\201812291344597_EditAccountTable.Designer.cs">
+      <DependentUpon>201812291344597_EditAccountTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812291357210_EditAccountTables.cs" />
+    <Compile Include="Migrations\201812291357210_EditAccountTables.Designer.cs">
+      <DependentUpon>201812291357210_EditAccountTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901021129007_EditDocumentIDColumns.cs" />
+    <Compile Include="Migrations\201901021129007_EditDocumentIDColumns.Designer.cs">
+      <DependentUpon>201901021129007_EditDocumentIDColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901021353496_EditSalesOrderDetailReturnsTable.cs" />
+    <Compile Include="Migrations\201901021353496_EditSalesOrderDetailReturnsTable.Designer.cs">
+      <DependentUpon>201901021353496_EditSalesOrderDetailReturnsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901021425071_AddTrialBalanceTable.cs" />
+    <Compile Include="Migrations\201901021425071_AddTrialBalanceTable.Designer.cs">
+      <DependentUpon>201901021425071_AddTrialBalanceTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901021444564_EditColumnTrialBalance.cs" />
+    <Compile Include="Migrations\201901021444564_EditColumnTrialBalance.Designer.cs">
+      <DependentUpon>201901021444564_EditColumnTrialBalance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
@@ -92,6 +116,7 @@
     <Compile Include="Repositories\SKULazadaRepository.cs" />
     <Compile Include="Repositories\SKURepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
+    <Compile Include="Repositories\TrialBalanceRepository.cs" />
     <Compile Include="Repositories\WarehouseRepository.cs" />
     <Compile Include="tojitojiDbContext.cs" />
   </ItemGroup>
@@ -118,6 +143,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812281340315_AddDocumentAndTransactionTables.resx">
       <DependentUpon>201812281340315_AddDocumentAndTransactionTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812291344597_EditAccountTable.resx">
+      <DependentUpon>201812291344597_EditAccountTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812291357210_EditAccountTables.resx">
+      <DependentUpon>201812291357210_EditAccountTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901021129007_EditDocumentIDColumns.resx">
+      <DependentUpon>201901021129007_EditDocumentIDColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901021353496_EditSalesOrderDetailReturnsTable.resx">
+      <DependentUpon>201901021353496_EditSalesOrderDetailReturnsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901021425071_AddTrialBalanceTable.resx">
+      <DependentUpon>201901021425071_AddTrialBalanceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901021444564_EditColumnTrialBalance.resx">
+      <DependentUpon>201901021444564_EditColumnTrialBalance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

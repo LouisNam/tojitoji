@@ -12,7 +12,7 @@
                 function (result) {                    
                     notificationService.displaySuccess('Thêm thành công!');
                     $state.go('purchaseOrders');
-                    location.reload();               
+                    //location.reload();               
                 }, function (error) {
                     notificationService.displayError('Thêm mới không thành công!');
                 });
@@ -22,7 +22,7 @@
             apiService.get('api/documenttype/getalldocumenttype', null, function (result) {
                 $scope.documentTypes = result.data;
             }, function () {
-                console.log('Cannot get list parent');
+                console.log('Cannot get list document type parent');
             });
         }
 
@@ -30,7 +30,7 @@
             apiService.get('api/human/getallhumans', null, function (result) {
                 $scope.humans = result.data;
             }, function () {
-                console.log('Cannot get list parent');
+                console.log('Cannot get list human');
             });
         }
 

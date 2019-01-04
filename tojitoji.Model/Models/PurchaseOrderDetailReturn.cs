@@ -36,7 +36,9 @@ namespace tojitoji.Model.Models
         [MaxLength(2)]
         public string DocumentTypeID { set; get; } // Loại Chứng Từ
 
-        public int? MaChungTu { set; get; } // Mã Chứng Từ
+        [Column(TypeName = "varchar")]
+        [MaxLength(20)]
+        public string DocumentID { set; get; } // Mã chứng từ
 
         public string Description { set; get; } // Diễn giải chung
 

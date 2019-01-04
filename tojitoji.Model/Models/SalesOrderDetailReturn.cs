@@ -8,7 +8,7 @@ namespace tojitoji.Model.Models
     public class SalesOrderDetailReturn
     {
         [Key]
-        public int SalesOrderDetailID { set; get; }
+        public int ID { set; get; }
 
         public DateTime ReturnedTime { set; get; }
 
@@ -49,5 +49,11 @@ namespace tojitoji.Model.Models
         public string DocumentID { set; get; } // Mã chứng từ
 
         public string Description { set; get; }
+
+        [ForeignKey("ID")]
+        public virtual SalesOrderDetail SalesOrderDetail { set; get; }
+
+        [ForeignKey("DocumentTypeID")]
+        public virtual DocumentType DocumentType { set; get; }
     }
 }

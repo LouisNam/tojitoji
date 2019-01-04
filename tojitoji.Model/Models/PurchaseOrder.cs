@@ -17,6 +17,8 @@ namespace tojitoji.Model.Models
         [MaxLength(2)]
         public string DocumentTypeID { set; get; } // Loại chứng từ
 
+        [Column(TypeName = "varchar")]
+        [MaxLength(20)]
         public string DocumentID { set; get; } // Mã chứng từ
 
         public string Description { set; get; } // Diễn giải chung

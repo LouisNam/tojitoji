@@ -30,7 +30,7 @@ namespace tojitoji.WebApp.Models
 
         public string DocumentTypeID { set; get; }
 
-        public int? MaChungTu { set; get; }
+        public string DocumentID { set; get; }
 
         public string Description { set; get; }
 
