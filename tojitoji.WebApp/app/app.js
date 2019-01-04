@@ -17,6 +17,7 @@
         'tojitojishop.salesOrders',
         'tojitojishop.documents',
         'tojitojishop.transactions',
+        'tojitojishop.trialbalances',
         'tojitojishop.common'
     ]).config(config);
 
@@ -25,8 +26,8 @@
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider.state('home', {
             url: "/admin",
-            templateUrl: "/app/components/home/homeView.html",
-            controller: "homeController"
+            templateUrl: "/app/components/accounts/accountListView.html",
+            controller: "accountListController"
         });
         $urlRouterProvider.otherwise('/admin');
     }

@@ -123,7 +123,7 @@
                             <li><a ui-sref="humans"><i class="far fa-circle"></i> Danh sách </a></li>
                             <li><a ui-sref="humanTypes"><i class="far fa-circle"></i> Loại đối tượng </a></li>
                         </ul>
-                    </li>                    
+                    </li>
                     <li class="header">Tài chính</li>
                     <li class="treeview">
                         <a ui-sref="documents">
@@ -144,7 +144,12 @@
                         <a ui-sref="documenttypes">
                             <i class="fas fa-paperclip"></i> <span>Loại chứng từ</span>
                         </a>
-                    </li>                                  
+                    </li>
+                    <li class="treeview">
+                        <a ui-sref="trialbalances">
+                            <i class="fas fa-balance-scale"></i> <span>Phát sinh cân đối</span>
+                        </a>
+                    </li>
                     <li class="header">Hệ thống</li>
                     <li class="treeview">
                         <a ui-sref="companyInformations">
@@ -153,7 +158,7 @@
                     </li>
                     <li><a href="#"><i class="far fa-circle text-red"></i> <span>Lỗi hệ thống</span></a></li>
                     <li><a href="#"><i class="far fa-circle text-yellow"></i> <span>Warning</span></a></li>
-                    <li><a href="#"><i class="far fa-circle text-aqua"></i> <span>Information</span></a></li>                    
+                    <li><a href="#"><i class="far fa-circle text-aqua"></i> <span>Information</span></a></li>
                 </ul>
             </section>
         </aside>
@@ -165,7 +170,7 @@
                 <b>Version</b> 2.3.0
             </div>
             <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-        </footer>        
+        </footer>
         <!-- Add the sidebar's background. This div must be placed
              immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
@@ -198,7 +203,7 @@
     <script src="~/app/shared/filters/productStatus.js"></script>
     <script src="~/app/shared/filters/paymentMethod.js"></script>
     <script src="~/app/shared/filters/paymentStatus.js"></script>
-    <!-- xxxxxxxxxxxxxxxx -->    
+    <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/components/accounts/accounts.module.js"></script>
     <script src="~/app/components/companyInfor/companyInformation.module.js"></script>
     <script src="~/app/components/humans/humans.module.js"></script>
@@ -215,10 +220,10 @@
     <script src="~/app/components/salesOrders/salesOrders.module.js"></script>
     <script src="~/app/components/documents/documents.module.js"></script>
     <script src="~/app/components/transactions/transactions.module.js"></script>
+    <script src="~/app/components/trialBalances/trialbalances.module.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/app.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
-    <script src="~/app/components/home/homeController.js"></script>
     <script src="~/app/components/documenttypes/documenttypeListController.js"></script>
     <script src="~/app/components/accounts/accountListController.js"></script>
     <script src="~/app/components/accounts/accountDetailController.js"></script>
@@ -278,5 +283,6 @@
     <script src="~/app/components/transactions/transactionListController.js"></script>
     <script src="~/app/components/transactions/transactionAddController.js"></script>
     <script src="~/app/components/transactions/transactionEditController.js"></script>
+    <script src="~/app/components/trialBalances/trialbalanceListController.js"></script>
 </body>
 </html>

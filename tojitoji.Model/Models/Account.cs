@@ -1,18 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using tojitoji.Model.Abstract;
 
 namespace tojitoji.Model.Models
 {
     [Table("Accounts")]
-    public class Account : Auditable
+    public class Account
     {
         [Key]
         [Column(TypeName = "varchar")]
         [MaxLength(10)]
         public string ID { set; get; }
 
-        public bool? AccountType { set; get; } // Loại Tài Khoản, Quy ước: TK phát sinh tăng ở bên nợ thì là "N", TK phát sinh tăng ở bên có ghi là "C"
+        public bool? AccountType { set; get; }
 
         [Required]
         [MaxLength(256)]
@@ -34,10 +34,16 @@ namespace tojitoji.Model.Models
         [MaxLength(256)]
         public string Account_3_Name { set; get; }
 
-        public bool? Status { set; get; } // Có định khoản
+        public decimal? SoDuNoDau { set; get; }
 
-        public string TKNhanKC { set; get; } // Tài khoản đối ứng được kết chuyển cuối tháng
+        public decimal? SoDuCoDau { set; get; }
 
-        public string MaKC { set; get; } // Mã Kế chuyển cho biết tài khoản sẽ được kết chuyện trong nhóm các bút toán nào
+        public DateTime? NgaySoDu { set; get; }
+
+        public bool? Status { set; get; }
+
+        public string TKNhanKC { set; get; }
+
+        public string MaKC { set; get; }
     }
 }

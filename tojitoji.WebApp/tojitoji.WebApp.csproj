@@ -209,6 +209,7 @@
     <Compile Include="Api\SalesOrderDetailReturnController.cs" />
     <Compile Include="Api\SKUController.cs" />
     <Compile Include="Api\TransactionController.cs" />
+    <Compile Include="Api\TrialBalanceController.cs" />
     <Compile Include="Api\WarehouseController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Models\SKULazadaViewModel.cs" />
     <Compile Include="Models\SKUViewModel.cs" />
     <Compile Include="Models\TransactionViewModel.cs" />
+    <Compile Include="Models\TrialBalanceViewModel.cs" />
     <Compile Include="Models\WarehouseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -300,8 +302,6 @@
     <Content Include="app\components\documenttypes\documenttypeListController.js" />
     <Content Include="app\components\documenttypes\documenttypeListView.html" />
     <Content Include="app\components\documenttypes\documenttypes.module.js" />
-    <Content Include="app\components\home\homeController.js" />
-    <Content Include="app\components\home\homeView.html" />
     <Content Include="app\components\humans\humans.module.js" />
     <Content Include="app\components\humans\humanAddController.js" />
     <Content Include="app\components\humans\humanAddView.html" />
@@ -378,6 +378,9 @@
     <Content Include="app\components\transactions\transactionListController.js" />
     <Content Include="app\components\transactions\transactionListView.html" />
     <Content Include="app\components\transactions\transactions.module.js" />
+    <Content Include="app\components\trialBalances\trialbalanceListController.js" />
+    <Content Include="app\components\trialBalances\trialbalanceListView.html" />
+    <Content Include="app\components\trialBalances\trialbalances.module.js" />
     <Content Include="app\components\warehouses\warehouseAddController.js" />
     <Content Include="app\components\warehouses\warehouseAddView.html" />
     <Content Include="app\components\warehouses\warehouseEditController.js" />

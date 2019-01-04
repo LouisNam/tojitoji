@@ -91,7 +91,7 @@ namespace tojitoji.WebApp.Api
                 }
                 else
                 {
-                    var dbSalesOrderDetailReturn = _salesOrderDetailReturnService.GetById(salesOrderDetailReturnVM.SalesOrderDetailID);
+                    var dbSalesOrderDetailReturn = _salesOrderDetailReturnService.GetById(salesOrderDetailReturnVM.ID);
 
                     dbSalesOrderDetailReturn.UpdateSalesOrderDetailReturn(salesOrderDetailReturnVM);
 

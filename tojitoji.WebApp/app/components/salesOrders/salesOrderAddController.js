@@ -14,7 +14,7 @@
                 function (result) {
                     notificationService.displaySuccess('Thêm thành công!');
                     $state.go('salesOrders');
-                    location.reload();
+                    //location.reload();
                 }, function (error) {
                     notificationService.displayError('Thêm mới không thành công!');
                 });

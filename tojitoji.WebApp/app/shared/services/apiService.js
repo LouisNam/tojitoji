@@ -1,5 +1,4 @@
-﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
-(function (app) {
+﻿(function (app) {
     app.factory('apiService', apiService);
 
     apiService.$inject = ['$http'];

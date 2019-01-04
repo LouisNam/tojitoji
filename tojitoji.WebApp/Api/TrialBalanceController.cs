@@ -13,20 +13,33 @@ using tojitoji.WebApp.Models;
 
 namespace tojitoji.WebApp.Api
 {
-    [RoutePrefix("api/purchaseorder")]
-    public class PurchaseOrderController : ApiControllerBase
+    [RoutePrefix("api/trialbalance")]
+    public class TrialBalanceController : ApiControllerBase
     {
         #region Initialize
 
-        private IPurchaseOrderService _purchaseOrderService;
+        private ITrialBalanceService _trialBalanceService;
 
-        public PurchaseOrderController(IErrorService errorService, IPurchaseOrderService purchaseOrderService)
+        public TrialBalanceController(IErrorService errorService, ITrialBalanceService trialBalanceService)
             : base(errorService)
         {
-            this._purchaseOrderService = purchaseOrderService;
+            this._trialBalanceService = trialBalanceService;
         }
 
         #endregion Initialize
+
+        //[Route("getallTrialBalance")]
+        //[HttpGet]
+        //public HttpResponseMessage GetAll(HttpRequestMessage request)
+        //{
+        //    return CreateHttpResponse(request, () =>
+        //    {
+        //        var model = _trialBalanceService.GetAll();
+        //        var responseData = Mapper.Map<IEnumerable<TrialBalance>, IEnumerable<TrialBalanceViewModel>>(model);
+        //        var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+        //        return response;
+        //    });
+        //}
 
         [Route("getall")]
         [HttpGet]
@@ -35,14 +48,14 @@ namespace tojitoji.WebApp.Api
             return CreateHttpResponse(request, () =>
             {
                 int totalRow = 0;
-                var model = _purchaseOrderService.GetAll();
+                var model = _trialBalanceService.GetAll();
 
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.ID).Skip(page * pageSize).Take(pageSize);
 
-                var responseData = Mapper.Map<IEnumerable<PurchaseOrder>, IEnumerable<PurchaseOrderViewModel>>(query);
+                var responseData = Mapper.Map<IEnumerable<TrialBalance>, IEnumerable<TrialBalanceViewModel>>(query);
 
-                var paginationSet = new PaginationSet<PurchaseOrderViewModel>()
+                var paginationSet = new PaginationSet<TrialBalanceViewModel>()
                 {
                     Items = responseData,
                     Page = page,
@@ -56,7 +69,7 @@ namespace tojitoji.WebApp.Api
 
         [Route("create")]
         [HttpPost]
-        public HttpResponseMessage Create(HttpRequestMessage request, PurchaseOrderViewModel PurchaseOrderVM)
+        public HttpResponseMessage Create(HttpRequestMessage request, TrialBalanceViewModel TrialBalanceVM)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -67,14 +80,13 @@ namespace tojitoji.WebApp.Api
                 }
                 else
                 {
-                    var newPurchaseOrder = new PurchaseOrder();
-                    newPurchaseOrder.UpdatePurchaseOrder(PurchaseOrderVM);
-                    newPurchaseOrder.CreatedDate = DateTime.Now;
-                    
-                    _purchaseOrderService.Add(newPurchaseOrder);
-                    _purchaseOrderService.SaveChanges();
+                    var newTrialBalance = new TrialBalance();
+                    newTrialBalance.UpdateTrialBalance(TrialBalanceVM);                    
 
-                    var responseData = Mapper.Map<PurchaseOrder, PurchaseOrderViewModel>(newPurchaseOrder);
+                    _trialBalanceService.Add(newTrialBalance);                    
+                    _trialBalanceService.SaveChanges();
+
+                    var responseData = Mapper.Map<TrialBalance, TrialBalanceViewModel>(newTrialBalance);
                     response = request.CreateResponse(HttpStatusCode.Created, responseData);
                 }
 
@@ -88,8 +100,8 @@ namespace tojitoji.WebApp.Api
         {
             return CreateHttpResponse(request, () =>
             {
-                var model = _purchaseOrderService.GetById(id);
-                var responseData = Mapper.Map<PurchaseOrder, PurchaseOrderViewModel>(model);
+                var model = _trialBalanceService.GetById(id);
+                var responseData = Mapper.Map<TrialBalance, TrialBalanceViewModel>(model);
                 var response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 return response;
             });
@@ -97,7 +109,7 @@ namespace tojitoji.WebApp.Api
 
         [Route("update")]
         [HttpPut]
-        public HttpResponseMessage Update(HttpRequestMessage request, PurchaseOrderViewModel PurchaseOrderVM)
+        public HttpResponseMessage Update(HttpRequestMessage request, TrialBalanceViewModel TrialBalanceVM)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -108,14 +120,14 @@ namespace tojitoji.WebApp.Api
                 }
                 else
                 {
-                    var dbPurchaseOrder = _purchaseOrderService.GetById(PurchaseOrderVM.ID);
+                    var dbTrialBalance = _trialBalanceService.GetById(TrialBalanceVM.ID);
 
-                    dbPurchaseOrder.UpdatePurchaseOrder(PurchaseOrderVM);
+                    dbTrialBalance.UpdateTrialBalance(TrialBalanceVM);
 
-                    _purchaseOrderService.Update(dbPurchaseOrder);
-                    _purchaseOrderService.SaveChanges();
+                    _trialBalanceService.Update(dbTrialBalance);
+                    _trialBalanceService.SaveChanges();
 
-                    var responseData = Mapper.Map<PurchaseOrder, PurchaseOrderViewModel>(dbPurchaseOrder);
+                    var responseData = Mapper.Map<TrialBalance, TrialBalanceViewModel>(dbTrialBalance);
                     response = request.CreateResponse(HttpStatusCode.Created, responseData);
                 }
 
@@ -136,10 +148,10 @@ namespace tojitoji.WebApp.Api
         //        }
         //        else
         //        {
-        //            var oldPurchaseOrder = _PurchaseOrderService.Delete(id);
-        //            _PurchaseOrderService.SaveChanges();
+        //            var oldTrialBalance = _trialBalanceService.Delete(id);
+        //            _trialBalanceService.SaveChanges();
 
-        //            var responseData = Mapper.Map<PurchaseOrder, PurchaseOrderViewModel>(oldPurchaseOrder);
+        //            var responseData = Mapper.Map<TrialBalance, TrialBalanceViewModel>(oldTrialBalance);
         //            response = request.CreateResponse(HttpStatusCode.Created, responseData);
         //        }
 

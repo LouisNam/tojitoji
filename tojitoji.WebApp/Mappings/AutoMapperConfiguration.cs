@@ -32,6 +32,7 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<SalesOrderDetailReturn, SalesOrderDetailReturnViewModel>();
                 cfg.CreateMap<Document, DocumentViewModel>();
                 cfg.CreateMap<Transaction, TransactionViewModel>();
+                cfg.CreateMap<TrialBalance, TrialBalanceViewModel>();
             });
         }
     }

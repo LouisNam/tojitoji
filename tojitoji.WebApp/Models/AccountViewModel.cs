@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace tojitoji.WebApp.Models
 {
@@ -28,6 +29,12 @@ namespace tojitoji.WebApp.Models
 
         [MaxLength(256)]
         public string Account_3_Name { set; get; }
+
+        public decimal? SoDuNoDau { set; get; }
+
+        public decimal? SoDuCoDau { set; get; }
+
+        public DateTime? NgaySoDu { set; get; }
 
         public bool? Status { set; get; }
 

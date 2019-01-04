@@ -50,7 +50,7 @@ namespace tojitoji.WebApp.Api
                 var model = _accountService.GetAll(keyword);
 
                 totalRow = model.Count();
-                var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
+                var query = model.OrderBy(x => x.ID).Skip(page * pageSize).Take(pageSize);
 
                 var responseData = Mapper.Map<IEnumerable<Account>, IEnumerable<AccountViewModel>>(query);
 

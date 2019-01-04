@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tojitoji.Model.Models
 {
-    [Table("Documents")]
-    public class Document
+    [Table("TrialBalances")]
+    public class TrialBalance // Phát sinh cân đối
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,22 +19,18 @@ namespace tojitoji.Model.Models
 
         [Column(TypeName = "varchar")]
         [MaxLength(20)]
-        public string DocumentID { set; get; }
+        public string DocumentID { set; get; } // Số chứng từ
 
         public string Description { set; get; }
 
-        public int HumanID { set; get; }
+        public int HumanID { set; get; } // Khách hàng
 
-        public string Serial { set; get; }
+        public string AccountID { set; get; } // Mã tài khoản kế toán
 
-        public string BillNo { set; get; } // Số hóa đơn
+        public string CorrespondingAccountID { set; get; } // Tài khoản đối ứng
 
-        public DateTime? BillDate { set; get; } // Ngày hóa đơn
+        public decimal? DebitIncurred { set; get; } // Tài khoản phát sinh nợ
 
-        [ForeignKey("DocumentTypeID")]
-        public virtual DocumentType DocumentType { set; get; }
-
-        [ForeignKey("HumanID")]
-        public virtual Human Human { set; get; }
+        public decimal? CreditIncurred { set; get; } // Tài khoản phát sinh có
     }
 }

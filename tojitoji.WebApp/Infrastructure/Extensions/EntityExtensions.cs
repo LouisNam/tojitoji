@@ -244,7 +244,7 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             purchaseOrderDetailReturn.PurchaseOrderReturnID = purchaseOrderDetailReturnVM.PurchaseOrderReturnID;
             purchaseOrderDetailReturn.CreatedDate = purchaseOrderDetailReturnVM.CreatedDate;
             purchaseOrderDetailReturn.DocumentTypeID = purchaseOrderDetailReturnVM.DocumentTypeID;
-            purchaseOrderDetailReturn.MaChungTu = purchaseOrderDetailReturnVM.MaChungTu;
+            purchaseOrderDetailReturn.DocumentID = purchaseOrderDetailReturnVM.DocumentID;
             purchaseOrderDetailReturn.Description = purchaseOrderDetailReturnVM.Description;
         }
 
@@ -325,7 +325,7 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
 
         public static void UpdateSalesOrderDetailReturn(this SalesOrderDetailReturn salesOrderDetailReturn, SalesOrderDetailReturnViewModel salesOrderDetailReturnVM)
         {
-            salesOrderDetailReturn.SalesOrderDetailID = salesOrderDetailReturnVM.SalesOrderDetailID;
+            salesOrderDetailReturn.ID = salesOrderDetailReturnVM.ID;
             salesOrderDetailReturn.ReturnedTime = salesOrderDetailReturnVM.ReturnedTime;
             salesOrderDetailReturn.Amount = salesOrderDetailReturnVM.Amount;
             salesOrderDetailReturn.AmountTime = salesOrderDetailReturnVM.AmountTime;
@@ -364,6 +364,20 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             transaction.HumanID = transactionVM.HumanID;
             transaction.TKN = transactionVM.TKN;
             transaction.TKC = transactionVM.TKC;
+        }
+
+        public static void UpdateTrialBalance(this TrialBalance trialBalance, TrialBalanceViewModel trialBalanceVM)
+        {
+            trialBalance.ID = trialBalanceVM.ID;
+            trialBalance.DocumentTypeID = trialBalanceVM.DocumentTypeID;
+            trialBalance.Date = trialBalanceVM.Date;
+            trialBalance.DocumentID = trialBalanceVM.DocumentID;
+            trialBalance.Description = trialBalanceVM.Description;
+            trialBalance.HumanID = trialBalanceVM.HumanID;
+            trialBalance.AccountID = trialBalanceVM.AccountID;
+            trialBalance.CorrespondingAccountID = trialBalanceVM.CorrespondingAccountID;
+            trialBalance.DebitIncurred = trialBalanceVM.DebitIncurred;
+            trialBalance.CreditIncurred = trialBalanceVM.CreditIncurred;
         }
     }
 }

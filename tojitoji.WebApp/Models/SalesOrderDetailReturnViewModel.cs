@@ -5,7 +5,7 @@ namespace tojitoji.WebApp.Models
 {
     public class SalesOrderDetailReturnViewModel
     {
-        public int SalesOrderDetailID { set; get; }
+        public int ID { set; get; }
 
         public DateTime ReturnedTime { set; get; }
 
@@ -35,5 +35,9 @@ namespace tojitoji.WebApp.Models
         public string DocumentID { set; get; }
 
         public string Description { set; get; }
+
+        public virtual PurchaseOrderDetailViewModel PurchaseOrderDetail { set; get; }
+
+        public virtual DocumentTypeViewModel DocumentType { set; get; }
     }
 }
