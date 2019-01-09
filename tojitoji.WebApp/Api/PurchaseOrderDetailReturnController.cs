@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -24,19 +25,6 @@ namespace tojitoji.WebApp.Api
         }
 
         #endregion Initialize
-
-        //[Route("getdetail/{id}")]
-        //[HttpGet]
-        //public HttpResponseMessage GetDetailById(HttpRequestMessage request, int id)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        var model = _purchaseOrderDetailReturnService.GetAll(id);
-        //        var responseData = Mapper.Map<IEnumerable<PurchaseOrderDetail>, IEnumerable<PurchaseOrderDetailViewModel>>(model);
-        //        var response = request.CreateResponse(HttpStatusCode.OK, responseData);
-        //        return response;
-        //    });
-        //}
 
         [Route("getbyid/{id}")]
         [HttpGet]
@@ -103,52 +91,32 @@ namespace tojitoji.WebApp.Api
             });
         }
 
-        //[Route("create")]
-        //[HttpPost]
-        //public HttpResponseMessage Create(HttpRequestMessage request, [FromBody] PurchaseOrderDetailViewModel model)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            int productID = model.ProductID;
-        //            int purchaseOrderID = model.PurchaseOrderID;
-        //            decimal purchasingPrice = model.PurchasingPrice;
-        //            int quantity = model.Quantity;
-        //            string status = model.Status;
-        //            decimal? discountPercent = model.DiscountPercent ?? 0;
-        //            decimal? discountAmount = model.DiscountAmount ?? 0;
-        //            string discountReason = model.DiscountReason ?? String.Empty;
-        //            decimal? shippingFeeDistributor = model.ShippingFeeDistributor ?? 0;
-        //            decimal? shippingFee = model.ShippingFee ?? 0;
-        //            decimal? subsidize = model.Subsidize ?? 0;
-        //            decimal? unitCost = model.UnitCost ?? 0;
-        //            bool statusPayment = model.StatusPayment;
-        //            int? documentNo = model.DocumentNo ?? 0;
-        //            bool? paymentMethod = model.PaymentMethod ?? false;
-        //            DateTime createdDate = model.CreatedDate;
-        //            DateTime? updatedDate = model.UpdatedDate ?? null;
-        //            DateTime? shippingTime = model.ShippingTime ?? null;
-        //            DateTime? canceledTime = model.CanceledTime ?? null;
-        //            DateTime? deliveriedETA = model.DeliveriedETA ?? null;
-        //            DateTime? deliveriedTime = model.DeliveriedTime ?? null;
-        //            DateTime? failedTime = model.FailedTime ?? null;
-        //            DateTime? paidTime = model.PaidTime ?? null;
-        //            string shippingParcel = model.ShippingParcel ?? String.Empty;
-        //            string TKN = "156";
-        //            string TKC = "331";
+        [Route("create")]
+        [HttpPost]
+        public HttpResponseMessage Create(HttpRequestMessage request, PurchaseOrderDetailReturnViewModel purchaseOrderDetailVM)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var newPurchaseOrderDetailReturn = new PurchaseOrderDetailReturn();
+                    newPurchaseOrderDetailReturn.UpdatePurchaseOrderDetailReturn(purchaseOrderDetailVM);
+                    newPurchaseOrderDetailReturn.CreatedDate = DateTime.Now;
+                    
+                    _purchaseOrderDetailReturnService.Add(newPurchaseOrderDetailReturn);
+                    _purchaseOrderDetailReturnService.SaveChanges();
 
-        //            _purchaseOrderDetailReturnService.CreatePurchaseOrderDetail(productID, purchaseOrderID, purchasingPrice, quantity, status, discountPercent, discountAmount, discountReason, shippingFeeDistributor, shippingFee, subsidize, unitCost, statusPayment, documentNo, paymentMethod, createdDate, updatedDate, shippingTime, canceledTime, deliveriedETA, deliveriedTime, failedTime, paidTime, shippingParcel, TKN, TKC);
-        //            response = request.CreateResponse(HttpStatusCode.Created);
-        //        }
+                    var responseData = Mapper.Map<PurchaseOrderDetailReturn, PurchaseOrderDetailReturnViewModel>(newPurchaseOrderDetailReturn);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                }
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
     }
 }

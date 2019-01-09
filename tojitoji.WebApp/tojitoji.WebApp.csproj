@@ -334,6 +334,8 @@
     <Content Include="app\components\products\productEditView.html" />
     <Content Include="app\components\products\productListController.js" />
     <Content Include="app\components\products\productListView.html" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailReturnAddController.js" />
+    <Content Include="app\components\purchaseOrders\purchaseOrderDetailReturnAddView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrderEditController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderAddController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderEditView.html" />

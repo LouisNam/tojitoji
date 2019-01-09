@@ -10,6 +10,7 @@
         $scope.purchaseOrderID = id;
         $scope.deletePurchaseOrderDetail = deletePurchaseOrderDetail;
         $scope.editPurchaseOrderDetail = editPurchaseOrderDetail;
+        $scope.returnPurchaseOrderDetail = returnPurchaseOrderDetail;
 
         $scope.close = function (result) {
             close(result, 500);
@@ -76,6 +77,22 @@
             ModalService.showModal({
                 templateUrl: "/app/components/purchaseOrders/purchaseOrderDetailEditView.html",
                 controller: "purchaseOrderDetailEditController",
+                preClose: (modal) => { modal.element.modal('hide'); },
+                inputs: {
+                    id: id
+                }
+            }).then(function (modal) {
+                modal.element.modal();
+                modal.close;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        };
+
+        function returnPurchaseOrderDetail(id) {
+            ModalService.showModal({
+                templateUrl: "/app/components/purchaseOrders/purchaseOrderDetailReturnAddView.html",
+                controller: "purchaseOrderDetailReturnAddController",
                 preClose: (modal) => { modal.element.modal('hide'); },
                 inputs: {
                     id: id

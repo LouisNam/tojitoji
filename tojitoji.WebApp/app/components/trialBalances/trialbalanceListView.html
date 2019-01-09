@@ -22,14 +22,18 @@
                 </div>
             </div>
             <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
+                <table class="table table-hover dataTable">
                     <thead>
                         <tr>
                             <th>Loại chứng từ</th>
-                            <th>Ngày chứng từ</th>
+                            <th ng-click="sortData('Date')">
+                                Ngày chứng từ <div ng-class="getSortClass('Date')" class="glyphicon glyphicon-sort pull-right"></div>
+                            </th>
                             <th>Mã chứng từ</th>
                             <th>Diễn giải chung</th>
-                            <th>Mã khách hàng</th>
+                            <th ng-click="sortData('HumanID')">
+                                Mã khách hàng <div ng-class="getSortClass('HumanID')" class="glyphicon glyphicon-sort pull-right"></div>
+                            </th>
                             <th>Tài khoản</th>
                             <th>Tài khoản đối ứng</th>
                             <th>Số phát sinh nợ</th>
@@ -37,9 +41,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in trialbalances">
+                        <tr ng-repeat="item in trialbalances | orderBy: sortColumn:reverseSort">
                             <td>{{item.DocumentTypeID}}</td>
-                            <td>{{item.Date}}</td>
+                            <td>{{item.Date | date: 'dd/MM/yyyy hh:mm'}}</td>
                             <td>{{item.DocumentID}}</td>
                             <td>{{item.Description}}</td>
                             <td>{{item.HumanID}}</td>

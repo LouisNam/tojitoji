@@ -118,14 +118,55 @@
                     <div class="tab-pane" id="trackings" data-toggle="tab">
                         <table class="table table-hover" style="position: relative">
                             <tr>
-                                <th style="width: 20%; text-align: right">Mã kiện hàng giao đi</th>
-                                <td style="width: 80%">{{purchaseOrderDetails.ShippingParcel}}</td>
+                                <th style="width: 20%; text-align: right">Thời gian nhận lại hàng</th>
+                                <td style="width: 80%">{{purchaseOrderDetails.ReturnedTime}}</td>
                             </tr>                            
                         </table>
                     </div>
                     <div class="tab-pane" id="return" data-toggle="tab">
                         <table class="table table-hover" style="position: relative">
-
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thùng hàng trả về</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.ReturnedParcel}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Thời gian nhận lại tiền</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.ReturnedAmountTime}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Phương thức thanh toán</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.PaymentMethod | paymentMethod}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Tình trạng thanh toán</th>
+                                <td style="width: 80%" ng-class="{'badge bg-red':purchaseOrderDetailReturns.StatusPayment==false,'badge bg-green':purchaseOrderDetailReturns.StatusPayment==true}">
+                                    {{purchaseOrderDetailReturns.StatusPayment | paymentStatus}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Phiếu thu thanh toán</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.DocumentNo}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Ngày chứng từ</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.CreatedDate | date: 'dd-MM-yyyy hh:mm'}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Số chứng từ</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.PurchaseOrderReturnID}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Loại chứng từ</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.DocumentTypeID}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Mã chứng từ</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.DocumentID}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 20%; text-align: right">Diễn giải chung</th>
+                                <td style="width: 80%">{{purchaseOrderDetailReturns.Description}}</td>
+                            </tr>                            
                         </table>
                     </div>
                 </div>

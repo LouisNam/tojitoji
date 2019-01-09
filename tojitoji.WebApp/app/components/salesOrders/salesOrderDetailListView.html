@@ -28,7 +28,7 @@
                                 <td ng-class="{'badge bg-red':item.StatusPayment==false,'badge bg-green':item.StatusPayment==true}">{{item.StatusPayment | paymentStatus}}</td>
                                 <td>
                                     <button class="btn btn-sm btn-primary" ng-click="editSalesOrderDetail(item.ID); close(); $event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
-                                    <button class="btn  btn-sm btn-danger" ng-click="deleteSalesOrderDetail(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-danger" ng-click="deleteSalesOrderDetail(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         </tbody>

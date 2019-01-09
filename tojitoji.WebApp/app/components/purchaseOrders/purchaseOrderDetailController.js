@@ -5,6 +5,7 @@
 
     function purchaseOrderDetailController($scope, apiService, close, id, ModalService, notificationService) {
         $scope.purchaseOrderDetails = [];
+        $scope.purchaseOrderDetailReturns = [];
 
         $scope.close = function (result) {
             close(result, 500);
@@ -18,6 +19,15 @@
             });
         }
 
+        function getPurchaseOrderDetailReturn(id) {
+            apiService.get('/api/purchaseorderdetailreturn/getbyid/' + id, null, function (result) {
+                $scope.purchaseOrderDetailReturns = result.data;
+            }, function (error) {
+                notificationService.displayError(error.data);
+            });
+        }
+
         getPurchaseOrderDetail(id);
+        getPurchaseOrderDetailReturn(id);
     };
 })(angular.module('tojitojishop.purchaseOrders'));

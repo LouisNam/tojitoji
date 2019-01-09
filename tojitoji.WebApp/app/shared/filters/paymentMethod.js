@@ -3,7 +3,10 @@
         return function (input) {
             if (input == true)
                 return 'Tiền mặt';
-            else return 'Chuyển khoản';
+            else if (input == true)
+                return 'Chuyển khoản';
+            else
+                return null;
         }
     });
 })(angular.module('tojitojishop.common'));
