@@ -1,16 +1,33 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function (app) {
+﻿(function (app) {
     app.controller('trialbalanceListController', trialbalanceListController);
 
-    trialbalanceListController.$inject = ['$scope', 'apiService', 'ModalService', 'notificationService'];
+    trialbalanceListController.$inject = ['$scope', 'apiService', 'ModalService', 'notificationService', 'orderByFilter'];
 
-    function trialbalanceListController($scope, apiService, ModalService, notificationService) {
+    function trialbalanceListController($scope, apiService, ModalService, notificationService, orderBy) {
         $scope.trialbalances = [];
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.getTrialBalances = getTrialBalances;
         $scope.keyword = '';
         $scope.search = search;
+        $scope.sortColumn = "";
+        $scope.reverseSort = false;
+        $scope.sortData = sortData;
+        $scope.getSortClass = getSortClass;
+
+        function sortData(column) {
+            $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
+            $scope.sortColumn = column;
+        }
+
+        function getSortClass(column) {
+            if ($scope.sortColumn == column) {
+                return $scope.reverseSort
+                  ? 'glyphicon glyphicon-sort-by-attributes-alt pull-right'
+                  : 'glyphicon glyphicon-sort-by-attributes pull-right';
+            }
+            return 'glyphicon glyphicon-sort pull-right';
+        }
 
         //$scope.showDetail = showDetail;
 

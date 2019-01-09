@@ -9,10 +9,10 @@
 
         function AddPurchaseOrder() {
             apiService.post('/api/purchaseorder/create', $scope.purchaseOrder,
-                function (result) {                    
+                function (result) {
                     notificationService.displaySuccess('Thêm thành công!');
                     $state.go('purchaseOrders');
-                    //location.reload();               
+                    //location.reload();
                 }, function (error) {
                     notificationService.displayError('Thêm mới không thành công!');
                 });
