@@ -84,6 +84,22 @@
                     </div>
                 </div>
                 <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">DOANH NGHIỆP</li>
+                    <li class="treeview">
+                        <a ui-sref="bibles">
+                            <i class="far fa-circle"></i> <span>Kinh thánh</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a ui-sref="companyInformations">
+                            <i class="far fa-circle"></i> <span>Thông tin doanh nghiệp</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a ui-sref="coSoKinhDoanhs">
+                            <i class="far fa-circle"></i> <span>Cơ sở kinh doanh</span>
+                        </a>
+                    </li>
                     <li class="header">MENU</li>
                     <li class="treeview">
                         <a href="#">
@@ -150,12 +166,7 @@
                             <i class="fas fa-balance-scale"></i> <span>Phát sinh cân đối</span>
                         </a>
                     </li>
-                    <li class="header">Hệ thống</li>
-                    <li class="treeview">
-                        <a ui-sref="companyInformations">
-                            <i class="fas fa-info-circle text-aqua"></i> <span>Thông tin công ty</span>
-                        </a>
-                    </li>
+                    <li class="header">Hệ thống</li>                    
                     <li><a href="#"><i class="far fa-circle text-red"></i> <span>Lỗi hệ thống</span></a></li>
                     <li><a href="#"><i class="far fa-circle text-yellow"></i> <span>Warning</span></a></li>
                     <li><a href="#"><i class="far fa-circle text-aqua"></i> <span>Information</span></a></li>
@@ -197,6 +208,7 @@
     <script src="~/app/shared/services/apiService.js"></script>
     <script src="~/app/shared/services/commonService.js"></script>
     <script src="~/app/shared/directives/pagerDirective.js"></script>
+    <script src="~/app/shared/directives/fileUpload.directive.js"></script>
     <script src="~/app/shared/services/notificationService.js"></script>
     <script src="~/app/shared/filters/accountType.js"></script>
     <script src="~/app/shared/filters/accountStatus.js"></script>
@@ -204,6 +216,8 @@
     <script src="~/app/shared/filters/paymentMethod.js"></script>
     <script src="~/app/shared/filters/paymentStatus.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
+    <script src="~/app/components/bibles/bibles.module.js"></script>
+    <script src="~/app/components/coSoKinhDoanhs/coSoKinhDoanhs.module.js"></script>
     <script src="~/app/components/accounts/accounts.module.js"></script>
     <script src="~/app/components/companyInfor/companyInformation.module.js"></script>
     <script src="~/app/components/humans/humans.module.js"></script>
@@ -224,6 +238,11 @@
     <!-- xxxxxxxxxxxxxxxx -->
     <script src="~/app/app.js"></script>
     <!-- xxxxxxxxxxxxxxxx -->
+    <script src="~/app/components/bibles/bibleListController.js"></script>
+    <script src="~/app/components/bibles/bibleAddController.js"></script>
+    <script src="~/app/components/bibles/bibleEditController.js"></script>
+    <script src="~/app/components/bibles/bibleImportController.js"></script>
+    <script src="~/app/components/coSoKinhDoanhs/coSoKinhDoanhListController.js"></script>
     <script src="~/app/components/documenttypes/documenttypeListController.js"></script>
     <script src="~/app/components/accounts/accountListController.js"></script>
     <script src="~/app/components/accounts/accountDetailController.js"></script>
@@ -231,6 +250,7 @@
     <script src="~/app/components/companyInfor/companyInformationAddController.js"></script>
     <script src="~/app/components/companyInfor/companyInformationEditController.js"></script>
     <script src="~/app/components/companyInfor/companyInformationDetailController.js"></script>
+    <script src="~/app/components/companyInfor/companyInformationImportController.js"></script>
     <script src="~/app/components/humans/humanListController.js"></script>
     <script src="~/app/components/humans/humanDetailController.js"></script>
     <script src="~/app/components/humans/humanEditController.js"></script>
@@ -278,6 +298,7 @@
     <script src="~/app/components/salesOrders/salesOrderDetailController.js"></script>
     <script src="~/app/components/salesOrders/salesOrderDetailAddController.js"></script>
     <script src="~/app/components/salesOrders/salesOrderDetailEditController.js"></script>
+    <script src="~/app/components/salesOrders/salesOrderDetailReturnAddController.js"></script>
     <script src="~/app/components/documents/documentListController.js"></script>
     <script src="~/app/components/documents/documentAddController.js"></script>
     <script src="~/app/components/documents/documentEditController.js"></script>

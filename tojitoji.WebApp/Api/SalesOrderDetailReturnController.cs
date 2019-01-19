@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -67,6 +68,8 @@ namespace tojitoji.WebApp.Api
                 {
                     var newSalesOrderDetailReturn = new SalesOrderDetailReturn();
                     newSalesOrderDetailReturn.UpdateSalesOrderDetailReturn(salesOrderDetailReturnVM);
+                    newSalesOrderDetailReturn.CreatedDate = DateTime.Now;
+
                     _salesOrderDetailReturnService.Add(newSalesOrderDetailReturn);
                     _salesOrderDetailReturnService.SaveChanges();
 

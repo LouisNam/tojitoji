@@ -82,6 +82,8 @@ namespace tojitoji.WebApp.Api
                 {
                     var newInventoryTransaction = new InventoryTransaction();
                     newInventoryTransaction.UpdateInventoryTransaction(inventoryTransactionVM);
+                    newInventoryTransaction.CreatedDate = DateTime.Now;
+
                     _inventoryTransactionService.Add(newInventoryTransaction);
                     _inventoryTransactionService.SaveChanges();
 

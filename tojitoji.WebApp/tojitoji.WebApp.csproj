@@ -90,6 +90,10 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -107,9 +111,11 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -188,6 +194,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BibleController.cs" />
     <Compile Include="Api\BundleController.cs" />
     <Compile Include="Api\CampaignController.cs" />
     <Compile Include="Api\CampaignSKUController.cs" />
@@ -225,6 +232,7 @@
     <Compile Include="Infrastructure\Extensions\EntityExtensions.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\BibleViewModel.cs" />
     <Compile Include="Models\BundleViewModel.cs" />
     <Compile Include="Models\CampaignSKUViewModel.cs" />
     <Compile Include="Models\CampaignViewModel.cs" />
@@ -256,6 +264,20 @@
     <Content Include="app\components\accounts\accounts.module.js" />
     <Content Include="app\components\accounts\accountListController.js" />
     <Content Include="app\components\accounts\accountListView.html" />
+    <Content Include="app\components\bibles\bibleAddController.js" />
+    <Content Include="app\components\bibles\bibleAddView.html" />
+    <Content Include="app\components\bibles\bibleEditController.js" />
+    <Content Include="app\components\bibles\bibleEditView.html" />
+    <Content Include="app\components\bibles\bibleImportController.js" />
+    <Content Include="app\components\bibles\bibleImportView.html" />
+    <Content Include="app\components\companyInfor\companyInformationImportController.js" />
+    <Content Include="app\components\companyInfor\companyInformationImportView.html" />
+    <Content Include="app\components\coSoKinhDoanhs\coSoKinhDoanhListController.js" />
+    <Content Include="app\components\coSoKinhDoanhs\coSoKinhDoanhListView.html" />
+    <Content Include="app\components\coSoKinhDoanhs\coSoKinhDoanhs.module.js" />
+    <Content Include="app\components\bibles\bibleListController.js" />
+    <Content Include="app\components\bibles\bibleListView.html" />
+    <Content Include="app\components\bibles\bibles.module.js" />
     <Content Include="app\components\bundles\bundleAddController.js" />
     <Content Include="app\components\bundles\bundleAddView.html" />
     <Content Include="app\components\bundles\bundleEditController.js" />
@@ -351,6 +373,8 @@
     <Content Include="app\components\purchaseOrders\purchaseOrderListController.js" />
     <Content Include="app\components\purchaseOrders\purchaseOrderListView.html" />
     <Content Include="app\components\purchaseOrders\purchaseOrders.module.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailReturnAddController.js" />
+    <Content Include="app\components\salesOrders\salesOrderDetailReturnAddView.html" />
     <Content Include="app\components\salesOrders\salesOrderDetailAddController.js" />
     <Content Include="app\components\salesOrders\salesOrderDetailAddView.html" />
     <Content Include="app\components\salesOrders\salesOrderDetailController.js" />
@@ -1246,7 +1270,12 @@
     <Content Include="Assets\admin\libs\jquery\external\sizzle\dist\sizzle.min.map" />
     <Content Include="Assets\admin\libs\jquery\README.md" />
     <Content Include="Assets\admin\libs\jquery\src\.jshintrc" />
+    <Content Include="Assets\admin\templates\Bible.xlsx" />
+    <Content Include="app\shared\directives\fileUpload.directive.js" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadedFiles\Excels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -35,6 +35,7 @@ namespace tojitoji.Data
         public DbSet<Document> Documents { set; get; }
         public DbSet<Transaction> Transactions { set; get; }
         public DbSet<TrialBalance> TrialBalances { set; get; }
+        public DbSet<Bible> Bibles { set; get; }
 
         //public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
         //public DbSet<ApplicationRole> ApplicationRoles { set; get; }

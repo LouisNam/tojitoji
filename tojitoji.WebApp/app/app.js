@@ -1,6 +1,8 @@
 ﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
 (function () {
     angular.module('tojitojishop', [
+        'tojitojishop.bibles',
+        'tojitojishop.coSoKinhDoanhs',
         'tojitojishop.accounts',
         'tojitojishop.documenttypes',
         'tojitojishop.companyInformations',
