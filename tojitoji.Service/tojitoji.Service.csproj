@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="BibleService.cs" />
     <Compile Include="BundleService.cs" />
     <Compile Include="CampaignService.cs" />
     <Compile Include="CampaignSKUService.cs" />

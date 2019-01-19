@@ -1,5 +1,4 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function () {
+﻿(function () {
     angular.module('tojitojishop.companyInformations', ['tojitojishop.common']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider']
@@ -17,6 +16,10 @@
             url: "/edit_companyInformations/:id",
             templateUrl: "/app/components/companyInfor/companyInformationEditView.html",
             controller: "companyInformationEditController"
+        }).state('import_companyInformations', {
+            url: "/import_companyInformations",
+            templateUrl: "/app/components/companyInfor/companyInformationImportView.html",
+            controller: "companyInformationImportController"
         });
     }
 })();

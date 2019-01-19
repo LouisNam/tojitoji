@@ -22,31 +22,25 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Thời gian tạo giao dịch</label>
-                    <div class="col-sm-10">
-                        <input type="date" class="form-control" required ng-model="inventorytransaction.CreatedDate">
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="col-sm-2 control-label">Loại giao dịch</label>
                     <div class="col-sm-10">
                         <select class="form-control" ng-model="inventorytransaction.Type">
                             <option value="" selected disabled>Vui lòng chọn loại giao dịch</option>
-                            <option value="true">Loại gì?</option>
-                            <option value="false">Ai biết?</option>
+                            <option value="true">Nhập</option>
+                            <option value="false">Xuất</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Hàng</label>
                     <div class="col-sm-10">
-                        <input type="number" disabled class="form-control" required ng-model="inventorytransaction.ItemID">
+                        <input type="number" class="form-control" required ng-model="inventorytransaction.ItemID">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Gói hàng</label>
                     <div class="col-sm-10">
-                        <input type="number" disabled class="form-control" required ng-model="inventorytransaction.ParcelID">
+                        <input type="number" class="form-control" ng-model="inventorytransaction.ParcelID">
                     </div>
                 </div> 
                 <div class="form-group">
@@ -66,8 +60,8 @@
                     <div class="col-sm-10">
                         <select class="form-control" ng-model="inventorytransaction.Status">
                             <option value="" selected disabled>Vui lòng trạng thái</option>
-                            <option value="true">Trạng thái gì?</option>
-                            <option value="false">Ai biết?</option>
+                            <option value="true">Trạng thái 1</option>
+                            <option value="false">Trạng thái 2</option>
                         </select>
                     </div>
                 </div> 

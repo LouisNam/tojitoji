@@ -379,5 +379,12 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             trialBalance.DebitIncurred = trialBalanceVM.DebitIncurred;
             trialBalance.CreditIncurred = trialBalanceVM.CreditIncurred;
         }
+
+        public static void UpdateBible(this Bible bible, BibleViewModel bibleVM)
+        {
+            bible.ID = bibleVM.ID;
+            bible.Shortcut = bibleVM.Shortcut;
+            bible.Meaning = bibleVM.Meaning;
+        }
     }
 }
