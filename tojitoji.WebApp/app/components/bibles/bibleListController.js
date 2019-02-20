@@ -7,11 +7,29 @@
         $scope.bibles = [];
         $scope.page = 0;
         $scope.pageCount = 0;
-        $scope.getBible = getBible;
-        $scope.deleteBible = deleteBible;
+        $scope.getBible = getBible;        
         $scope.selectAll = selectAll;
         $scope.isAll = false;
         $scope.deleteMultiple = deleteMultiple;
+        $scope.keyword = '';
+        $scope.search = search;
+        $scope.exportExcel = exportExcel;
+
+        function exportExcel() {
+            var config = {
+                params: {
+                    filter: $scope.keyword
+                }
+            }
+            apiService.get('/api/bible/ExportXls', config, function (response) {
+                if (response.status = 200) {
+                    window.location.href = response.data.Message;
+                }
+            }, function (error) {
+                notificationService.displayError(error);
+
+            });
+        }
 
         function deleteMultiple() {
             var listId = [];
@@ -53,28 +71,17 @@
             } else {
                 $('#btnDelete').attr('disabled', 'disabled');
             }
-        }, true);
+        }, true);        
 
-        function deleteBible(id) {
-            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-                var config = {
-                    params: {
-                        id: id
-                    }
-                }
-                apiService.del('api/bible/delete', config, function () {
-                    notificationService.displaySuccess('Xóa thành công');
-                    getBible();
-                }, function () {
-                    notificationService.displayError('Xóa không thành công');
-                })
-            });
+        function search() {
+            getBible();
         }
 
         function getBible(page) {
             page = page || 0;
             var config = {
                 params: {
+                    keyword: $scope.keyword,
                     page: page,
                     pageSize: 20
                 }

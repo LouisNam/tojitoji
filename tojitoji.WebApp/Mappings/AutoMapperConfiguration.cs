@@ -34,6 +34,9 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<Transaction, TransactionViewModel>();
                 cfg.CreateMap<TrialBalance, TrialBalanceViewModel>();
                 cfg.CreateMap<Bible, BibleViewModel>();
+                cfg.CreateMap<CoSoKinhDoanh, CoSoKinhDoanhViewModel>();
+                cfg.CreateMap<LoaiTaiSan, LoaiTaiSanViewModel>();
+                cfg.CreateMap<TaiSan, TaiSanViewModel>();
             });
         }
     }

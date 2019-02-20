@@ -1,5 +1,4 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function () {
+﻿(function () {
     angular.module('tojitojishop.categories', ['tojitojishop.common']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider']
@@ -17,6 +16,10 @@
             url: "/edit_category/:id",
             templateUrl: "/app/components/category/categoryEditView.html",
             controller: "categoryEditController"
+        }).state('import_category', {
+            url: "/import_category",
+            templateUrl: "/app/components/category/categoryImportView.html",
+            controller: "categoryImportController"
         });
     }
 })();

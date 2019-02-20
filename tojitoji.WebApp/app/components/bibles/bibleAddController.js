@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('bibleAddController', bibleAddController);
 
-    bibleAddController.$inject = ['apiService', '$scope', 'notificationService', '$state', 'commonService'];
+    bibleAddController.$inject = ['apiService', '$scope', 'notificationService', '$state'];
 
-    function bibleAddController(apiService, $scope, notificationService, $state, commonService) {
+    function bibleAddController(apiService, $scope, notificationService, $state) {
         $scope.bible = {};
         $scope.addBible = addBible;
 

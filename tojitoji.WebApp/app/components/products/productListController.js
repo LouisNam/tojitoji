@@ -10,10 +10,26 @@
         $scope.getProduct = getProduct;
         $scope.keyword = '';
         $scope.search = search;
-
         $scope.showDetail = showDetail;
-
         $scope.deleteProduct = deleteProduct;
+        $scope.sortColumn = "";
+        $scope.reverseSort = false;
+        $scope.sortData = sortData;
+        $scope.getSortClass = getSortClass;
+
+        function sortData(column) {
+            $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
+            $scope.sortColumn = column;
+        }
+
+        function getSortClass(column) {
+            if ($scope.sortColumn == column) {
+                return $scope.reverseSort
+                  ? 'glyphicon glyphicon-sort-by-attributes-alt pull-right'
+                  : 'glyphicon glyphicon-sort-by-attributes pull-right';
+            }
+            return 'glyphicon glyphicon-sort pull-right';
+        }
 
         function deleteProduct(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {

@@ -60,12 +60,15 @@
     <Compile Include="Models\ClosingEntry.cs" />
     <Compile Include="Models\ClosingEntryDetail.cs" />
     <Compile Include="Models\CompanyInformation.cs" />
+    <Compile Include="Models\CoSoKinhDoanh.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Human.cs" />
     <Compile Include="Models\HumanType.cs" />
     <Compile Include="Models\InventoryTransaction.cs" />
+    <Compile Include="Models\LoaiTaiSan.cs" />
+    <Compile Include="Models\TaiSan.cs" />
     <Compile Include="Models\TrialBalance.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />

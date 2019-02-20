@@ -17,6 +17,8 @@ namespace tojitoji.Service
 
         IEnumerable<Human> GetAll(string keyword);
 
+        IEnumerable<Human> GetListHuman();
+
         Human GetById(int id);
 
         void SaveChanges();
@@ -45,7 +47,7 @@ namespace tojitoji.Service
 
         public IEnumerable<Human> GetAll()
         {
-            return _humanRepository.GetAll();
+            return _humanRepository.GetAll(new string[] { "HumanType" });
         }
 
         public IEnumerable<Human> GetAll(string keyword)
@@ -58,7 +60,13 @@ namespace tojitoji.Service
 
         public Human GetById(int id)
         {
-            return _humanRepository.GetSingleByCondition(x => x.ID == id);
+            return _humanRepository.GetSingleByCondition(x => x.ID == id, new string[] { "HumanType" });
+        }
+
+        public IEnumerable<Human> GetListHuman()
+        {
+            IEnumerable<Human> query = _humanRepository.GetAll();
+            return query;
         }
 
         public void SaveChanges()

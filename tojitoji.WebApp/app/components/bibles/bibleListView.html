@@ -11,10 +11,17 @@
             <div class="box-header">
                 <h3 class="box-title">Danh mục diễn giải</h3>
                 <div class="box-tools" style="display:flex">
-                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_bible"><i class="fas fa-plus-square"></i></button>
-                    <a class="btn btn-warning" style="margin-right: 5px" href="/Assets/admin/templates/Bible.xlsx">Download template</a>
-                    <button class="btn btn-primary" style="margin-right: 5px" ui-sref="import_bible">Upload</button>
-                    <button class="btn btn-danger" style="margin-right: 5px" ng-click="deleteMultiple()" id="btnDelete" disabled><i class="fas fa-trash-alt"></i></button>
+                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_bible" title="Add"><i class="fas fa-plus-square"></i></button>
+                    <a class="btn btn-warning" style="margin-right: 5px" href="/Assets/admin/templates/Bible.xlsx" title="Download Template"><i class="fas fa-download"></i></a>
+                    <button class="btn btn-primary" style="margin-right: 5px" ui-sref="import_bible" title="Upload"><i class="fas fa-upload"></i></button>
+                    <button class="btn" style="margin-right: 5px" ng-click="exportExcel()" title="Export to Excel"><i class="fas fa-file-export"></i></button>
+                    <button class="btn btn-danger" style="margin-right: 5px" ng-click="deleteMultiple()" id="btnDelete" disabled title="Delete"><i class="fas fa-trash-alt"></i></button>
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" ng-model="keyword">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="search()"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="box-body table-responsive no-padding">
@@ -22,7 +29,6 @@
                     <thead>
                         <tr>
                             <th><input name="all" type="checkbox" ng-click="selectAll()" /></th>
-                            <th>ID</th>
                             <th>Shortcut</th>
                             <th>Meaning</th>
                             <th>#</th>
@@ -31,21 +37,19 @@
                     <tbody>
                         <tr ng-repeat="item in bibles">
                             <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
-                            <td>{{item.ID}}</td>
                             <td>{{item.Shortcut}}</td>
                             <td>{{item.Meaning}}</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" ui-sref="edit_bible({id:item.ID})"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="btn  btn-sm btn-danger" ng-click="deleteBible(item.ID)"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_bible({id:item.ID})" title="Edit"><i class="fas fa-pencil-alt"></i></button>                                
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                            <td colspan="4"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
                         </tr>
                         <tr>
-                            <td colspan="5">
+                            <td colspan="4">
                                 <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getBible(page)"></pager-directive>
                             </td>
                         </tr>

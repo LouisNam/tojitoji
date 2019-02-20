@@ -12,19 +12,22 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <div class="col-md-6">
-                    <h3 class="box-title">Danh sách đối tượng</h3>
-                </div>
-                <div class="col-md-6">
-                    <button class="btn btn-success pull-right" ui-sref="add_humans"><i class="fas fa-plus-square"></i></button>
+                <h3 class="box-title">Danh sách đối tượng</h3>
+                <div class="box-tools" style="display:flex">
+                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_humans" title="Add"><i class="fas fa-plus-square"></i></button>
+                    <a class="btn btn-warning" style="margin-right: 5px" href="/Assets/admin/templates/DoiTuong.xlsx" title="Download Template"><i class="fas fa-download"></i></a>
+                    <button class="btn btn-primary" style="margin-right: 5px" ui-sref="import_humans" title="Upload"><i class="fas fa-upload"></i></button>
+                    <button class="btn" style="margin-right: 5px" ng-click="exportExcel()" title="Export to Excel"><i class="fas fa-file-export"></i></button>
+                    <button class="btn btn-danger" style="margin-right: 5px" ng-click="deleteMultiple()" id="btnDelete" disabled title="Delete"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th><input name="all" type="checkbox" ng-click="selectAll()" /></th>
                             <th>Họ tên</th>
-                            <th>Loại đối tượng</th>
+                            <th ng-click="sortData('TypeCode')">Loại đối tượng<div ng-class="getSortClass('TypeCode')" class="glyphicon glyphicon-sort pull-right"></div></th>
                             <th>Công ty</th>
                             <th>Phone</th>
                             <th>Email</th>
@@ -32,24 +35,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in human" ng-click="showDetail(item.ID)">
+                        <tr ng-repeat="item in human | orderBy: sortColumn:reverseSort" ng-click="showDetail(item.ID)">
+                            <td><input type="checkbox" ng-model="item.checked" name="all" ng-click="$event.stopPropagation()" /></td>
                             <td>{{item.LastName}} {{item.FirstName}}</td>
-                            <td>{{item.TypeCode}}</td>
+                            <td>{{item.HumanType.Type}}</td>
                             <td>{{item.Company}}</td>
                             <td>{{item.Phone}}</td>
                             <td>{{item.Email}}</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" ui-sref="edit_humans({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="btn  btn-sm btn-danger" ng-click="deleteHuman(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_humans({id:item.ID})" ng-click="$event.stopPropagation()"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn  btn-sm btn-danger" ng-click="deleteHuman(item.ID); $event.stopPropagation()"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                            <td colspan="7"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
                         </tr>
                         <tr>
-                            <td colspan="5">
+                            <td colspan="7">
                                 <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getHuman(page)"></pager-directive>
                             </td>
                         </tr>

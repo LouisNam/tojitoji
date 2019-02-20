@@ -15,6 +15,10 @@ namespace tojitoji.Service
 
         IEnumerable<Bible> GetAll();
 
+        IEnumerable<Bible> GetAll(string keyword);
+
+        IEnumerable<Bible> GetListBible(string keyword);
+
         Bible GetById(int id);
 
         void SaveChanges();
@@ -46,9 +50,27 @@ namespace tojitoji.Service
             return _bibleRepository.GetAll();
         }
 
+        public IEnumerable<Bible> GetAll(string keyword)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+                return _bibleRepository.GetMulti(x => x.Shortcut.Contains(keyword));
+            else
+                return _bibleRepository.GetAll();
+        }
+
         public Bible GetById(int id)
         {
             return _bibleRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<Bible> GetListBible(string keyword)
+        {
+            IEnumerable<Bible> query;
+            if (!string.IsNullOrEmpty(keyword))
+                query = _bibleRepository.GetMulti(x => x.Shortcut.Contains(keyword));
+            else
+                query = _bibleRepository.GetAll();
+            return query;
         }
 
         public void SaveChanges()

@@ -35,6 +35,7 @@ namespace tojitoji.Model.Models
 
         [Required]
         [MaxLength(50)]
+        [Index(IsUnique = true)]
         public string Email { set; get; }
 
         [MaxLength(50)]

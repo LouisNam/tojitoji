@@ -7,10 +7,37 @@
         $scope.product = {};
         $scope.flatFolders = [];
         $scope.UpdateProduct = UpdateProduct;
+        $scope.moreImages = [];
+
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.product.MainImage = fileUrl;
+                })
+            }
+            finder.popup();
+        }        
+
+        $scope.ChooseMoreImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.moreImages.push(fileUrl);
+                })
+            }
+            finder.popup();
+        }
 
         function loadProductDetail() {
             apiService.get('/api/product/getbyid/' + $stateParams.id, null, function (result) {
                 $scope.product = result.data;
+                if ($scope.product.MoreImage == null) {
+                    $scope.moreImages = [];                    
+                } else {
+                    $scope.moreImages = JSON.parse($scope.product.MoreImage);
+                }
+                
                 $scope.product.SpecialFromTime = new Date(result.data.SpecialFromTime);
                 $scope.product.SpecialToTime = new Date(result.data.SpecialToTime)
             }, function (error) {
@@ -19,6 +46,7 @@
         }
 
         function UpdateProduct() {
+            $scope.product.MoreImage = JSON.stringify($scope.moreImages);
             apiService.put('/api/product/update', $scope.product,
                 function (result) {
                     notificationService.displaySuccess(result.data.Name +' đã được cập nhật.');
@@ -62,7 +90,6 @@
         };
 
         loadCategory();
-
         loadProductDetail();
     }
 })(angular.module('tojitojishop.products'));

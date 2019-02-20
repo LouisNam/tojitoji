@@ -11,6 +11,7 @@ namespace tojitoji.Model.Models
         public int ID { set; get; }
 
         [MaxLength(20)]
+        [Index(IsUnique = true)]
         public string Shortcut { set; get; }
 
         [MaxLength(100)]

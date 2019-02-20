@@ -33,5 +33,7 @@ namespace tojitoji.WebApp.Models
         public string Fanpage { set; get; }
         public string Youtube { set; get; }
         public string Group { set; get; }
+        public string Image { set; get; }
+        public string Note { set; get; }
     }
 }

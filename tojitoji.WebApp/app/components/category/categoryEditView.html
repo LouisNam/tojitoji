@@ -11,56 +11,116 @@
 <section class="content">
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Chỉnh sửa danh mục: {{category.Name}}</h3>
+            <h3 class="box-title">Chỉnh sửa danh mục: {{category.Name_1}}</h3>
         </div>
         <form class="form-horizontal" novalidate name="frmEditCategory" role="form" ng-submit="UpdateCategory()">
             <div class="box-body">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Tên tiếng Việt</label>
+                    <label class="col-sm-2 control-label">Code</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required ng-model="category.Name">
+                        <input type="number" class="form-control" required name="Code" ng-model="category.Code">
+                        <span ng-show="frmEditCategory.Code.$invalid" class="text-danger">Vui lòng nhập mã Code</span>
+                    </div>                    
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Categories</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="Categories" ng-model="category.Categories">
+                        <span ng-show="frmEditCategory.Categories.$invalid" class="text-danger">Vui lòng nhập Categories</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Tên tiếng Anh</label>
+                    <label class="col-sm-2 control-label">Type</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required ng-model="category.NameEn">
+                        <input type="number" class="form-control" required name="Type" ng-model="category.Categories_Type">
+                        <span ng-show="frmEditCategory.Type.$invalid" class="text-danger">Vui lòng nhập mã Type</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Chọn danh mục cha</label>
+                    <label class="col-sm-2 control-label">Macro</label>
                     <div class="col-sm-10">
-                        <ui-select ng-model="category.ParentID" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn danh mục cha">
-                            <ui-select-match placeholder="Chọn danh mục cha">{{$select.selected.Name}}</ui-select-match>
-                            <ui-select-choices repeat="item.ID as item in flatFolders | filter: $select.search">
-                                <div ng-bind-html="item.Name | highlight: $select.search"></div>
-                            </ui-select-choices>
-                        </ui-select>
-                        <input type="hidden" ng-model="category.ParentID" />
+                        <input type="text" class="form-control" required name="Macro" ng-model="category.MacroCategories">
+                        <span ng-show="frmEditCategory.Macro.$invalid" class="text-danger">Vui lòng nhập Macro Category</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Loại danh mục</label>
+                    <label class="col-sm-2 control-label">Category 1</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" required ng-model="category.CategoryType">
+                        <input type="text" class="form-control" required name="Name1" ng-model="category.Name_1">
+                        <span ng-show="frmEditCategory.Name1.$invalid" class="text-danger">Vui lòng nhập Category</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">MacroCategory</label>
+                    <label class="col-sm-2 control-label">Category 2</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required ng-model="category.MacroCategory">
+                        <input type="text" class="form-control" ng-model="category.Name_2">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">CommercialCate</label>
+                    <label class="col-sm-2 control-label">Category 3</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required ng-model="category.CommercialCate">
+                        <input type="text" class="form-control" ng-model="category.Name_3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category 4</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="category.Name_4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category 5</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="category.Name_5">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category 6</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="category.Name_6">                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category En 1</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="NameEn1" ng-model="category.NameEn_1">
+                        <span ng-show="frmEditCategory.NameEn1.$invalid" class="text-danger">Vui lòng nhập Category</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category En 2</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="category.NameEn_2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category En 3</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="category.NameEn_3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category En 4</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="category.NameEn_4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category En 5</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="category.NameEn_5">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Category En 6</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="category.NameEn_6">
                     </div>
                 </div>
             </div>
             <div class="box-footer">
                 <button ui-sref="categories" class="btn btn-default">Hủy</button>
-                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+                <button type="submit" class="btn btn-success pull-right" ng-disabled="frmEditCategory.$invalid">Lưu</button>
             </div>
         </form>
     </div>

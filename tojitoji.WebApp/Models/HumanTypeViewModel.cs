@@ -9,9 +9,13 @@ namespace tojitoji.WebApp.Models
 
         [Required(ErrorMessage = "This field is required!")]
         [MaxLength(50, ErrorMessage = "Maxlength is 50 character!")]
-        public string Type { set; get; }
+        public string Type_1 { set; get; }
 
-        public int? ParentID { set; get; }
+        [MaxLength(50, ErrorMessage = "Maxlength is 50 character!")]
+        public string Type_2 { set; get; }
+
+        [MaxLength(50, ErrorMessage = "Maxlength is 50 character!")]
+        public string Type_3 { set; get; }
 
         public virtual IEnumerable<HumanViewModel> Humans { set; get; }
     }

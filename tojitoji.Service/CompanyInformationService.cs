@@ -15,6 +15,8 @@ namespace tojitoji.Service
 
         IEnumerable<CompanyInformation> GetAll();
 
+        IEnumerable<CompanyInformation> GetListCompanyInformation();
+
         CompanyInformation GetById(int id);
 
         void SaveChanges();
@@ -49,6 +51,12 @@ namespace tojitoji.Service
         public CompanyInformation GetById(int id)
         {
             return _companyInformationRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<CompanyInformation> GetListCompanyInformation()
+        {
+            IEnumerable<CompanyInformation> query = _companyInformationRepository.GetAll();
+            return query;
         }
 
         public void SaveChanges()

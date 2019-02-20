@@ -36,6 +36,8 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             companyInformation.Fanpage = companyInformationVM.Fanpage;
             companyInformation.Youtube = companyInformationVM.Youtube;
             companyInformation.Group = companyInformationVM.Group;
+            companyInformation.Image = companyInformationVM.Image;
+            companyInformation.Note = companyInformationVM.Note;
         }
 
         public static void UpdateHuman(this Human human, HumanViewModel humanVM)
@@ -65,19 +67,31 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
         public static void UpdateHumanType(this HumanType humanType, HumanTypeViewModel humanTypeVM)
         {
             humanType.ID = humanTypeVM.ID;
-            humanType.Type = humanTypeVM.Type;
-            humanType.ParentID = humanTypeVM.ParentID;
+            humanType.Type_1 = humanTypeVM.Type_1;
+            humanType.Type_2 = humanTypeVM.Type_2;
+            humanType.Type_3 = humanTypeVM.Type_3;
         }
 
         public static void UpdateCategory(this Category category, CategoryViewModel categoryVM)
         {
             category.ID = categoryVM.ID;
-            category.CategoryType = categoryVM.CategoryType;
-            category.MacroCategory = categoryVM.MacroCategory;
+            category.Code = categoryVM.Code;
+            category.Categories = categoryVM.Categories;
+            category.Categories_Type = categoryVM.Categories_Type;
+            category.MacroCategories = categoryVM.MacroCategories;
             category.CommercialCate = categoryVM.CommercialCate;
-            category.Name = categoryVM.Name;
-            category.NameEn = categoryVM.NameEn;
-            category.ParentID = categoryVM.ParentID;
+            category.Name_1 = categoryVM.Name_1;
+            category.Name_2 = categoryVM.Name_2;
+            category.Name_3 = categoryVM.Name_3;
+            category.Name_4 = categoryVM.Name_4;
+            category.Name_5 = categoryVM.Name_5;
+            category.Name_6 = categoryVM.Name_6;
+            category.NameEn_1 = categoryVM.NameEn_1;
+            category.NameEn_2 = categoryVM.NameEn_2;
+            category.NameEn_3 = categoryVM.NameEn_3;
+            category.NameEn_4 = categoryVM.NameEn_4;
+            category.NameEn_5 = categoryVM.NameEn_5;
+            category.NameEn_6 = categoryVM.NameEn_6;
         }
 
         public static void UpdateProduct(this Product product, ProductViewModel productVM)
@@ -385,6 +399,30 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             bible.ID = bibleVM.ID;
             bible.Shortcut = bibleVM.Shortcut;
             bible.Meaning = bibleVM.Meaning;
+        }
+
+        public static void UpdateCoSoKinhDoanh(this CoSoKinhDoanh coSoKinhDoanh, CoSoKinhDoanhViewModel coSoKinhDoanhVM)
+        {
+            coSoKinhDoanh.ID = coSoKinhDoanhVM.ID;
+            coSoKinhDoanh.Place_1 = coSoKinhDoanhVM.Place_1;
+            coSoKinhDoanh.Place_2 = coSoKinhDoanhVM.Place_2;
+            coSoKinhDoanh.Place_3 = coSoKinhDoanhVM.Place_3;
+            coSoKinhDoanh.Place_4 = coSoKinhDoanhVM.Place_4;
+            coSoKinhDoanh.Status = coSoKinhDoanhVM.Status;
+            coSoKinhDoanh.Note = coSoKinhDoanhVM.Note;
+        }
+
+        public static void UpdateLoaiTaiSan(this LoaiTaiSan loaiTaiSan, LoaiTaiSanViewModel loaiTaiSanVM)
+        {
+            loaiTaiSan.ID = loaiTaiSanVM.ID;
+            loaiTaiSan.Name = loaiTaiSanVM.Name;
+        }
+
+        public static void UpdateTaiSan(this TaiSan taiSan, TaiSanViewModel taiSanVM)
+        {
+            taiSan.ID = taiSanVM.ID;
+            taiSan.Name = taiSanVM.Name;
+            taiSan.LoaiTaiSanID = taiSanVM.LoaiTaiSanID;
         }
     }
 }

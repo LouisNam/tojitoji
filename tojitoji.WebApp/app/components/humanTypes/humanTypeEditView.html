@@ -11,33 +11,33 @@
 <section class="content">
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Chỉnh sửa loại đối tượng: {{humanType.Type}}</h3>
+            <h3 class="box-title">Chỉnh sửa loại đối tượng: {{humanType.Type_1}}</h3>
         </div>
         <form class="form-horizontal" novalidate name="frmEditHumanType" role="form" ng-submit="UpdateHumanType()">
             <div class="box-body">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Tên loại đối tượng</label>
+                    <label class="col-sm-2 control-label">Type 1</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required ng-model="humanType.Type">
+                        <input type="text" class="form-control" required name="Type1" ng-model="humanType.Type_1">
+                        <span ng-show="frmEditHumanType.Type1.$invalid" class="text-danger">Vui lòng nhập loại đối tượng</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Loại đối tượng cha</label>
+                    <label class="col-sm-2 control-label">Type 2</label>
                     <div class="col-sm-10">
-                        <ui-select ng-model="humanType.ParentID" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn loại đối tượng cha">
-                            <ui-select-match placeholder="Vui lòng chọn loại đối tượng">{{$select.selected.Type}}</ui-select-match>
-                            <ui-select-choices repeat="item.ID as item in flatFolders | filter: $select.search">
-                                <div ng-bind-html="item.Type | highlight: $select.search"></div>
-                            </ui-select-choices>
-                        </ui-select>
-                        <!--<span ng-show="frmAddHumanType.ID.$invalid" class="has-error">Phải chọn danh mục</span>-->
-                        <input type="hidden" ng-model="humanType.ParentID" />
+                        <input type="text" class="form-control" ng-model="humanType.Type_2">
                     </div>
-                </div>              
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Type 3</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="humanType.Type_3">
+                    </div>
+                </div>
             </div>
             <div class="box-footer">
                 <button ui-sref="humanTypes" class="btn btn-default">Hủy</button>
-                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+                <button type="submit" class="btn btn-success pull-right" ng-disabled="frmEditHumanType.$invalid">Lưu</button>
             </div>
         </form>
     </div>

@@ -1,5 +1,4 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function () {
+﻿(function () {
     angular.module('tojitojishop.humanTypes', ['tojitojishop.common']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider']
@@ -17,6 +16,10 @@
             url: "/edit_humanTypes/:id",
             templateUrl: "/app/components/humanTypes/humanTypeEditView.html",
             controller: "humanTypeEditController"
+        }).state('import_humanTypes', {
+            url: "/import_humanTypes",
+            templateUrl: "/app/components/humanTypes/humanTypeImportView.html",
+            controller: "humanTypeImportController"
         });
     }
 })();

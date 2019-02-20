@@ -10,10 +10,21 @@
         $scope.getInfor = getInfor;
         $scope.showDetail = showDetail;
         $scope.deleteCompanyInformation = deleteCompanyInformation;
-
         $scope.selectAll = selectAll;
         $scope.isAll = false;
         $scope.deleteMultiple = deleteMultiple;
+        $scope.exportExcel = exportExcel;
+
+        function exportExcel() {
+            apiService.get('/api/companyinformation/ExportXls', null, function (response) {
+                if (response.status = 200) {
+                    window.location.href = response.data.Message;
+                }
+            }, function (error) {
+                notificationService.displayError(error);
+
+            });
+        }
 
         function deleteMultiple() {
             var listId = [];

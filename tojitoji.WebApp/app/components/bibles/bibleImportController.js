@@ -50,7 +50,7 @@
                 $state.go('bibles');
             },
             function (data, status, headers, config) {
-                notificationService.displayError(data);
+                notificationService.displayError(data.data.Message);
             });
         }
     }

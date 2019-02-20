@@ -1,0 +1,64 @@
+﻿<section class="content-header">
+    <h1>
+        Chỉnh sửa cơ sở kinh doanh
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="coSoKinhDoanhs">Cơ sở kinh doanh</a></li>
+        <li class="active">Chỉnh sửa</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chỉnh sửa cơ sở kinh doanh: {{coSoKinhDoanh.Place_1}}</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmEditCoSoKinhDoanh" role="form" ng-submit="updateCoSoKinhDoanh()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nơi bán 1</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="coSoKinhDoanh.Place_1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nơi bán 2</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="coSoKinhDoanh.Place_2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nơi bán 3</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="coSoKinhDoanh.Place_3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nơi bán 4</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="coSoKinhDoanh.Place_4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tình trạng</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" ng-model="coSoKinhDoanh.Status"
+                                ng-options="o.v as o.n for o in [ { n: 'Active', v: true }, { n: 'Inactive', v: false }]">
+                            <option value="">-- Chọn tình trạng --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Note</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-model="coSoKinhDoanh.Note">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button ui-sref="coSoKinhDoanhs" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

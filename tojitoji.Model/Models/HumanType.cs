@@ -13,9 +13,13 @@ namespace tojitoji.Model.Models
 
         [Required]
         [MaxLength(50)]
-        public string Type { set; get; }
+        public string Type_1 { set; get; }
 
-        public int? ParentID { set; get; }
+        [MaxLength(50)]
+        public string Type_2 { set; get; }
+
+        [MaxLength(50)]
+        public string Type_3 { set; get; }
 
         public virtual IEnumerable<Human> Humans { set; get; }
     }

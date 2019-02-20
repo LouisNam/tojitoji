@@ -1,49 +1,70 @@
 ﻿(function (app) {
     app.controller('categoryListController', categoryListController);
 
-    categoryListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService'];
+    categoryListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService', '$filter'];
 
-    function categoryListController($scope, apiService, ModalService, $ngBootbox, notificationService) {
-        $scope.category = [];
+    function categoryListController($scope, apiService, ModalService, $ngBootbox, notificationService, $filter) {
+        $scope.categories = [];
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.getCategory = getCategory;
         $scope.keyword = '';
         $scope.search = search;
+        $scope.exportExcel = exportExcel;
+        $scope.selectAll = selectAll;
+        $scope.isAll = false;
+        $scope.deleteMultiple = deleteMultiple;
 
-        $scope.showDetail = showDetail;
-
-        $scope.deleteCategory = deleteCategory;
-
-        function deleteCategory(id) {
-            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-                var config = {
-                    params: {
-                        id: id
-                    }
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i, item) {
+                listId.push(item.ID);
+            });
+            var config = {
+                params: {
+                    checkedCategories: JSON.stringify(listId)
                 }
-                apiService.del('api/category/delete', config, function () {
-                    notificationService.displaySuccess('Xóa thành công');
-                    getCategory();
-                }, function () {
-                    notificationService.displayError('Xóa không thành công');
-                })
+            }
+            apiService.del('api/category/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
+                getCategory();
+            }, function (error) {
+                notificationService.displayError('Xóa không thành công');
             });
         }
 
-        function showDetail(id) {
-            ModalService.showModal({
-                templateUrl: "/app/components/category/categoryDetailView.html",
-                controller: "categoryDetailController",
-                preClose: (modal) => { modal.element.modal('hide'); },
-                inputs: {
-                    id: id
+        function selectAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.categories, function (item) {
+                    item.checked = true;
+                });
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.categories, function (item) {
+                    item.checked = false;
+                });
+                $scope.isAll = false;
+            }
+        }
+
+        $scope.$watch("categories", function (n, o) {
+            var checked = $filter("filter")(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled', 'disabled');
+            }
+        }, true);
+
+        function exportExcel() {
+            apiService.get('/api/category/ExportXls', null, function (response) {
+                if (response.status = 200) {
+                    window.location.href = response.data.Message;
                 }
-            }).then(function (modal) {
-                modal.element.modal();
-                modal.close;
-            }).catch(function (error) {
-                console.log(error);
+            }, function (error) {
+                notificationService.displayError(error);
+
             });
         }
 
@@ -65,7 +86,7 @@
             apiService.get('/api/category/getall', config, function (result) {
                 if (result.data.TotalCount == 0) {
                 }
-                $scope.category = result.data.Items;
+                $scope.categories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;

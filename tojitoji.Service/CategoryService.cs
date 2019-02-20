@@ -11,6 +11,8 @@ namespace tojitoji.Service
 
         IEnumerable<Category> GetAll(string keyword);
 
+        IEnumerable<Category> GetListCategory();
+
         Category GetById(int id);
 
         Category Add(Category category);
@@ -51,7 +53,7 @@ namespace tojitoji.Service
         public IEnumerable<Category> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _categoryRepository.GetMulti(x => x.Name.Contains(keyword));
+                return _categoryRepository.GetMulti(x => x.Name_1.Contains(keyword));
             else
                 return _categoryRepository.GetAll();
         }
@@ -59,6 +61,13 @@ namespace tojitoji.Service
         public Category GetById(int id)
         {
             return _categoryRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<Category> GetListCategory()
+        {
+            IEnumerable<Category> query;
+            query = _categoryRepository.GetAll();
+            return query;
         }
 
         public void SaveChanges()
