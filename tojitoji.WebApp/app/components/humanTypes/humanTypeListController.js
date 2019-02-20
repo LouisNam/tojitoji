@@ -1,31 +1,70 @@
 ﻿(function (app) {
     app.controller('humanTypeListController', humanTypeListController);
 
-    humanTypeListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService'];
+    humanTypeListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService', 'commonService', '$filter'];
 
-    function humanTypeListController($scope, apiService, ModalService, $ngBootbox, notificationService) {
+    function humanTypeListController($scope, apiService, ModalService, $ngBootbox, notificationService, commonService, $filter) {
         $scope.humanType = [];
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.getHumanType = getHumanType;
+        $scope.selectAll = selectAll;
+        $scope.isAll = false;
+        $scope.deleteMultiple = deleteMultiple;
+        $scope.exportExcel = exportExcel;
 
-        $scope.deleteHumanType = deleteHumanType;
-
-        function deleteHumanType(id) {
-            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-                var config = {
-                    params: {
-                        id: id
-                    }
+        function exportExcel() {
+            apiService.get('/api/humanType/ExportXls', null, function (response) {
+                if (response.status = 200) {
+                    window.location.href = response.data.Message;
                 }
-                apiService.del('api/humanType/delete', config, function () {
-                    notificationService.displaySuccess('Xóa thành công');
-                    getHumanType();
-                }, function () {
-                    notificationService.displayError('Xóa không thành công!');
-                })
+            }, function (error) {
+                notificationService.displayError(error);
+
             });
         }
+
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i, item) {
+                listId.push(item.ID);
+            });
+            var config = {
+                params: {
+                    checkedHumanTypes: JSON.stringify(listId)
+                }
+            }
+            apiService.del('api/humanType/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
+                getHumanType();
+            }, function (error) {
+                notificationService.displayError('Xóa không thành công');
+            });
+        }
+
+        function selectAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.humanType, function (item) {
+                    item.checked = true;
+                });
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.humanType, function (item) {
+                    item.checked = false;
+                });
+                $scope.isAll = false;
+            }
+        }
+
+        $scope.$watch("humanType", function (n, o) {
+            var checked = $filter("filter")(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled', 'disabled');
+            }
+        }, true);
 
         function getHumanType(page) {
             page = page || 0;

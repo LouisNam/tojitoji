@@ -1,5 +1,4 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function (app) {
+﻿(function (app) {
     app.controller('productDetailController', productDetailController);
 
     productDetailController.$inject = ['$scope', 'apiService', 'close', 'id'];
@@ -8,12 +7,13 @@
         $scope.product = [];
 
         $scope.close = function (result) {
-            close(result, 500); // close, but give 500ms for bootstrap to animate
+            close(result, 500);
         };
 
         function getProductDetail(id) {
             apiService.get('/api/product/getbyid/' + id, null, function (result) {
                 $scope.product = result.data;
+                $scope.moreImages = JSON.parse($scope.product.MoreImage);
             }, function (error) {
                 notificationService.displayError(error.data);
             });

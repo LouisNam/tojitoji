@@ -9,14 +9,16 @@
     </ol>
 </section>
 <section class="content" style="display: flex">
-    <div class="col-xs-12">
+    <div class="col-xs-6">
         <div class="box">
             <div class="box-header">
-                <div class="col-md-6">
-                    <h3 class="box-title">Danh sách loại đối tượng</h3>
-                </div>
-                <div class="col-md-6">
-                    <button class="btn btn-success pull-right" ui-sref="add_humanTypes"><i class="fas fa-plus-square"></i></button>
+                <h3 class="box-title">Danh sách loại đối tượng</h3>
+                <div class="box-tools" style="display:flex">
+                    <button class="btn btn-success pull-right" style="margin-right: 5px" ui-sref="add_humanTypes" title="Add"><i class="fas fa-plus-square"></i></button>
+                    <a class="btn btn-warning" style="margin-right: 5px" href="/Assets/admin/templates/HumanType.xlsx" title="Download Template"><i class="fas fa-download"></i></a>
+                    <button class="btn btn-primary" style="margin-right: 5px" ui-sref="import_humanTypes" title="Upload"><i class="fas fa-upload"></i></button>
+                    <button class="btn" style="margin-right: 5px" ng-click="exportExcel()" title="Export to Excel"><i class="fas fa-file-export"></i></button>
+                    <button class="btn btn-danger" style="margin-right: 5px" ng-click="deleteMultiple()" id="btnDelete" disabled title="Delete"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
             <div class="box-body table-responsive no-padding">
@@ -24,19 +26,20 @@
                     <thead>
                         <tr>
                             <th>Mã</th>
-                            <th>Loại đối tượng</th>
-                            <th>Mã đối tượng cha</th>
+                            <th>Type 1</th>
+                            <th>Type 2</th>
+                            <th>Type 3</th>
                             <th>#</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="item in humanType">
                             <td>{{item.ID}}</td>
-                            <td>{{item.Type}}</td>
-                            <td>{{item.ParentID}}</td>
+                            <td>{{item.Type_1}}</td>
+                            <td>{{item.Type_2}}</td>
+                            <td>{{item.Type_3}}</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" ui-sref="edit_humanTypes({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="btn  btn-sm btn-danger" ng-click="deleteHumanType(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_humanTypes({id:item.ID})" title="Edit"><i class="fas fa-pencil-alt"></i></button>                                
                             </td>
                         </tr>
                     </tbody>

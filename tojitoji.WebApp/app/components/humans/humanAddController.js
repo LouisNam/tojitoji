@@ -4,11 +4,7 @@
     humanAddController.$inject = ['apiService', '$scope', 'notificationService', '$state', 'commonService'];
 
     function humanAddController(apiService, $scope, notificationService, $state, commonService) {
-        $scope.humans = {
-            //DateOfEntry: new Date(),
-            //DateOfBirth: new Date()
-        };
-
+        $scope.humans = {};
         $scope.flatFolders = [];
         $scope.AddHuman = AddHuman;
 

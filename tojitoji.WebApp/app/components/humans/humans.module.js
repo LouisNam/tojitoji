@@ -17,6 +17,10 @@
             url: "/edit_humans/:id",
             templateUrl: "/app/components/humans/humanEditView.html",
             controller: "humanEditController"
+        }).state('import_humans', {
+            url: "/import_humans",
+            templateUrl: "/app/components/humans/humanImportView.html",
+            controller: "humanImportController"
         });
     }
 })();

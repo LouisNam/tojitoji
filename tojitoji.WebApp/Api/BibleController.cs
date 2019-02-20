@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Script.Serialization;
+using tojitoji.Common;
 using tojitoji.Model.Models;
 using tojitoji.Service;
 using tojitoji.WebApp.Infrastructure.Core;
@@ -35,12 +36,12 @@ namespace tojitoji.WebApp.Api
 
         [Route("getall")]
         [HttpGet]
-        public HttpResponseMessage GetAll(HttpRequestMessage request, int page, int pageSize = 20)
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>
             {
                 int totalRow = 0;
-                var model = _bibleService.GetAll();
+                var model = _bibleService.GetAll(keyword);
 
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.ID).Skip(page * pageSize).Take(pageSize);
@@ -124,35 +125,10 @@ namespace tojitoji.WebApp.Api
 
                 return response;
             });
-        }
-
-        [Route("delete")]
-        [HttpDelete]
-        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
-        {
-            return CreateHttpResponse(request, () =>
-            {
-                HttpResponseMessage response = null;
-                if (!ModelState.IsValid)
-                {
-                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var oldBible = _bibleService.Delete(id);
-                    _bibleService.SaveChanges();
-
-                    var responseData = Mapper.Map<Bible, BibleViewModel>(oldBible);
-                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
-                }
-
-                return response;
-            });
-        }
+        }        
 
         [Route("deletemulti")]
         [HttpDelete]
-        [AllowAnonymous]
         public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedBibles)
         {
             return CreateHttpResponse(request, () =>
@@ -236,7 +212,7 @@ namespace tojitoji.WebApp.Api
                     _bibleService.SaveChanges();
                 }
             }
-            return Request.CreateResponse(HttpStatusCode.OK, "Đã nhập thành công " + addedCount + " bible thành công.");
+            return Request.CreateResponse(HttpStatusCode.OK, "Đã nhập thành công " + addedCount + " bible");
         }
 
         private List<Bible> ReadBibleFromExcel(string fullPath)
@@ -254,12 +230,36 @@ namespace tojitoji.WebApp.Api
                     bible = new Bible();
 
                     bibleViewModel.Shortcut = workSheet.Cells[i, 1].Value.ToString();
-                    bibleViewModel.Meaning = workSheet.Cells[i, 2].Value.ToString();
+                    bibleViewModel.Meaning = workSheet.Cells[i, 2].Text.ToString();
 
                     bible.UpdateBible(bibleViewModel);
                     listBible.Add(bible);
                 }
                 return listBible;
+            }
+        }
+
+        [HttpGet]
+        [Route("ExportXls")]
+        public async Task<HttpResponseMessage> ExportXls(HttpRequestMessage request, string filter = null)
+        {
+            string fileName = string.Concat("Bible_" + DateTime.Now.ToString("yyyyMMddhhmmsss") + ".xlsx");
+            var folderReport = ConfigHelper.GetByKey("ReportFolder");
+            string filePath = HttpContext.Current.Server.MapPath(folderReport);
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
+            string fullPath = Path.Combine(filePath, fileName);
+            try
+            {
+                var data = _bibleService.GetListBible(filter).ToList();
+                await ReportHelper.GenerateXls(data, fullPath);
+                return request.CreateErrorResponse(HttpStatusCode.OK, Path.Combine(folderReport, fileName));
+            }
+            catch (Exception ex)
+            {
+                return request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
     }

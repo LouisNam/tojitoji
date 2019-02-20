@@ -1,153 +1,74 @@
 ﻿<section class="content-header">
-    <h1>
-        Cơ sở kinh doanh
-    </h1>
+    <h1>Cơ sở kinh doanh</h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
         <li class="active">Cơ sở kinh doanh</li>
     </ol>
 </section>
 <section class="content" style="display: flex">
-    <div class="col-xs-6">
+    <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">Danh sách cơ sở kinh doanh</h3>
+                <div class="box-tools" style="display:flex">
+                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_coSoKinhDoanh" title="Add"><i class="fas fa-plus-square"></i></button>
+                    <a class="btn btn-warning" style="margin-right: 5px" href="/Assets/admin/templates/CoSoKinhDoanh.xlsx" title="Download Template"><i class="fas fa-download"></i></a>
+                    <button class="btn btn-primary" style="margin-right: 5px" ui-sref="import_coSoKinhDoanh" title="Upload"><i class="fas fa-upload"></i></button>
+                    <button class="btn" style="margin-right: 5px" ng-click="exportExcel()" title="Export to Excel"><i class="fas fa-file-export"></i></button>
+                    <button class="btn btn-danger" style="margin-right: 5px" ng-click="deleteMultiple()" id="btnDelete" disabled title="Delete"><i class="fas fa-trash-alt"></i></button>
+                </div>
             </div>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Mã nơi bán</th>
+                            <th><input name="all" type="checkbox" ng-click="selectAll()" /></th>
                             <th>Nơi bán 1</th>
                             <th>Nơi bán 2</th>
                             <th>Nơi bán 3</th>
                             <th>Nơi bán 4</th>
                             <th>Tình trạng</th>
                             <th>Chú ý</th>
+                            <th>#</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Lazada</td>
-                            <td>Hoàng Bảo Computer</td>
-                            <td>Active</td>
-                            <td>EL</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Lazada</td>
-                            <td>Will Mart</td>
-                            <td>Active</td>
-                            <td>EL, HL</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Lazada</td>
-                            <td>ADS Mart</td>
-                            <td>Active</td>
-                            <td>EL</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Lazada</td>
-                            <td>Wiliam</td>
-                            <td>Inactive</td>
-                            <td>FS</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Tiki</td>
-                            <td>Hozza Shop</td>
-                            <td>Active</td>
-                            <td>EL</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Adayroi</td>
-                            <td>Hozza Shop</td>
-                            <td>Active</td>
-                            <td>EL</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Sendo</td>
-                            <td>Will Mart</td>
-                            <td>Active</td>
-                            <td>HL, FMCG</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Lazada</td>
-                            <td>Phi Phi Fashion</td>
-                            <td>Active</td>
-                            <td>HL, FMCG</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Sendo</td>
-                            <td>SIEUTHI_ONLINE</td>
-                            <td>Active</td>
-                            <td>HL, FMCG</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Sendo</td>
-                            <td>BACHHOAMINI</td>
-                            <td>Active</td>
-                            <td>HL, FMCG</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Sendo</td>
-                            <td>Hozza Shop</td>
-                            <td>Active</td>
-                            <td>EL</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Online</td>
-                            <td>TMĐT</td>
-                            <td>Shopee</td>
-                            <td>Hoàng Bảo Computer</td>
-                            <td>Active</td>
-                            <td>EL</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td>Offline</td>
-                            <td>Cửa hàng</td>
-                            <td>158D79</td>
-                            <td></td>
-                            <td>Active</td>
-                            <td></td>
+                        <tr ng-repeat="item in coSoKinhDoanhs">
+                            <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
+                            <td>{{item.Place_1}}</td>
+                            <td>{{item.Place_2}}</td>
+                            <td>{{item.Place_3}}</td>
+                            <td>{{item.Place_4}}</td>
+                            <td>
+                                <span ng-class="{'badge bg-red':item.Status==false,'badge bg-green':item.Status==true}">
+                                    {{item.Status | productStatus}}
+                                </span>
+                            </td>
+                            <td>{{item.Note}}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_coSoKinhDoanh({id:item.ID})"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn  btn-sm btn-danger" ng-click="deleteCoSoKinhDoanh(item.ID)"><i class="fas fa-trash-alt"></i></button>
+                            </td>
                         </tr>
                     </tbody>
                     <tfoot>
+                        <tr>
+                            <td colspan="9"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="9">
+                                <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getBible(page)"></pager-directive>
+                            </td>
+                        </tr>
                     </tfoot>
                 </table>
+                <div ng-if="loading">
+                    <div class="col-xs-4"></div>
+                    <div id="preloader">
+                        <div id="loader"></div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
             </div>
         </div>
     </div>

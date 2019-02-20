@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('trialbalanceListController', trialbalanceListController);
 
-    trialbalanceListController.$inject = ['$scope', 'apiService', 'ModalService', 'notificationService', 'orderByFilter'];
+    trialbalanceListController.$inject = ['$scope', 'apiService', 'ModalService', 'notificationService'];
 
-    function trialbalanceListController($scope, apiService, ModalService, notificationService, orderBy) {
+    function trialbalanceListController($scope, apiService, ModalService, notificationService) {
         $scope.trialbalances = [];
         $scope.page = 0;
         $scope.pageCount = 0;
@@ -28,26 +28,6 @@
             }
             return 'glyphicon glyphicon-sort pull-right';
         }
-
-        //$scope.showDetail = showDetail;
-
-        //function showDetail(id) {
-
-        //    ModalService.showModal({
-        //        templateUrl: "/app/components/trialbalances/trialbalanceDetailView.html",
-        //        controller: "trialbalanceDetailController",
-        //        preClose: (modal) => { modal.element.modal('hide'); },
-        //        inputs: {
-        //            id: id
-        //        }
-        //    }).then(function (modal) {
-        //        modal.element.modal();
-        //        modal.close;
-        //    }).catch(function (error) {
-        //        // error contains a detailed error message.
-        //        console.log(error);
-        //    });
-        //}
 
         function search() {
             getTrialBalances();

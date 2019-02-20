@@ -4,10 +4,7 @@
     categoryAddController.$inject = ['apiService', '$scope', 'notificationService', '$state', 'commonService'];
 
     function categoryAddController(apiService, $scope, notificationService, $state, commonService) {
-        $scope.category = {
-            //DateOfEntry: new Date(),
-            //DateOfBirth: new Date()
-        };
+        $scope.category = {};
 
         $scope.flatFolders = [];
         $scope.AddCategory = AddCategory;

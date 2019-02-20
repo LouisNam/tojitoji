@@ -1,0 +1,31 @@
+﻿<section class="content-header">
+    <h1>
+        Nhập cơ sở kinh doanh từ Excel
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="coSoKinhDoanhs">Cơ sở kinh doanh</a></li>
+        <li class="active">Nhập cơ sở kinh doanh từ Excel</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmImportCoSoKinhDoanh" role="form" ng-submit="importCoSoKinhDoanh()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chọn file Excel</label>
+                    <div class="col-sm-10">
+                        <input type="file" file-upload name="fileInput" id="fileInput" />
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button ui-sref="coSoKinhDoanhs" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

@@ -11,7 +11,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">Chọn sản phẩm</label>
                             <div class="col-sm-4">
-                                <ui-select ng-model="purchaseOrderDetail.ProductID" name="ProductID" ng-required="true" theme="bootstrap" style="min-width: 300px;" title="Chọn sản phẩm">
+                                <ui-select ng-model="purchaseOrderDetail.ProductID" name="ProductID" ng-required="true" theme="bootstrap" style="min-width: 300px" title="Chọn sản phẩm">
                                     <ui-select-match placeholder="Vui lòng chọn sản phẩm">{{$select.selected.Name}}</ui-select-match>
                                     <ui-select-choices repeat="item.ID as item in products | filter: $select.search">
                                         <div ng-bind-html="item.Name | highlight: $select.search"></div>

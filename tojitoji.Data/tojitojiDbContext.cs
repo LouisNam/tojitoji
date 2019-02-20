@@ -36,6 +36,9 @@ namespace tojitoji.Data
         public DbSet<Transaction> Transactions { set; get; }
         public DbSet<TrialBalance> TrialBalances { set; get; }
         public DbSet<Bible> Bibles { set; get; }
+        public DbSet<CoSoKinhDoanh> CoSoKinhDoanhs { set; get; }
+        public DbSet<LoaiTaiSan> LoaiTaiSans { set; get; }
+        public DbSet<TaiSan> TaiSans { set; get; }
 
         //public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
         //public DbSet<ApplicationRole> ApplicationRoles { set; get; }

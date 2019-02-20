@@ -110,11 +110,15 @@
                         </tr>
                         <tr>
                             <th style="width: 20%">Hình chính</th>
-                            <td style="width: 80%">{{product.MainImage}}</td>
+                            <td style="width: 80%"><img ng-src="{{product.MainImage}}" style="width: 100px" /></td>
                         </tr>
                         <tr>
                             <th style="width: 20%">Hình phụ</th>
-                            <td style="width: 80%">{{product.MoreImage}}</td>
+                            <td style="width: 80%">
+                                <ul class="list-inline">
+                                    <li ng-repeat="img in moreImages"><img ng-src="{{img}}" width="100" /></li>
+                                </ul>
+                            </td>
                         </tr>   
                         <tr>
                             <th style="width: 20%">Ghi chú</th>

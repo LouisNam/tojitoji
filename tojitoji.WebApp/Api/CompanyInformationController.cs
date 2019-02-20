@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Script.Serialization;
+using tojitoji.Common;
 using tojitoji.Model.Models;
 using tojitoji.Service;
 using tojitoji.WebApp.Infrastructure.Core;
@@ -152,7 +153,6 @@ namespace tojitoji.WebApp.Api
 
         [Route("deletemulti")]
         [HttpDelete]
-        [AllowAnonymous]
         public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedCompanyInformations)
         {
             return CreateHttpResponse(request, () =>
@@ -228,7 +228,7 @@ namespace tojitoji.WebApp.Api
                     _companyInformationService.SaveChanges();
                 }
             }
-            return Request.CreateResponse(HttpStatusCode.OK, "Đã nhập thành công " + addedCount + " thông tin công ty thành công.");
+            return Request.CreateResponse(HttpStatusCode.OK, "Đã nhập thành công " + addedCount + " thông tin công ty");
         }
 
         private List<CompanyInformation> ReadCompanyInformationFromExcel(string fullPath)
@@ -283,6 +283,30 @@ namespace tojitoji.WebApp.Api
                     listCompanyInformation.Add(CompanyInformation);
                 }
                 return listCompanyInformation;
+            }
+        }
+
+        [HttpGet]
+        [Route("ExportXls")]
+        public async Task<HttpResponseMessage> ExportXls(HttpRequestMessage request)
+        {
+            string fileName = string.Concat("ThongTinCongTy_" + DateTime.Now.ToString("yyyyMMddhhmmsss") + ".xlsx");
+            var folderReport = ConfigHelper.GetByKey("ReportFolder");
+            string filePath = HttpContext.Current.Server.MapPath(folderReport);
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
+            string fullPath = Path.Combine(filePath, fileName);
+            try
+            {
+                var data = _companyInformationService.GetListCompanyInformation().ToList();
+                await ReportHelper.GenerateXls(data, fullPath);
+                return request.CreateErrorResponse(HttpStatusCode.OK, Path.Combine(folderReport, fileName));
+            }
+            catch (Exception ex)
+            {
+                return request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
     }

@@ -15,8 +15,6 @@ namespace tojitoji.Service
 
         IEnumerable<HumanType> GetAll();
 
-        IEnumerable<HumanType> GetAll(string keyword);
-
         HumanType GetById(int id);
 
         void SaveChanges();
@@ -46,14 +44,6 @@ namespace tojitoji.Service
         public IEnumerable<HumanType> GetAll()
         {
             return _humanTypeRepository.GetAll();
-        }
-
-        public IEnumerable<HumanType> GetAll(string keyword)
-        {
-            if (!string.IsNullOrEmpty(keyword))
-                return _humanTypeRepository.GetMulti(x => x.Type.Contains(keyword));
-            else
-                return _humanTypeRepository.GetAll();
         }
 
         public HumanType GetById(int id)
