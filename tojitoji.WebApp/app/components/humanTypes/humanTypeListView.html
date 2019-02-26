@@ -25,6 +25,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th><input name="all" type="checkbox" ng-click="selectAll()" /></th>
                             <th>Mã</th>
                             <th>Type 1</th>
                             <th>Type 2</th>
@@ -34,6 +35,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="item in humanType">
+                            <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
                             <td>{{item.ID}}</td>
                             <td>{{item.Type_1}}</td>
                             <td>{{item.Type_2}}</td>
@@ -45,10 +47,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                            <td colspan="6"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
                         </tr>
                         <tr>
-                            <td colspan="5">
+                            <td colspan="6">
                                 <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getHumanType(page)"></pager-directive>
                             </td>
                         </tr>

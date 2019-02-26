@@ -1,5 +1,4 @@
-﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
-(function () {
+﻿(function () {
     angular.module('tojitojishop', [
         'tojitojishop.bibles',
         'tojitojishop.coSoKinhDoanhs',
@@ -13,13 +12,16 @@
         'tojitojishop.bundles',
         'tojitojishop.skus',
         'tojitojishop.campaigns',
-        'tojitojishop.warehouses',
         'tojitojishop.inventorytransactions',
         'tojitojishop.purchaseOrders',
         'tojitojishop.salesOrders',
         'tojitojishop.documents',
         'tojitojishop.transactions',
         'tojitojishop.trialbalances',
+        'tojitojishop.loaiTaiSans',
+        'tojitojishop.taiSans',
+        'tojitojishop.khos',
+        'tojitojishop.loaiKhos',
         'tojitojishop.common'
     ]).config(config);
 

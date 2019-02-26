@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('humanListController', humanListController);
 
-    humanListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService', '$filter'];
+    humanListController.$inject = ['$scope', 'apiService', 'ModalService', 'notificationService', '$filter'];
 
-    function humanListController($scope, apiService, ModalService, $ngBootbox, notificationService, $filter) {
+    function humanListController($scope, apiService, ModalService, notificationService, $filter) {
         $scope.human = [];
         $scope.page = 0;
         $scope.pageCount = 0;

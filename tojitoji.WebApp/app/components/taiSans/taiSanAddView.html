@@ -1,0 +1,45 @@
+﻿<section class="content-header">
+    <h1>
+        Thêm mới tài sản
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="taiSans">Tài sản</a></li>
+        <li class="active">Thêm mới</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmAddTaiSan" role="form" ng-submit="AddTaiSan()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tên tài sản</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="Name" ng-model="taiSan.Name">
+                        <span ng-show="frmAddTaiSan.Name.$invalid" class="text-danger">Vui lòng nhập tên tài sản</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chọn loại tài sản</label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="taiSan.LoaiTaiSanID" name="LoaiTaiSan" required theme="bootstrap" style="min-width: 300px;" title="Chọn loại tài sản">
+                            <ui-select-match placeholder="Chọn loại tài sản">{{$select.selected.Name}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in loaiTaiSans | filter: $select.search">
+                                <div ng-bind-html="item.Name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="frmAddTaiSan.LoaiTaiSan.$invalid" class="text-danger">Vui lòng chọn loại tài sản</span>
+                        <input type="hidden" ng-model="taiSan.LoaiTaiSanID" />
+                    </div>
+                </div>                
+            </div>
+            <div class="box-footer">
+                <button ui-sref="taiSans" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right" ng-disabled="frmAddTaiSan.$invalid">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

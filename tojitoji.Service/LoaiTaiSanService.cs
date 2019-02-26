@@ -15,6 +15,8 @@ namespace tojitoji.Service
 
         IEnumerable<LoaiTaiSan> GetAll();
 
+        IEnumerable<LoaiTaiSan> GetAll(string keyword);
+
         LoaiTaiSan GetById(int id);
 
         void SaveChanges();
@@ -44,6 +46,14 @@ namespace tojitoji.Service
         public IEnumerable<LoaiTaiSan> GetAll()
         {
             return _loaiTaiSanRepository.GetAll();
+        }
+
+        public IEnumerable<LoaiTaiSan> GetAll(string keyword)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+                return _loaiTaiSanRepository.GetMulti(x => x.Name.Contains(keyword));
+            else
+                return _loaiTaiSanRepository.GetAll();
         }
 
         public LoaiTaiSan GetById(int id)

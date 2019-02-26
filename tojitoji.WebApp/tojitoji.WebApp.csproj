@@ -212,6 +212,8 @@
     <Compile Include="Api\HumanController.cs" />
     <Compile Include="Api\HumanTypeController.cs" />
     <Compile Include="Api\InventoryTransactionController.cs" />
+    <Compile Include="Api\KhoController.cs" />
+    <Compile Include="Api\LoaiKhoController.cs" />
     <Compile Include="Api\LoaiTaiSanController.cs" />
     <Compile Include="Api\ProductController.cs" />
     <Compile Include="Api\PurchaseOrderController.cs" />
@@ -224,7 +226,6 @@
     <Compile Include="Api\TaiSanController.cs" />
     <Compile Include="Api\TransactionController.cs" />
     <Compile Include="Api\TrialBalanceController.cs" />
-    <Compile Include="Api\WarehouseController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -251,6 +252,8 @@
     <Compile Include="Models\HumanTypeViewModel.cs" />
     <Compile Include="Models\HumanViewModel.cs" />
     <Compile Include="Models\InventoryTransactionViewModel.cs" />
+    <Compile Include="Models\KhoViewModel.cs" />
+    <Compile Include="Models\LoaiKhoViewModel.cs" />
     <Compile Include="Models\LoaiTaiSanViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\PurchaseOrderDetailReturnViewModel.cs" />
@@ -264,7 +267,6 @@
     <Compile Include="Models\TaiSanViewModel.cs" />
     <Compile Include="Models\TransactionViewModel.cs" />
     <Compile Include="Models\TrialBalanceViewModel.cs" />
-    <Compile Include="Models\WarehouseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -367,6 +369,33 @@
     <Content Include="app\components\inventorytransactions\inventorytransactionListController.js" />
     <Content Include="app\components\inventorytransactions\inventorytransactionListView.html" />
     <Content Include="app\components\inventorytransactions\inventorytransactions.module.js" />
+    <Content Include="app\components\khos\khos.module.js" />
+    <Content Include="app\components\khos\khoAddController.js" />
+    <Content Include="app\components\khos\khoAddView.html" />
+    <Content Include="app\components\khos\khoEditController.js" />
+    <Content Include="app\components\khos\khoEditView.html" />
+    <Content Include="app\components\khos\khoImportController.js" />
+    <Content Include="app\components\khos\khoImportView.html" />
+    <Content Include="app\components\khos\khoListController.js" />
+    <Content Include="app\components\khos\khoListView.html" />
+    <Content Include="app\components\loaiKhos\loaiKhos.module.js" />
+    <Content Include="app\components\loaiKhos\loaiKhoAddController.js" />
+    <Content Include="app\components\loaiKhos\loaiKhoAddView.html" />
+    <Content Include="app\components\loaiKhos\loaiKhoEditController.js" />
+    <Content Include="app\components\loaiKhos\loaiKhoEditView.html" />
+    <Content Include="app\components\loaiKhos\loaiKhoImportController.js" />
+    <Content Include="app\components\loaiKhos\loaiKhoImportView.html" />
+    <Content Include="app\components\loaiKhos\loaiKhoListController.js" />
+    <Content Include="app\components\loaiKhos\loaiKhoListView.html" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSans.module.js" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSanAddController.js" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSanAddView.html" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSanEditController.js" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSanEditView.html" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSanImportController.js" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSanImportView.html" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSanListController.js" />
+    <Content Include="app\components\loaiTaiSans\loaiTaiSanListView.html" />
     <Content Include="app\components\products\products.module.js" />
     <Content Include="app\components\products\productAddController.js" />
     <Content Include="app\components\products\productAddView.html" />
@@ -417,6 +446,15 @@
     <Content Include="app\components\skus\skuListController.js" />
     <Content Include="app\components\skus\skuListView.html" />
     <Content Include="app\components\skus\skus.module.js" />
+    <Content Include="app\components\taiSans\taiSans.module.js" />
+    <Content Include="app\components\taiSans\taiSanAddController.js" />
+    <Content Include="app\components\taiSans\taiSanAddView.html" />
+    <Content Include="app\components\taiSans\taiSanEditController.js" />
+    <Content Include="app\components\taiSans\taiSanEditView.html" />
+    <Content Include="app\components\taiSans\taiSanImportController.js" />
+    <Content Include="app\components\taiSans\taiSanImportView.html" />
+    <Content Include="app\components\taiSans\taiSanListController.js" />
+    <Content Include="app\components\taiSans\taiSanListView.html" />
     <Content Include="app\components\transactions\transactionAddController.js" />
     <Content Include="app\components\transactions\transactionAddView.html" />
     <Content Include="app\components\transactions\transactionEditController.js" />
@@ -427,13 +465,6 @@
     <Content Include="app\components\trialBalances\trialbalanceListController.js" />
     <Content Include="app\components\trialBalances\trialbalanceListView.html" />
     <Content Include="app\components\trialBalances\trialbalances.module.js" />
-    <Content Include="app\components\warehouses\warehouseAddController.js" />
-    <Content Include="app\components\warehouses\warehouseAddView.html" />
-    <Content Include="app\components\warehouses\warehouseEditController.js" />
-    <Content Include="app\components\warehouses\warehouseEditView.html" />
-    <Content Include="app\components\warehouses\warehouseListController.js" />
-    <Content Include="app\components\warehouses\warehouseListView.html" />
-    <Content Include="app\components\warehouses\warehouses.module.js" />
     <Content Include="app\shared\directives\asDateDirective.js" />
     <Content Include="app\shared\directives\pagerDirective.html" />
     <Content Include="app\shared\directives\pagerDirective.js" />

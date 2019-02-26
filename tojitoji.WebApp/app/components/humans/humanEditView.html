@@ -31,9 +31,14 @@
                     <label class="col-sm-2 control-label">Loại đối tượng</label>
                     <div class="col-sm-10">
                         <ui-select ng-model="humans.TypeCode" name="parentId" theme="bootstrap" style="min-width: 300px;" title="Chọn loại đối tượng">
-                            <ui-select-match placeholder="Vui lòng chọn loại đối tượng">{{$select.selected.Type}}</ui-select-match>
-                            <ui-select-choices repeat="item.ID as item in flatFolders | filter: $select.search">
-                                <div ng-bind-html="item.Type | highlight: $select.search"></div>
+                            <ui-select-match placeholder="Vui lòng chọn loại đối tượng">{{$select.selected.ID}}</ui-select-match>
+                            <ui-select-choices repeat="item.ID as item in humanTypes | filter: $select.search">
+                                <div ng-bind-html="item.ID | highlight: $select.search"></div>
+                                <small>
+                                    Type_1: {{item.Type_1}}
+                                    <br>Type_2: {{item.Type_2}}
+                                    <br>Type_3: {{item.Type_3}}
+                                </small>
                             </ui-select-choices>
                         </ui-select>
                         <!--<span ng-show="frmAddHumanType.ID.$invalid" class="has-error">Phải chọn danh mục</span>-->

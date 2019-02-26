@@ -21,7 +21,6 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<SKULazada, SKULazadaViewModel>();
                 cfg.CreateMap<CampaignSKU, CampaignSKUViewModel>();
                 cfg.CreateMap<Campaign, CampaignViewModel>();
-                cfg.CreateMap<Warehouse, WarehouseViewModel>();
                 cfg.CreateMap<InventoryTransaction, InventoryTransactionViewModel>();
                 cfg.CreateMap<DocumentType, DocumentTypeViewModel>();
                 cfg.CreateMap<PurchaseOrder, PurchaseOrderViewModel>();
@@ -37,6 +36,8 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<CoSoKinhDoanh, CoSoKinhDoanhViewModel>();
                 cfg.CreateMap<LoaiTaiSan, LoaiTaiSanViewModel>();
                 cfg.CreateMap<TaiSan, TaiSanViewModel>();
+                cfg.CreateMap<LoaiKho, LoaiKhoViewModel>();
+                cfg.CreateMap<Kho, KhoViewModel>();
             });
         }
     }

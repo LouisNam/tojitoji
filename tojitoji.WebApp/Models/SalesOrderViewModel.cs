@@ -31,7 +31,5 @@ namespace tojitoji.WebApp.Models
         public virtual HumanViewModel Customer { set; get; }
 
         public virtual HumanViewModel Staff { set; get; }
-
-        public virtual WarehouseViewModel Warehouse { set; get; }
     }
 }

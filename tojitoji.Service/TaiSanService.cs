@@ -45,7 +45,7 @@ namespace tojitoji.Service
 
         public IEnumerable<TaiSan> GetAll()
         {
-            return _taiSanRepository.GetAll();
+            return _taiSanRepository.GetAll(new string[] { "LoaiTaiSan" });
         }
 
         public IEnumerable<TaiSan> GetAll(string keyword)
@@ -53,7 +53,7 @@ namespace tojitoji.Service
             if (!string.IsNullOrEmpty(keyword))
                 return _taiSanRepository.GetMulti(x => x.Name.Contains(keyword));
             else
-                return _taiSanRepository.GetAll();
+                return _taiSanRepository.GetAll(new string[] { "LoaiTaiSan" });
         }
 
         public TaiSan GetById(int id)

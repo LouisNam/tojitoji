@@ -24,7 +24,6 @@ namespace tojitoji.Data
         public DbSet<SKULazada> SKUsLazada { set; get; }
         public DbSet<Campaign> Campaigns { set; get; }
         public DbSet<CampaignSKU> CampaignSKUs { set; get; }
-        public DbSet<Warehouse> Warehouses { set; get; }
         public DbSet<InventoryTransaction> InventoryTransactions { set; get; }        
         public DbSet<PurchaseOrder> PurchaseOrders { set; get; }
         public DbSet<PurchaseOrderDetail> PurchaseOrderDetails { set; get; }
@@ -39,7 +38,9 @@ namespace tojitoji.Data
         public DbSet<CoSoKinhDoanh> CoSoKinhDoanhs { set; get; }
         public DbSet<LoaiTaiSan> LoaiTaiSans { set; get; }
         public DbSet<TaiSan> TaiSans { set; get; }
-
+        public DbSet<LoaiKho> LoaiKhos { set; get; }
+        public DbSet<Kho> Khos { set; get; }
+        
         //public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
         //public DbSet<ApplicationRole> ApplicationRoles { set; get; }
         //public DbSet<ApplicationRoleGroup> ApplicationRoleGroups { set; get; }

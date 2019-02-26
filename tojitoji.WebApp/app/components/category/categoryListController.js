@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('categoryListController', categoryListController);
 
-    categoryListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService', '$filter'];
+    categoryListController.$inject = ['$scope', 'apiService', 'notificationService', '$filter'];
 
-    function categoryListController($scope, apiService, ModalService, $ngBootbox, notificationService, $filter) {
+    function categoryListController($scope, apiService, notificationService, $filter) {
         $scope.categories = [];
         $scope.page = 0;
         $scope.pageCount = 0;
