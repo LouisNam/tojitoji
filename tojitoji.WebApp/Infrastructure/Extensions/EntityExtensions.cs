@@ -174,15 +174,6 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             campaign.ToTime = campaignVM.ToTime;
         }
 
-        public static void UpdateWarehouse(this Warehouse warehouse, WarehouseViewModel warehouseVM)
-        {
-            warehouse.ID = warehouseVM.ID;
-            warehouse.Name = warehouseVM.Name;
-            warehouse.Status = warehouseVM.Status;
-            warehouse.Note = warehouseVM.Note;
-            warehouse.ParentID = warehouseVM.ParentID;
-        }
-
         public static void UpdateInventoryTransaction(this InventoryTransaction inventoryTransaction, InventoryTransactionViewModel inventoryTransactionVM)
         {
             inventoryTransaction.ID = inventoryTransactionVM.ID;
@@ -423,6 +414,24 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             taiSan.ID = taiSanVM.ID;
             taiSan.Name = taiSanVM.Name;
             taiSan.LoaiTaiSanID = taiSanVM.LoaiTaiSanID;
+        }
+
+        public static void UpdateLoaiKho(this LoaiKho loaiKho, LoaiKhoViewModel loaiKhoVM)
+        {
+            loaiKho.ID = loaiKhoVM.ID;
+            loaiKho.Name = loaiKhoVM.Name;
+            loaiKho.Description = loaiKhoVM.Description;
+        }
+
+        public static void UpdateKho(this Kho kho, KhoViewModel khoVM)
+        {
+            kho.ID = khoVM.ID;
+            kho.Kho_1 = khoVM.Kho_1;
+            kho.Kho_2 = khoVM.Kho_2;
+            kho.Kho_3 = khoVM.Kho_3;
+            kho.Kho_4 = khoVM.Kho_4;
+            kho.Status = khoVM.Status;
+            kho.Note = khoVM.Note;
         }
     }
 }

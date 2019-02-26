@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('bibleListController', bibleListController);
 
-    bibleListController.$inject = ['$scope', 'apiService', '$ngBootbox', 'notificationService', '$filter'];
+    bibleListController.$inject = ['$scope', 'apiService', 'notificationService', '$filter'];
 
-    function bibleListController($scope, apiService, $ngBootbox, notificationService, $filter) {
+    function bibleListController($scope, apiService, notificationService, $filter) {
         $scope.bibles = [];
         $scope.page = 0;
         $scope.pageCount = 0;

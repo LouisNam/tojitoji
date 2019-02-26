@@ -29,9 +29,6 @@ namespace tojitoji.Model.Models
 
         public string Note { set; get; }
 
-        [ForeignKey("WarehouseID")]
-        public virtual Warehouse Warehouse { set; get; }
-
         [ForeignKey("ProductID")]
         public virtual Product Product { set; get; }
     }

@@ -54,6 +54,8 @@
     <Compile Include="HumanService.cs" />
     <Compile Include="HumanTypeService.cs" />
     <Compile Include="InventoryTransactionService.cs" />
+    <Compile Include="KhoService.cs" />
+    <Compile Include="LoaiKhoService.cs" />
     <Compile Include="LoaiTaiSanService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,7 +70,6 @@
     <Compile Include="TaiSanService.cs" />
     <Compile Include="TransactionService.cs" />
     <Compile Include="TrialBalanceService.cs" />
-    <Compile Include="WarehouseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\tojitoji.Common\tojitoji.Common.csproj">

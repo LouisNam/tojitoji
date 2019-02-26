@@ -67,6 +67,8 @@
     <Compile Include="Models\Human.cs" />
     <Compile Include="Models\HumanType.cs" />
     <Compile Include="Models\InventoryTransaction.cs" />
+    <Compile Include="Models\Kho.cs" />
+    <Compile Include="Models\LoaiKho.cs" />
     <Compile Include="Models\LoaiTaiSan.cs" />
     <Compile Include="Models\TaiSan.cs" />
     <Compile Include="Models\TrialBalance.cs" />
@@ -80,7 +82,6 @@
     <Compile Include="Models\SKU.cs" />
     <Compile Include="Models\SKULazada.cs" />
     <Compile Include="Models\Transaction.cs" />
-    <Compile Include="Models\Warehouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -34,7 +34,7 @@ namespace tojitoji.WebApp.Api
 
         #endregion Initialize
 
-        [Route("getallparents")]
+        [Route("getalltype")]
         [HttpGet]
         public HttpResponseMessage GetAll(HttpRequestMessage request)
         {

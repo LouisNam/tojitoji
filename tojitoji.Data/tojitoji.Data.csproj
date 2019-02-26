@@ -56,13 +56,17 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201902191353557_UpdateDatabase.cs" />
-    <Compile Include="Migrations\201902191353557_UpdateDatabase.Designer.cs">
-      <DependentUpon>201902191353557_UpdateDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201902231510161_UpdateDatabase.cs" />
+    <Compile Include="Migrations\201902231510161_UpdateDatabase.Designer.cs">
+      <DependentUpon>201902231510161_UpdateDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902201532337_EditHumanTypeTable.cs" />
-    <Compile Include="Migrations\201902201532337_EditHumanTypeTable.Designer.cs">
-      <DependentUpon>201902201532337_EditHumanTypeTable.cs</DependentUpon>
+    <Compile Include="Migrations\201902251319166_AddLoaiKhoAndKhoTables.cs" />
+    <Compile Include="Migrations\201902251319166_AddLoaiKhoAndKhoTables.Designer.cs">
+      <DependentUpon>201902251319166_AddLoaiKhoAndKhoTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902251327534_UpdateKhoTable.cs" />
+    <Compile Include="Migrations\201902251327534_UpdateKhoTable.Designer.cs">
+      <DependentUpon>201902251327534_UpdateKhoTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +84,8 @@
     <Compile Include="Repositories\HumanRepository.cs" />
     <Compile Include="Repositories\HumanTypeRepository.cs" />
     <Compile Include="Repositories\InventoryTransactionRepository.cs" />
+    <Compile Include="Repositories\KhoRepository.cs" />
+    <Compile Include="Repositories\LoaiKhoRepository.cs" />
     <Compile Include="Repositories\LoaiTaiSanRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\PurchaseOrderDetailRepository.cs" />
@@ -93,7 +99,6 @@
     <Compile Include="Repositories\TaiSanRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\TrialBalanceRepository.cs" />
-    <Compile Include="Repositories\WarehouseRepository.cs" />
     <Compile Include="tojitojiDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,11 +116,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902191353557_UpdateDatabase.resx">
-      <DependentUpon>201902191353557_UpdateDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902231510161_UpdateDatabase.resx">
+      <DependentUpon>201902231510161_UpdateDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902201532337_EditHumanTypeTable.resx">
-      <DependentUpon>201902201532337_EditHumanTypeTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902251319166_AddLoaiKhoAndKhoTables.resx">
+      <DependentUpon>201902251319166_AddLoaiKhoAndKhoTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902251327534_UpdateKhoTable.resx">
+      <DependentUpon>201902251327534_UpdateKhoTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

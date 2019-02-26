@@ -5,7 +5,6 @@
 
     function categoryEditController(apiService, $scope, notificationService, $state, $stateParams) {
         $scope.category = {};
-        $scope.flatFolders = [];
         $scope.UpdateCategory = UpdateCategory;
 
         function loadCategoryDetail() {

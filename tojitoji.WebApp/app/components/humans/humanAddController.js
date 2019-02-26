@@ -5,7 +5,6 @@
 
     function humanAddController(apiService, $scope, notificationService, $state, commonService) {
         $scope.humans = {};
-        $scope.flatFolders = [];
         $scope.AddHuman = AddHuman;
 
         function AddHuman() {
@@ -19,37 +18,12 @@
         }
 
         function loadHumanType() {
-            apiService.get('api/humantype/getallparents', null, function (result) {
-                $scope.humanTypes = commonService.getTree(result.data, "ID", "ParentID");
-                $scope.humanTypes.forEach(function (item) {
-                    recur(item, 0, $scope.flatFolders);
-                });
+            apiService.get('api/humantype/getalltype', null, function (result) {
+                $scope.humanTypes = result.data;
             }, function () {
                 console.log('Cannot get list human type!');
             });
         }
-
-        function times(n, str) {
-            var result = '';
-            for (var i = 0; i < n; i++) {
-                result += str;
-            }
-            return result;
-        };
-
-        function recur(item, level, arr) {
-            arr.push({
-                Type: times(level, '–') + ' ' + item.Type,
-                ID: item.ID,
-                Level: level,
-                Indent: times(level, '–')
-            });
-            if (item.children) {
-                item.children.forEach(function (item) {
-                    recur(item, level + 1, arr);
-                });
-            }
-        };
 
         loadHumanType();
     }

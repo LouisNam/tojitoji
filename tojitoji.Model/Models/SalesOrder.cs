@@ -42,8 +42,5 @@ namespace tojitoji.Model.Models
 
         [ForeignKey("StaffID")]
         public virtual Human Staff { set; get; }
-
-        [ForeignKey("WarehouseID")]
-        public virtual Warehouse Warehouse { set; get; }
     }
 }
