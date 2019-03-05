@@ -11,7 +11,6 @@
         'tojitojishop.products',
         'tojitojishop.bundles',
         'tojitojishop.skus',
-        'tojitojishop.campaigns',
         'tojitojishop.inventorytransactions',
         'tojitojishop.purchaseOrders',
         'tojitojishop.salesOrders',

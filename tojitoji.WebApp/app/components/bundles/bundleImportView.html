@@ -1,0 +1,32 @@
+﻿<section class="content-header">
+    <h1>
+        Nhập bundle từ Excel
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> Home </a></li>
+        <li><a ui-sref="bundles">Bundle</a></li>
+        <li class="active">Nhập bundle từ Excel</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmImportBundle" role="form" ng-submit="importBundle()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Chọn file Excel</label>
+                    <div class="col-sm-10">
+                        <input type="file" file-upload name="fileInput" id="fileInput" required />
+                        <span ng-show="frmImportBundle.fileInput.$invalid" class="text-danger">Vui lòng chọn file</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button ui-sref="bundles" class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right" ng-disabled="frmImportBundle.$invalid">Lưu</button>
+            </div>
+        </form>
+    </div>
+</section>

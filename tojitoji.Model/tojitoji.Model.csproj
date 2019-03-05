@@ -54,8 +54,6 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Bible.cs" />
     <Compile Include="Models\Bundle.cs" />
-    <Compile Include="Models\Campaign.cs" />
-    <Compile Include="Models\CampaignSKU.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ClosingEntry.cs" />
     <Compile Include="Models\ClosingEntryDetail.cs" />

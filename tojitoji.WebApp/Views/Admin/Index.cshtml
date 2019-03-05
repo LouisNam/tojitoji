@@ -126,25 +126,24 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
+                            <i class="fab fa-product-hunt"></i> <span>Sản phẩm</span><i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="categories"><i class="far fa-circle"></i> Category </a></li>
+                            <li><a ui-sref="products"><i class="far fa-circle"></i> Product </a></li>
+                            <li><a ui-sref="bundles"><i class="far fa-circle"></i> Bundle </a></li>
+                            <li><a ui-sref="skus"><i class="far fa-circle"></i> SKU </a></li>
+                        </ul>
+                    </li> 
+                    <li class="treeview">
+                        <a href="#">
                             <i class="fas fa-file-invoice-dollar"></i> <span>Hóa đơn</span><i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
                             <li><a ui-sref="purchaseOrders"><i class="far fa-circle"></i> Hóa đơn mua </a></li>
                             <li><a ui-sref="salesOrders"><i class="far fa-circle"></i> Hóa đơn bán </a></li>
                         </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fab fa-product-hunt"></i> <span>Sản phẩm</span><i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a ui-sref="categories"><i class="far fa-circle"></i> Danh mục </a></li>
-                            <li><a ui-sref="products"><i class="far fa-circle"></i> Sản phẩm </a></li>
-                            <li><a ui-sref="bundles"><i class="far fa-circle"></i> Bundle </a></li>
-                            <li><a ui-sref="skus"><i class="far fa-circle"></i> SKU </a></li>
-                            <li><a ui-sref="campaigns"><i class="far fa-circle"></i> Campaign </a></li>
-                        </ul>
-                    </li>                    
+                    </li>                                       
                     <li class="header">Tài chính</li>
                     <li class="treeview">
                         <a ui-sref="documents">
@@ -234,7 +233,6 @@
     <script src="~/app/components/products/products.module.js"></script>
     <script src="~/app/components/bundles/bundles.module.js"></script>
     <script src="~/app/components/skus/skus.module.js"></script>
-    <script src="~/app/components/campaigns/campaigns.module.js"></script>
     <script src="~/app/components/inventorytransactions/inventorytransactions.module.js"></script>
     <script src="~/app/components/documenttypes/documenttypes.module.js"></script>
     <script src="~/app/components/purchaseOrders/purchaseOrders.module.js"></script>
@@ -282,17 +280,15 @@
     <script src="~/app/components/products/productDetailController.js"></script>
     <script src="~/app/components/products/productAddController.js"></script>
     <script src="~/app/components/products/productEditController.js"></script>
+    <script src="~/app/components/products/productImportController.js"></script>
     <script src="~/app/components/bundles/bundleListController.js"></script>
     <script src="~/app/components/bundles/bundleAddController.js"></script>
     <script src="~/app/components/bundles/bundleEditController.js"></script>
+    <script src="~/app/components/bundles/bundleImportController.js"></script>
     <script src="~/app/components/skus/skuListController.js"></script>
     <script src="~/app/components/skus/skuAddController.js"></script>
     <script src="~/app/components/skus/skuEditController.js"></script>
-    <script src="~/app/components/campaigns/campaignListController.js"></script>
-    <script src="~/app/components/campaigns/campaignSkuAddController.js"></script>
-    <script src="~/app/components/campaigns/campaignSkuEditController.js"></script>
-    <script src="~/app/components/campaigns/campaignAddController.js"></script>
-    <script src="~/app/components/campaigns/campaignEditController.js"></script>
+    <script src="~/app/components/skus/skuImportController.js"></script>
     <script src="~/app/components/inventorytransactions/inventorytransactionListController.js"></script>
     <script src="~/app/components/inventorytransactions/inventorytransactionAddController.js"></script>
     <script src="~/app/components/inventorytransactions/inventorytransactionEditController.js"></script>

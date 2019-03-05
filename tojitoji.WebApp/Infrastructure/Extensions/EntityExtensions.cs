@@ -159,21 +159,6 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             sKULazada.Status = sKUlazadaVM.Status;
         }
 
-        public static void UpdateCampaignSKU(this CampaignSKU campaignSKU, CampaignSKUViewModel campaignSKUVM)
-        {
-            campaignSKU.ID = campaignSKUVM.ID;
-            campaignSKU.SKUID = campaignSKUVM.SKUID;
-            campaignSKU.Price = campaignSKUVM.Price;
-        }
-
-        public static void UpdateCampaign(this Campaign campaign, CampaignViewModel campaignVM)
-        {
-            campaign.CampaignID = campaignVM.CampaignID;
-            campaign.Name = campaignVM.Name;
-            campaign.FromTime = campaignVM.FromTime;
-            campaign.ToTime = campaignVM.ToTime;
-        }
-
         public static void UpdateInventoryTransaction(this InventoryTransaction inventoryTransaction, InventoryTransactionViewModel inventoryTransactionVM)
         {
             inventoryTransaction.ID = inventoryTransactionVM.ID;

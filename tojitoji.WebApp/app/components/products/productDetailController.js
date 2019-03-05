@@ -13,7 +13,11 @@
         function getProductDetail(id) {
             apiService.get('/api/product/getbyid/' + id, null, function (result) {
                 $scope.product = result.data;
-                $scope.moreImages = JSON.parse($scope.product.MoreImage);
+                if ($scope.product.MoreImage == null || $scope.product.MoreImage == "") {
+                    $scope.moreImages = [];
+                } else {
+                    $scope.moreImages = JSON.parse($scope.product.MoreImage);
+                }
             }, function (error) {
                 notificationService.displayError(error.data);
             });

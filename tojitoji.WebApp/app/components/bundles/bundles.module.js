@@ -1,5 +1,4 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function () {
+﻿(function () {
     angular.module('tojitojishop.bundles', ['tojitojishop.common']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider']
@@ -17,6 +16,10 @@
             url: "/edit_bundle/:id",
             templateUrl: "/app/components/bundles/bundleEditView.html",
             controller: "bundleEditController"
+        }).state('import_bundle', {
+            url: "/import_bundle",
+            templateUrl: "/app/components/bundles/bundleImportView.html",
+            controller: "bundleImportController"
         });
     }
 })();

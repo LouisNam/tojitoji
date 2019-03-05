@@ -22,8 +22,6 @@ namespace tojitoji.Data
         public DbSet<Bundle> Bundles { set; get; }
         public DbSet<SKU> SKUs { set; get; }
         public DbSet<SKULazada> SKUsLazada { set; get; }
-        public DbSet<Campaign> Campaigns { set; get; }
-        public DbSet<CampaignSKU> CampaignSKUs { set; get; }
         public DbSet<InventoryTransaction> InventoryTransactions { set; get; }        
         public DbSet<PurchaseOrder> PurchaseOrders { set; get; }
         public DbSet<PurchaseOrderDetail> PurchaseOrderDetails { set; get; }

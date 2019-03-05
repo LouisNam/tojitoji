@@ -10,8 +10,12 @@
         function loadBundleDetail() {
             apiService.get('/api/bundle/getbyid/' + $stateParams.id, null, function (result) {
                 $scope.bundle = result.data;
-                $scope.bundle.SpecialFromTime = new Date(result.data.SpecialFromTime);
-                $scope.bundle.SpecialToTime = new Date(result.data.SpecialToTime)
+                if ($scope.bundle.SpecialFromTime != null) {
+                    $scope.bundle.SpecialFromTime = new Date(result.data.SpecialFromTime);
+                }
+                if ($scope.bundle.SpecialToTime != null) {
+                    $scope.bundle.SpecialToTime = new Date(result.data.SpecialToTime)
+                }                
             }, function (error) {
                 notificationService.displayError(error.data);
             });

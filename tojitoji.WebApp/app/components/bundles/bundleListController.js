@@ -1,32 +1,72 @@
 ﻿(function (app) {
     app.controller('bundleListController', bundleListController);
 
-    bundleListController.$inject = ['$scope', 'apiService', '$ngBootbox', 'notificationService'];
+    bundleListController.$inject = ['$scope', 'apiService', '$ngBootbox', 'notificationService', '$filter'];
 
-    function bundleListController($scope, apiService, $ngBootbox, notificationService) {
-        $scope.bundle = [];
+    function bundleListController($scope, apiService, $ngBootbox, notificationService, $filter) {
+        $scope.bundles = [];
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.getBundle = getBundle;
         $scope.keyword = '';
         $scope.search = search;
-        $scope.deleteBundle = deleteBundle;
+        $scope.selectAll = selectAll;
+        $scope.isAll = false;
+        $scope.deleteMultiple = deleteMultiple;
+        $scope.exportExcel = exportExcel;
 
-        function deleteBundle(id) {
-            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-                var config = {
-                    params: {
-                        id: id
-                    }
+        function exportExcel() {
+            apiService.get('/api/bundle/ExportXls', null, function (response) {
+                if (response.status = 200) {
+                    window.location.href = response.data.Message;
                 }
-                apiService.del('api/bundle/delete', config, function () {
-                    notificationService.displaySuccess('Xóa thành công');
-                    getBundle();
-                }, function () {
-                    notificationService.displayError('Xóa không thành công');
-                })
+            }, function (error) {
+                notificationService.displayError(error);
+
             });
         }
+
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i, item) {
+                listId.push(item.ID);
+            });
+            var config = {
+                params: {
+                    checkedBundles: JSON.stringify(listId)
+                }
+            }
+            apiService.del('api/bundle/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
+                getBundle();
+            }, function (error) {
+                notificationService.displayError('Xóa không thành công');
+            });
+        }
+
+        function selectAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.bundles, function (item) {
+                    item.checked = true;
+                });
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.bundles, function (item) {
+                    item.checked = false;
+                });
+                $scope.isAll = false;
+            }
+        }
+
+        $scope.$watch("bundles", function (n, o) {
+            var checked = $filter("filter")(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled', 'disabled');
+            }
+        }, true);
 
         function search() {
             getBundle();
@@ -46,7 +86,7 @@
             apiService.get('/api/bundle/getall', config, function (result) {
                 if (result.data.TotalCount == 0) {
                 }
-                $scope.bundle = result.data.Items;
+                $scope.bundles = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;

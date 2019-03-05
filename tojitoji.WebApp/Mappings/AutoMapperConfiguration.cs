@@ -19,8 +19,6 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<Bundle, BundleViewModel>();
                 cfg.CreateMap<SKU, SKUViewModel>();
                 cfg.CreateMap<SKULazada, SKULazadaViewModel>();
-                cfg.CreateMap<CampaignSKU, CampaignSKUViewModel>();
-                cfg.CreateMap<Campaign, CampaignViewModel>();
                 cfg.CreateMap<InventoryTransaction, InventoryTransactionViewModel>();
                 cfg.CreateMap<DocumentType, DocumentTypeViewModel>();
                 cfg.CreateMap<PurchaseOrder, PurchaseOrderViewModel>();

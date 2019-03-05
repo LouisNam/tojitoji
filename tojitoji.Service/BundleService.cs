@@ -45,15 +45,15 @@ namespace tojitoji.Service
 
         public IEnumerable<Bundle> GetAll()
         {
-            return _bundleRepository.GetAll();
+            return _bundleRepository.GetAll(new string[] { "Product" });
         }
 
         public IEnumerable<Bundle> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _bundleRepository.GetMulti(x => x.BundleName.Contains(keyword) || x.BundleType.Contains(keyword));
+                return _bundleRepository.GetMulti(x => x.BundleName.Contains(keyword) || x.BundleType.Contains(keyword), new string[] { "Product" });
             else
-                return _bundleRepository.GetAll();
+                return _bundleRepository.GetAll(new string[] { "Product" });
         }
 
         public Bundle GetById(int id)

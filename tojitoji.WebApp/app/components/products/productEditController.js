@@ -32,14 +32,19 @@
         function loadProductDetail() {
             apiService.get('/api/product/getbyid/' + $stateParams.id, null, function (result) {
                 $scope.product = result.data;
-                if ($scope.product.MoreImage == null) {
+                if ($scope.product.MoreImage == null || $scope.product.MoreImage == "") {
                     $scope.moreImages = [];                    
                 } else {
                     $scope.moreImages = JSON.parse($scope.product.MoreImage);
                 }
                 
-                $scope.product.SpecialFromTime = new Date(result.data.SpecialFromTime);
-                $scope.product.SpecialToTime = new Date(result.data.SpecialToTime)
+                if ($scope.product.SpecialFromTime != null) {
+                    $scope.product.SpecialFromTime = new Date(result.data.SpecialFromTime);
+                }
+                
+                if ($scope.product.SpecialToTime != null) {
+                    $scope.product.SpecialToTime = new Date(result.data.SpecialToTime);
+                }
             }, function (error) {
                 notificationService.displayError(error.data);
             });
@@ -57,37 +62,12 @@
         }
 
         function loadCategory() {
-            apiService.get('api/category/getallparents', null, function (result) {
-                $scope.categories = commonService.getTree(result.data, "ID", "ParentID");
-                $scope.categories.forEach(function (item) {
-                    recur(item, 0, $scope.flatFolders);
-                });
+            apiService.get('api/category/getalltype', null, function (result) {
+                $scope.categories = result.data;
             }, function () {
                 console.log('Cannot get list product!');
             });
         }
-
-        function times(n, str) {
-            var result = '';
-            for (var i = 0; i < n; i++) {
-                result += str;
-            }
-            return result;
-        };
-
-        function recur(item, level, arr) {
-            arr.push({
-                Name: times(level, '–') + ' ' + item.Name,
-                ID: item.ID,
-                Level: level,
-                Indent: times(level, '–')
-            });
-            if (item.children) {
-                item.children.forEach(function (item) {
-                    recur(item, level + 1, arr);
-                });
-            }
-        };
 
         loadCategory();
         loadProductDetail();

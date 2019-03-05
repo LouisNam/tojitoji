@@ -1,10 +1,16 @@
 ﻿using AutoMapper;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
+using System.Web.Script.Serialization;
+using tojitoji.Common;
 using tojitoji.Model.Models;
 using tojitoji.Service;
 using tojitoji.WebApp.Infrastructure.Core;
@@ -134,9 +140,9 @@ namespace tojitoji.WebApp.Api
             });
         }
 
-        [Route("delete")]
+        [Route("deletemulti")]
         [HttpDelete]
-        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedSKUs)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -147,15 +153,127 @@ namespace tojitoji.WebApp.Api
                 }
                 else
                 {
-                    var oldSKU = _SKUService.Delete(id);
+                    var listSKU = new JavaScriptSerializer().Deserialize<List<int>>(checkedSKUs);
+                    foreach (var item in listSKU)
+                    {
+                        _SKUService.Delete(item);
+                    }
+
                     _SKUService.SaveChanges();
 
-                    var responseData = Mapper.Map<SKU, SKUViewModel>(oldSKU);
-                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                    response = request.CreateResponse(HttpStatusCode.OK, listSKU.Count);
                 }
 
                 return response;
             });
+        }
+
+        [Route("import")]
+        [HttpPost]
+        public async Task<HttpResponseMessage> Import()
+        {
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                Request.CreateErrorResponse(HttpStatusCode.UnsupportedMediaType, "Định dạng không được server hỗ trợ");
+            }
+
+            var root = HttpContext.Current.Server.MapPath("~/UploadedFiles/Excels");
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+
+            var provider = new MultipartFormDataStreamProvider(root);
+            var result = await Request.Content.ReadAsMultipartAsync(provider);
+
+            //Upload files
+            int addedCount = 0;
+            
+            foreach (MultipartFileData fileData in result.FileData)
+            {
+                if (string.IsNullOrEmpty(fileData.Headers.ContentDisposition.FileName))
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotAcceptable, "Yêu cầu không đúng định dạng");
+                }
+                string fileName = fileData.Headers.ContentDisposition.FileName;
+                if (fileName.StartsWith("\"") && fileName.EndsWith("\""))
+                {
+                    fileName = fileName.Trim('"');
+                }
+                if (fileName.Contains(@"/") || fileName.Contains(@"\"))
+                {
+                    fileName = Path.GetFileName(fileName);
+                }
+
+                var fullPath = Path.Combine(root, fileName);
+                File.Copy(fileData.LocalFileName, fullPath, true);
+
+                //insert to DB
+                var listSKU = this.ReadSKUFromExcel(fullPath);
+                if (listSKU.Count > 0)
+                {
+                    foreach (var SKU in listSKU)
+                    {
+                        _SKUService.Add(SKU);
+                        addedCount++;
+                    }
+                    _SKUService.SaveChanges();
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, "Đã nhập thành công " + addedCount + " SKU");
+        }
+
+        private List<SKU> ReadSKUFromExcel(string fullPath)
+        {
+            using (var package = new ExcelPackage(new FileInfo(fullPath)))
+            {
+                ExcelWorksheet workSheet = package.Workbook.Worksheets[1];
+                List<SKU> listSKU = new List<SKU>();
+                SKUViewModel sKUViewModel;
+                SKU sKU;
+
+                int ProductID;
+                int BundleID;
+
+                for (int i = workSheet.Dimension.Start.Row + 1; i <= workSheet.Dimension.End.Row; i++)
+                {
+                    sKUViewModel = new SKUViewModel();
+                    sKU = new SKU();
+
+                    int.TryParse(workSheet.Cells[i, 1].Value.ToString(), out ProductID);
+                    sKUViewModel.ProductID = ProductID;
+                    int.TryParse(workSheet.Cells[i, 2].Value.ToString(), out BundleID);
+                    sKUViewModel.BundleID = BundleID;
+
+                    sKU.UpdateSKU(sKUViewModel);
+                    listSKU.Add(sKU);
+                }
+                return listSKU;
+            }
+        }
+
+        [HttpGet]
+        [Route("ExportXls")]
+        public async Task<HttpResponseMessage> ExportXls(HttpRequestMessage request)
+        {
+            string fileName = string.Concat("SKU_" + DateTime.Now.ToString("yyyyMMddhhmmsss") + ".xlsx");
+            var folderReport = ConfigHelper.GetByKey("ReportFolder");
+            string filePath = HttpContext.Current.Server.MapPath(folderReport);
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
+            string fullPath = Path.Combine(filePath, fileName);
+            try
+            {
+                var data = _SKUService.GetAll().ToList();
+                await ReportHelper.GenerateXls(data, fullPath);
+                return request.CreateErrorResponse(HttpStatusCode.OK, Path.Combine(folderReport, fileName));
+            }
+            catch (Exception ex)
+            {
+                return request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
         }
     }
 }
