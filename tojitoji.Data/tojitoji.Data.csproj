@@ -68,13 +68,15 @@
     <Compile Include="Migrations\201902251327534_UpdateKhoTable.Designer.cs">
       <DependentUpon>201902251327534_UpdateKhoTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903051328098_DeleteCampainTables.cs" />
+    <Compile Include="Migrations\201903051328098_DeleteCampainTables.Designer.cs">
+      <DependentUpon>201903051328098_DeleteCampainTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\BibleRepository.cs" />
     <Compile Include="Repositories\BundleRepository.cs" />
-    <Compile Include="Repositories\CampaignRepository.cs" />
-    <Compile Include="Repositories\CampaignSKURepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\CompanyInformationRepository.cs" />
     <Compile Include="Repositories\CoSoKinhDoanhRepository.cs" />
@@ -124,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902251327534_UpdateKhoTable.resx">
       <DependentUpon>201902251327534_UpdateKhoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903051328098_DeleteCampainTables.resx">
+      <DependentUpon>201903051328098_DeleteCampainTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

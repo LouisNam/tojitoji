@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tojitoji.Model.Models
@@ -20,7 +19,5 @@ namespace tojitoji.Model.Models
 
         [ForeignKey("BundleID")]
         public virtual Bundle Bundle { set; get; }
-
-        public virtual IEnumerable<CampaignSKU> CampaignSKUs { set; get; }
     }
 }

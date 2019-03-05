@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('productListController', productListController);
 
-    productListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService'];
+    productListController.$inject = ['$scope', 'apiService', 'ModalService', '$ngBootbox', 'notificationService', '$filter'];
 
-    function productListController($scope, apiService, ModalService, $ngBootbox, notificationService) {
+    function productListController($scope, apiService, ModalService, $ngBootbox, notificationService, $filter) {
         $scope.product = [];
         $scope.page = 0;
         $scope.pageCount = 0;
@@ -11,11 +11,67 @@
         $scope.keyword = '';
         $scope.search = search;
         $scope.showDetail = showDetail;
-        $scope.deleteProduct = deleteProduct;
         $scope.sortColumn = "";
         $scope.reverseSort = false;
         $scope.sortData = sortData;
         $scope.getSortClass = getSortClass;
+        $scope.exportExcel = exportExcel;
+        $scope.selectAll = selectAll;
+        $scope.isAll = false;
+        $scope.deleteMultiple = deleteMultiple;
+
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i, item) {
+                listId.push(item.ID);
+            });
+            var config = {
+                params: {
+                    checkedProducts: JSON.stringify(listId)
+                }
+            }
+            apiService.del('api/product/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
+                getProduct();
+            }, function (error) {
+                notificationService.displayError('Xóa không thành công');
+            });
+        }
+
+        function selectAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.product, function (item) {
+                    item.checked = true;
+                });
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.product, function (item) {
+                    item.checked = false;
+                });
+                $scope.isAll = false;
+            }
+        }
+
+        $scope.$watch("product", function (n, o) {
+            var checked = $filter("filter")(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled', 'disabled');
+            }
+        }, true);
+
+        function exportExcel() {
+            apiService.get('/api/product/ExportXls', null, function (response) {
+                if (response.status = 200) {
+                    window.location.href = response.data.Message;
+                }
+            }, function (error) {
+                notificationService.displayError(error);
+
+            });
+        }
 
         function sortData(column) {
             $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
@@ -29,22 +85,6 @@
                   : 'glyphicon glyphicon-sort-by-attributes pull-right';
             }
             return 'glyphicon glyphicon-sort pull-right';
-        }
-
-        function deleteProduct(id) {
-            $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-                var config = {
-                    params: {
-                        id: id
-                    }
-                }
-                apiService.del('api/product/delete', config, function () {
-                    notificationService.displaySuccess('Xóa thành công');
-                    getProduct();
-                }, function () {
-                    notificationService.displayError('Xóa không thành công');
-                })
-            });
         }
 
         function search() {

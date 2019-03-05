@@ -14,6 +14,10 @@
                 <h3 class="box-title">Danh sách sản phẩm</h3>
                 <div class="box-tools" style="display:flex">
                     <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_product"><i class="fas fa-plus-square"></i></button>
+                    <a class="btn btn-warning" style="margin-right: 5px" href="/Assets/admin/templates/SanPham.xlsx" title="Download Template"><i class="fas fa-download"></i></a>
+                    <button class="btn btn-primary" style="margin-right: 5px" ui-sref="import_product" title="Upload"><i class="fas fa-upload"></i></button>
+                    <button class="btn" style="margin-right: 5px" ng-click="exportExcel()" title="Export to Excel"><i class="fas fa-file-export"></i></button>
+                    <button class="btn btn-danger" style="margin-right: 5px" ng-click="deleteMultiple()" id="btnDelete" disabled title="Delete"><i class="fas fa-trash-alt"></i></button>
                     <div class="input-group input-group-sm" style="width: 150px;">
                         <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" ng-model="keyword">
                         <div class="input-group-btn">
@@ -26,6 +30,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th><input name="all" type="checkbox" ng-click="selectAll()" /></th>
                             <th>Hình ảnh</th>
                             <th>Tên sản phẩm</th>
                             <th ng-click="sortData('RRP')">Giá niêm yết<div ng-class="getSortClass('RRP')" class="glyphicon glyphicon-sort pull-right"></div></th>
@@ -38,6 +43,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="item in product | orderBy: sortColumn:reverseSort" ng-click="showDetail(item.ID)">
+                            <td><input type="checkbox" ng-model="item.checked" name="all" ng-click="$event.stopPropagation()"/></td>
                             <th>
                                 <img ng-src="{{item.MainImage}}" style="height: 100px; width: 100px" />
                             </th>
@@ -52,17 +58,16 @@
                                 </span>
                             </td>
                             <td>
-                                <button class="btn btn-sm btn-primary" ui-sref="edit_product({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="btn  btn-sm btn-danger" ng-click="deleteProduct(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_product({id:item.ID})" ng-click="$event.stopPropagation()"><i class="fas fa-pencil-alt"></i></button>
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="8"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                            <td colspan="9"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
                         </tr>
                         <tr>
-                            <td colspan="8">
+                            <td colspan="9">
                                 <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getProduct(page)"></pager-directive>
                             </td>
                         </tr>

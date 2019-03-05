@@ -7,7 +7,7 @@
         $scope.bibles = [];
         $scope.page = 0;
         $scope.pageCount = 0;
-        $scope.getBible = getBible;        
+        $scope.getBible = getBible;
         $scope.selectAll = selectAll;
         $scope.isAll = false;
         $scope.deleteMultiple = deleteMultiple;
@@ -71,7 +71,7 @@
             } else {
                 $('#btnDelete').attr('disabled', 'disabled');
             }
-        }, true);        
+        }, true);
 
         function search() {
             getBible();

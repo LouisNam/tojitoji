@@ -7,5 +7,9 @@
         public int? ProductID { set; get; }
 
         public int? BundleID { set; get; }
+
+        public virtual ProductViewModel Product { set; get; }
+
+        public virtual BundleViewModel Bundle { set; get; }
     }
 }

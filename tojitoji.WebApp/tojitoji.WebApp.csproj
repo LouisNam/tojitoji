@@ -200,8 +200,6 @@
   <ItemGroup>
     <Compile Include="Api\BibleController.cs" />
     <Compile Include="Api\BundleController.cs" />
-    <Compile Include="Api\CampaignController.cs" />
-    <Compile Include="Api\CampaignSKUController.cs" />
     <Compile Include="Api\CategoryController.cs" />
     <Compile Include="Api\CompanyInformationController.cs" />
     <Compile Include="Api\CoSoKinhDoanhController.cs" />
@@ -242,8 +240,6 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\BibleViewModel.cs" />
     <Compile Include="Models\BundleViewModel.cs" />
-    <Compile Include="Models\CampaignSKUViewModel.cs" />
-    <Compile Include="Models\CampaignViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\CompanyInformationViewModel.cs" />
     <Compile Include="Models\CoSoKinhDoanhViewModel.cs" />
@@ -282,6 +278,8 @@
     <Content Include="app\components\bibles\bibleEditView.html" />
     <Content Include="app\components\bibles\bibleImportController.js" />
     <Content Include="app\components\bibles\bibleImportView.html" />
+    <Content Include="app\components\bundles\bundleImportController.js" />
+    <Content Include="app\components\bundles\bundleImportView.html" />
     <Content Include="app\components\category\categoryImportController.js" />
     <Content Include="app\components\category\categoryImportView.html" />
     <Content Include="app\components\companyInfor\companyInformationImportController.js" />
@@ -305,17 +303,6 @@
     <Content Include="app\components\bundles\bundleListController.js" />
     <Content Include="app\components\bundles\bundleListView.html" />
     <Content Include="app\components\bundles\bundles.module.js" />
-    <Content Include="app\components\campaigns\campaignSkuEditController.js" />
-    <Content Include="app\components\campaigns\campaignSkuAddController.js" />
-    <Content Include="app\components\campaigns\campaignAddController.js" />
-    <Content Include="app\components\campaigns\campaignSkuEditView.html" />
-    <Content Include="app\components\campaigns\campaignSkuAddView.html" />
-    <Content Include="app\components\campaigns\campaignAddView.html" />
-    <Content Include="app\components\campaigns\campaignEditController.js" />
-    <Content Include="app\components\campaigns\campaignEditView.html" />
-    <Content Include="app\components\campaigns\campaignListController.js" />
-    <Content Include="app\components\campaigns\campaignListView.html" />
-    <Content Include="app\components\campaigns\campaigns.module.js" />
     <Content Include="app\components\category\categoryAddController.js" />
     <Content Include="app\components\category\categoryAddView.html" />
     <Content Include="app\components\category\categoryEditController.js" />
@@ -396,6 +383,8 @@
     <Content Include="app\components\loaiTaiSans\loaiTaiSanImportView.html" />
     <Content Include="app\components\loaiTaiSans\loaiTaiSanListController.js" />
     <Content Include="app\components\loaiTaiSans\loaiTaiSanListView.html" />
+    <Content Include="app\components\products\productImportController.js" />
+    <Content Include="app\components\products\productImportView.html" />
     <Content Include="app\components\products\products.module.js" />
     <Content Include="app\components\products\productAddController.js" />
     <Content Include="app\components\products\productAddView.html" />
@@ -439,6 +428,8 @@
     <Content Include="app\components\salesOrders\salesOrderListController.js" />
     <Content Include="app\components\salesOrders\salesOrderListView.html" />
     <Content Include="app\components\salesOrders\salesOrders.module.js" />
+    <Content Include="app\components\skus\skuImportController.js" />
+    <Content Include="app\components\skus\skuImportView.html" />
     <Content Include="app\components\skus\skuAddController.js" />
     <Content Include="app\components\skus\skuAddView.html" />
     <Content Include="app\components\skus\skuEditController.js" />

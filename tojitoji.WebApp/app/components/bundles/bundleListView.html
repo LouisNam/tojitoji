@@ -13,7 +13,11 @@
             <div class="box-header">
                 <h3 class="box-title">Danh sách bundle</h3>
                 <div class="box-tools" style="display:flex">
-                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_bundle"><i class="fas fa-plus-square"></i></button>
+                    <button class="btn btn-success" style="margin-right: 5px" ui-sref="add_bundle"><i class="fas fa-plus-square"></i></button>                    
+                    <a class="btn btn-warning" style="margin-right: 5px" href="/Assets/admin/templates/Bundle.xlsx" title="Download Template"><i class="fas fa-download"></i></a>
+                    <button class="btn btn-primary" style="margin-right: 5px" ui-sref="import_bundle" title="Upload"><i class="fas fa-upload"></i></button>
+                    <button class="btn" style="margin-right: 5px" ng-click="exportExcel()" title="Export to Excel"><i class="fas fa-file-export"></i></button>
+                    <button class="btn btn-danger" style="margin-right: 5px" ng-click="deleteMultiple()" id="btnDelete" disabled title="Delete"><i class="fas fa-trash-alt"></i></button>
                     <div class="input-group input-group-sm" style="width: 150px;">
                         <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" ng-model="keyword">
                         <div class="input-group-btn">
@@ -26,6 +30,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th><input name="all" type="checkbox" ng-click="selectAll()" /></th>
                             <th>Loại bundle</th>
                             <th>Mã gói sản phẩm</th>
                             <th>Tên bundle</th>
@@ -39,28 +44,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in bundle">
+                        <tr ng-repeat="item in bundles">
+                            <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
                             <td>{{item.BundleType}}</td>
                             <td>{{item.SKUBundle}}</td>
                             <td>{{item.BundleName}}</td>
-                            <td>{{item.ProductID}}</td>
+                            <td>{{item.Product.Name}}</td>
                             <td>{{item.ProductQuantity}}</td>
                             <td>{{item.ProductNo}}</td>
                             <td>{{item.DiscountRate}}</td>
                             <td>{{item.SpecialFromTime | date: 'dd-MM-yyyy'}}</td>
                             <td>{{item.SpecialToTime | date: 'dd-MM-yyyy'}}</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" ui-sref="edit_bundle({id:item.ID})" ng-click="$event.stopPropagation();"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="btn  btn-sm btn-danger" ng-click="deleteBundle(item.ID); $event.stopPropagation();"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-sm btn-primary" ui-sref="edit_bundle({id:item.ID})" ng-click="$event.stopPropagation()"><i class="fas fa-pencil-alt"></i></button>                                
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="6"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                            <td colspan="11"><span class="pull-right">Trang: {{page+1}} - Tổng số bản ghi: {{totalCount}}</span></td>
                         </tr>
                         <tr>
-                            <td colspan="6">
+                            <td colspan="11">
                                 <pager-directive class="pull-right" page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getBundle(page)"></pager-directive>
                             </td>
                         </tr>
