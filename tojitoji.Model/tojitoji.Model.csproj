@@ -69,6 +69,8 @@
     <Compile Include="Models\LoaiKho.cs" />
     <Compile Include="Models\LoaiTaiSan.cs" />
     <Compile Include="Models\TaiSan.cs" />
+    <Compile Include="Models\TangGiamTSCD.cs" />
+    <Compile Include="Models\TimeTrichKhauHaoTSCD.cs" />
     <Compile Include="Models\TrialBalance.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />

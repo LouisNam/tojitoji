@@ -72,6 +72,14 @@
     <Compile Include="Migrations\201903051328098_DeleteCampainTables.Designer.cs">
       <DependentUpon>201903051328098_DeleteCampainTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903051507370_AddTSCDCCDCTable.cs" />
+    <Compile Include="Migrations\201903051507370_AddTSCDCCDCTable.Designer.cs">
+      <DependentUpon>201903051507370_AddTSCDCCDCTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903051556540_EditTimeTrichKhauHaoTSCDTable.cs" />
+    <Compile Include="Migrations\201903051556540_EditTimeTrichKhauHaoTSCDTable.Designer.cs">
+      <DependentUpon>201903051556540_EditTimeTrichKhauHaoTSCDTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
@@ -99,6 +107,8 @@
     <Compile Include="Repositories\SKULazadaRepository.cs" />
     <Compile Include="Repositories\SKURepository.cs" />
     <Compile Include="Repositories\TaiSanRepository.cs" />
+    <Compile Include="Repositories\TangGiamTSCDRepository.cs" />
+    <Compile Include="Repositories\TimeTrichKhauHaoTSCDRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\TrialBalanceRepository.cs" />
     <Compile Include="tojitojiDbContext.cs" />
@@ -129,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903051328098_DeleteCampainTables.resx">
       <DependentUpon>201903051328098_DeleteCampainTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903051507370_AddTSCDCCDCTable.resx">
+      <DependentUpon>201903051507370_AddTSCDCCDCTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903051556540_EditTimeTrichKhauHaoTSCDTable.resx">
+      <DependentUpon>201903051556540_EditTimeTrichKhauHaoTSCDTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

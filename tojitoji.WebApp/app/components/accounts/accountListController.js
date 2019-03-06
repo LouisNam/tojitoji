@@ -1,5 +1,4 @@
-﻿/// <reference path="D:\tojitoji\tojitojiShop\tojitoji.WebApp\Assets/admin/libs/angular/angular.js" />
-(function (app) {
+﻿(function (app) {
     app.controller('accountListController', accountListController);
 
     accountListController.$inject = ['$scope', 'apiService', 'ModalService', 'notificationService'];
@@ -11,11 +10,15 @@
         $scope.getAccounts = getAccounts;
         $scope.keyword = '';
         $scope.search = search;
-
         $scope.showDetail = showDetail;
 
-        function showDetail(id) {
+        $('#field_search').keypress(function (event) {
+            if (event.keyCode == 13) {
+                $('#btn_search').click();
+            }
+        });
 
+        function showDetail(id) {
             ModalService.showModal({
                 templateUrl: "/app/components/accounts/accountDetailView.html",
                 controller: "accountDetailController",

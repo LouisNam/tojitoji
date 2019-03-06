@@ -418,5 +418,33 @@ namespace tojitoji.WebApp.Infrastructure.Extensions
             kho.Status = khoVM.Status;
             kho.Note = khoVM.Note;
         }
+
+        public static void UpdateTimeTrichKhauHaoTSCD(this TimeTrichKhauHaoTSCD timeTrichKhauHaoTSCD, TimeTrichKhauHaoTSCDViewModel timeTrichKhauHaoTSCDVM)
+        {
+            timeTrichKhauHaoTSCD.ID = timeTrichKhauHaoTSCDVM.ID;
+            timeTrichKhauHaoTSCD.DanhMucNhomTSCD = timeTrichKhauHaoTSCDVM.DanhMucNhomTSCD;
+            timeTrichKhauHaoTSCD.NhomTSCD = timeTrichKhauHaoTSCDVM.NhomTSCD;
+            timeTrichKhauHaoTSCD.TimeMin = timeTrichKhauHaoTSCDVM.TimeMin;
+            timeTrichKhauHaoTSCD.TimeMax = timeTrichKhauHaoTSCDVM.TimeMax;
+        }
+
+        public static void UpdateTangGiamTSCD (this TangGiamTSCD tangGiamTSCD, TangGiamTSCDViewModel tangGiamTSCDVM)
+        {
+            tangGiamTSCD.ID = tangGiamTSCDVM.ID;
+            tangGiamTSCD.MaTSCD = tangGiamTSCDVM.MaTSCD;
+            tangGiamTSCD.Type = tangGiamTSCDVM.Type;
+            tangGiamTSCD.Name = tangGiamTSCDVM.Name;
+            tangGiamTSCD.NgaySuDung = tangGiamTSCDVM.NgaySuDung;
+            tangGiamTSCD.SoLuong = tangGiamTSCDVM.SoLuong;
+            tangGiamTSCD.GiaTriBanDau = tangGiamTSCDVM.GiaTriBanDau;
+            tangGiamTSCD.GiaTriConLai = tangGiamTSCDVM.GiaTriConLai;
+            tangGiamTSCD.ThoiGianSuDung = tangGiamTSCDVM.ThoiGianSuDung;
+            tangGiamTSCD.GiaTriPhanBoTrongKy = tangGiamTSCDVM.GiaTriPhanBoTrongKy;
+            tangGiamTSCD.BoPhan = tangGiamTSCDVM.BoPhan;
+            tangGiamTSCD.PhanBo = tangGiamTSCDVM.PhanBo;
+            tangGiamTSCD.ThangSuDung = tangGiamTSCDVM.ThangSuDung;
+            tangGiamTSCD.NamSuDung = tangGiamTSCDVM.NamSuDung;
+            tangGiamTSCD.Note = tangGiamTSCDVM.Note;
+        }
     }
 }

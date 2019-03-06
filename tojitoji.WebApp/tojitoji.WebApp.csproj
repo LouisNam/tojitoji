@@ -222,6 +222,8 @@
     <Compile Include="Api\SalesOrderDetailReturnController.cs" />
     <Compile Include="Api\SKUController.cs" />
     <Compile Include="Api\TaiSanController.cs" />
+    <Compile Include="Api\TangGiamTSCDController.cs" />
+    <Compile Include="Api\TimeTrichKhauHaoTSCDController.cs" />
     <Compile Include="Api\TransactionController.cs" />
     <Compile Include="Api\TrialBalanceController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -261,6 +263,8 @@
     <Compile Include="Models\SKULazadaViewModel.cs" />
     <Compile Include="Models\SKUViewModel.cs" />
     <Compile Include="Models\TaiSanViewModel.cs" />
+    <Compile Include="Models\TangGiamTSCDViewModel.cs" />
+    <Compile Include="Models\TimeTrichKhauHaoTSCDViewModel.cs" />
     <Compile Include="Models\TransactionViewModel.cs" />
     <Compile Include="Models\TrialBalanceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
