@@ -36,6 +36,8 @@ namespace tojitoji.WebApp.Mappings
                 cfg.CreateMap<TaiSan, TaiSanViewModel>();
                 cfg.CreateMap<LoaiKho, LoaiKhoViewModel>();
                 cfg.CreateMap<Kho, KhoViewModel>();
+                cfg.CreateMap<TimeTrichKhauHaoTSCD, TimeTrichKhauHaoTSCDViewModel>();
+                cfg.CreateMap<TangGiamTSCD, TangGiamTSCDViewModel>();
             });
         }
     }

@@ -66,6 +66,8 @@
     <Compile Include="SKULazadaService.cs" />
     <Compile Include="SKUService.cs" />
     <Compile Include="TaiSanService.cs" />
+    <Compile Include="TangGiamTSCDService.cs" />
+    <Compile Include="TimeTrichKhauHaoTSCDService.cs" />
     <Compile Include="TransactionService.cs" />
     <Compile Include="TrialBalanceService.cs" />
   </ItemGroup>

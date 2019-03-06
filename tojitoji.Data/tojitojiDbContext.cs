@@ -38,7 +38,9 @@ namespace tojitoji.Data
         public DbSet<TaiSan> TaiSans { set; get; }
         public DbSet<LoaiKho> LoaiKhos { set; get; }
         public DbSet<Kho> Khos { set; get; }
-        
+        public DbSet<TimeTrichKhauHaoTSCD> TimeTrichKhauHaoTSCDs { set; get; }
+        public DbSet<TangGiamTSCD> TangGiamTSCDs { set; get; }
+
         //public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
         //public DbSet<ApplicationRole> ApplicationRoles { set; get; }
         //public DbSet<ApplicationRoleGroup> ApplicationRoleGroups { set; get; }
